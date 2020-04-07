@@ -548,6 +548,13 @@
         "wholemsg": "false"
     },
     {
+        "id": "df8b76c8.6474b8",
+        "type": "websocket-listener",
+        "z": "",
+        "path": "/mode-0-damper/websocket",
+        "wholemsg": "false"
+    },
+    {
         "id": "d8aea031.7f89d",
         "type": "http in",
         "z": "dc20c6e0.0feb98",
@@ -1632,7 +1639,7 @@
         "once": false,
         "onceDelay": 0.1,
         "x": 120,
-        "y": 1300,
+        "y": 1380,
         "wires": [
             []
         ]
@@ -1740,7 +1747,7 @@
         "retain": "",
         "broker": "84d80994.260508",
         "x": 660,
-        "y": 1300,
+        "y": 1380,
         "wires": []
     },
     {
@@ -2687,8 +2694,8 @@
         "name": "/basic/websocket",
         "server": "e6c7842e.bc4f98",
         "client": "",
-        "x": 1130,
-        "y": 2900,
+        "x": 1150,
+        "y": 2880,
         "wires": []
     },
     {
@@ -2715,7 +2722,7 @@
         "server": "e6c7842e.bc4f98",
         "client": "",
         "x": 120,
-        "y": 3900,
+        "y": 3740,
         "wires": [
             [
                 "45a7d04b.f97db"
@@ -2807,11 +2814,16 @@
                 "t": "eq",
                 "v": "osc-over",
                 "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "mode-0-damper",
+                "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 9,
+        "outputs": 10,
         "x": 770,
         "y": 3060,
         "wires": [
@@ -2841,6 +2853,9 @@
             ],
             [
                 "9d4bada0.71b3b"
+            ],
+            [
+                "48e2cd50.db32a4"
             ]
         ]
     },
@@ -2976,8 +2991,8 @@
             "2e8bbaa6.0b9ec6",
             "439b1d51.6f5e64"
         ],
-        "x": 995,
-        "y": 2900,
+        "x": 1015,
+        "y": 2880,
         "wires": [
             [
                 "aa54395e.1b6888"
@@ -2992,8 +3007,8 @@
         "links": [
             "c7035bb0.5180c8"
         ],
-        "x": 855,
-        "y": 2900,
+        "x": 875,
+        "y": 2880,
         "wires": []
     },
     {
@@ -3010,7 +3025,8 @@
             "eaaeb3a0.492f1",
             "d3dc9d67.964e9",
             "674b3b5a.aec814",
-            "3013c7d6.60d5c8"
+            "3013c7d6.60d5c8",
+            "3bafbb0a.bd3834"
         ],
         "x": 1135,
         "y": 3980,
@@ -3098,7 +3114,7 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "<!-- Body HTML -->\n    <div class='container' width=\"100%\">\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/basic-index\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/basicYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Basic Devices</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/cosmic-interval-index\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/cosmicYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Cosmic Interval</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/green-thumb-index\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/yellowThumb.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Green Thumb</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/oo-index\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/yellowSpaceShip.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Oscillation Overthruster</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/off-n-on-index\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/yellowSwitch.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Off-N-On</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/rfct?name=r3\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/yellowTransform.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">RFCT</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/shiverSim?name=001\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/shakerYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Shiver Box 01</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/shimmy-spotter-index\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/shimmyYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Shimmy Spotters</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/solar-regulator?name=01\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/regulatorYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Solar Regulator 01</td>\n                        </tr>\n                    </table>\n               </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/core\" id=\"blinky-lite-core\">\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/coreYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Core Apps</td>\n                        </tr>\n                    </table>\n                </a> \n            </div>\n        </div>\n       <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/info\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/infoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">More Info</td>\n                        </tr>\n                    </table>\n                </a> \n            </div>\n        </div>\n         <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <iframe src=\"https://shiftr.io/Blinky-Lite/blinky-lite/embed?zoom=1\" width=\"700\" height=\"500\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>\n                <p>Blinky-Lite MQTT Broker</p>\n            </div>\n        </div>\n    </div>",
+        "template": "<!-- Body HTML -->\n    <div class='container' width=\"100%\">\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/basic-index\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/basicYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Basic Devices</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/cosmic-interval-index\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/cosmicYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Cosmic Interval</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/green-thumb-index\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/yellowThumb.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Green Thumb</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/mode-0-damper?name=r3\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/balance.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Mode 0 Damper</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/oo-index\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/yellowSpaceShip.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Oscillation Overthruster</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/off-n-on-index\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/yellowSwitch.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Off-N-On</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/rfct?name=r3\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/yellowTransform.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">RFCT</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/shiverSim?name=001\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/shakerYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Shiver Box 01</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/shimmy-spotter-index\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/shimmyYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Shimmy Spotters</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/solar-regulator?name=01\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/regulatorYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Solar Regulator 01</td>\n                        </tr>\n                    </table>\n               </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/core\" id=\"blinky-lite-core\">\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/coreYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Core Apps</td>\n                        </tr>\n                    </table>\n                </a> \n            </div>\n        </div>\n       <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/info\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/infoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">More Info</td>\n                        </tr>\n                    </table>\n                </a> \n            </div>\n        </div>\n         <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <iframe src=\"https://shiftr.io/Blinky-Lite/blinky-lite/embed?zoom=1\" width=\"700\" height=\"500\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>\n                <p>Blinky-Lite MQTT Broker</p>\n            </div>\n        </div>\n    </div>",
         "output": "str",
         "x": 750,
         "y": 40,
@@ -4631,11 +4647,16 @@
                 "t": "eq",
                 "v": "rfct",
                 "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "mode-0-damper",
+                "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 8,
+        "outputs": 9,
         "x": 770,
         "y": 3560,
         "wires": [
@@ -4662,6 +4683,9 @@
             ],
             [
                 "84974c1b.507e5"
+            ],
+            [
+                "5affdedd.5d6c"
             ]
         ]
     },
@@ -4690,7 +4714,7 @@
             "c7035bb0.5180c8"
         ],
         "x": 855,
-        "y": 3420,
+        "y": 3400,
         "wires": []
     },
     {
@@ -5023,8 +5047,8 @@
         "name": "/solar-regulator/websocket",
         "server": "1eb8d410.91487c",
         "client": "",
-        "x": 1160,
-        "y": 2940,
+        "x": 1180,
+        "y": 2920,
         "wires": []
     },
     {
@@ -5037,8 +5061,8 @@
             "6844b8e4.6c86c8",
             "f248ca6c.9b9c48"
         ],
-        "x": 995,
-        "y": 2940,
+        "x": 1015,
+        "y": 2920,
         "wires": [
             [
                 "5a7ea3f8.a5a41c"
@@ -5053,8 +5077,8 @@
         "links": [
             "de2f9b8c.84e9c8"
         ],
-        "x": 855,
-        "y": 2940,
+        "x": 875,
+        "y": 2920,
         "wires": []
     },
     {
@@ -5065,7 +5089,7 @@
         "server": "1eb8d410.91487c",
         "client": "",
         "x": 150,
-        "y": 3940,
+        "y": 3780,
         "wires": [
             [
                 "45a7d04b.f97db"
@@ -5081,7 +5105,7 @@
             "de2f9b8c.84e9c8"
         ],
         "x": 855,
-        "y": 3460,
+        "y": 3440,
         "wires": []
     },
     {
@@ -5315,8 +5339,8 @@
         "name": "/shiverSim/websocket",
         "server": "dcb0368f.e5c538",
         "client": "",
-        "x": 1140,
-        "y": 2980,
+        "x": 1160,
+        "y": 2960,
         "wires": []
     },
     {
@@ -5327,7 +5351,7 @@
         "server": "dcb0368f.e5c538",
         "client": "",
         "x": 140,
-        "y": 3980,
+        "y": 3820,
         "wires": [
             [
                 "45a7d04b.f97db"
@@ -5342,8 +5366,8 @@
         "links": [
             "e2b0f63e.4d6a78"
         ],
-        "x": 855,
-        "y": 2980,
+        "x": 875,
+        "y": 2960,
         "wires": []
     },
     {
@@ -5355,7 +5379,7 @@
             "e2b0f63e.4d6a78"
         ],
         "x": 855,
-        "y": 3500,
+        "y": 3480,
         "wires": []
     },
     {
@@ -5368,8 +5392,8 @@
             "a9fcf696.91d428",
             "de5310a8.ca1ae"
         ],
-        "x": 995,
-        "y": 2980,
+        "x": 1015,
+        "y": 2960,
         "wires": [
             [
                 "2e695493.d1c8dc"
@@ -5383,8 +5407,8 @@
         "name": "/shimmy-spotter/websocket",
         "server": "3790d31e.4639ec",
         "client": "",
-        "x": 1160,
-        "y": 3020,
+        "x": 1180,
+        "y": 3000,
         "wires": []
     },
     {
@@ -5395,7 +5419,7 @@
         "server": "3790d31e.4639ec",
         "client": "",
         "x": 150,
-        "y": 4020,
+        "y": 3860,
         "wires": [
             [
                 "45a7d04b.f97db"
@@ -5412,8 +5436,8 @@
             "dd4ca4c1.026d98",
             "ea96e8d2.b16f58"
         ],
-        "x": 995,
-        "y": 3020,
+        "x": 1015,
+        "y": 3000,
         "wires": [
             [
                 "19cacdff.9cf642"
@@ -5428,8 +5452,8 @@
         "links": [
             "57b5cf9f.28bfe"
         ],
-        "x": 855,
-        "y": 3020,
+        "x": 875,
+        "y": 3000,
         "wires": []
     },
     {
@@ -5441,7 +5465,7 @@
             "57b5cf9f.28bfe"
         ],
         "x": 855,
-        "y": 3540,
+        "y": 3520,
         "wires": []
     },
     {
@@ -5787,7 +5811,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 410,
-        "y": 1340,
+        "y": 1420,
         "wires": [
             [
                 "f2a0c42e.7c1d68"
@@ -5807,7 +5831,7 @@
         "once": false,
         "onceDelay": 0.1,
         "x": 120,
-        "y": 1340,
+        "y": 1420,
         "wires": [
             [
                 "47892a91.a84984"
@@ -6388,8 +6412,8 @@
         "links": [
             "eaaeb3a0.492f1"
         ],
-        "x": 855,
-        "y": 3060,
+        "x": 875,
+        "y": 3040,
         "wires": []
     },
     {
@@ -6402,8 +6426,8 @@
             "439b1d51.6f5e64",
             "75b74803.df5298"
         ],
-        "x": 995,
-        "y": 3060,
+        "x": 1015,
+        "y": 3040,
         "wires": [
             [
                 "685743a9.8b1a2c"
@@ -6417,8 +6441,8 @@
         "name": "/cosmic-interval/websocket",
         "server": "92e24c4f.355b6",
         "client": "",
-        "x": 1160,
-        "y": 3060,
+        "x": 1180,
+        "y": 3040,
         "wires": []
     },
     {
@@ -6429,7 +6453,7 @@
         "server": "92e24c4f.355b6",
         "client": "",
         "x": 150,
-        "y": 4060,
+        "y": 3900,
         "wires": [
             [
                 "45a7d04b.f97db"
@@ -6445,7 +6469,7 @@
             "eaaeb3a0.492f1"
         ],
         "x": 855,
-        "y": 3580,
+        "y": 3560,
         "wires": []
     },
     {
@@ -7458,8 +7482,8 @@
         "links": [
             "9f60a321.63e3e"
         ],
-        "x": 855,
-        "y": 3100,
+        "x": 875,
+        "y": 3080,
         "wires": []
     },
     {
@@ -7471,7 +7495,7 @@
             "9f60a321.63e3e"
         ],
         "x": 855,
-        "y": 3620,
+        "y": 3600,
         "wires": []
     },
     {
@@ -7481,8 +7505,8 @@
         "name": "/green-thumb/websocket",
         "server": "a3d5f2bc.bd995",
         "client": "",
-        "x": 1150,
-        "y": 3100,
+        "x": 1170,
+        "y": 3080,
         "wires": []
     },
     {
@@ -7495,8 +7519,8 @@
             "439b1d51.6f5e64",
             "db6f1fc1.6812b"
         ],
-        "x": 995,
-        "y": 3100,
+        "x": 1015,
+        "y": 3080,
         "wires": [
             [
                 "b65ac2b4.ebad2"
@@ -7511,7 +7535,7 @@
         "server": "a3d5f2bc.bd995",
         "client": "",
         "x": 150,
-        "y": 4100,
+        "y": 3940,
         "wires": [
             [
                 "45a7d04b.f97db"
@@ -7764,8 +7788,8 @@
         "links": [
             "d3dc9d67.964e9"
         ],
-        "x": 855,
-        "y": 3140,
+        "x": 875,
+        "y": 3120,
         "wires": []
     },
     {
@@ -7775,8 +7799,8 @@
         "name": "/off-n-on/websocket",
         "server": "9563bfb.95d2b4",
         "client": "",
-        "x": 1130,
-        "y": 3140,
+        "x": 1150,
+        "y": 3120,
         "wires": []
     },
     {
@@ -7789,8 +7813,8 @@
             "9b14931a.e621",
             "dc3284a0.a7d718"
         ],
-        "x": 995,
-        "y": 3140,
+        "x": 1015,
+        "y": 3120,
         "wires": [
             [
                 "c260c120.63929"
@@ -7806,7 +7830,7 @@
             "d3dc9d67.964e9"
         ],
         "x": 855,
-        "y": 3660,
+        "y": 3640,
         "wires": []
     },
     {
@@ -7817,7 +7841,7 @@
         "server": "9563bfb.95d2b4",
         "client": "",
         "x": 130,
-        "y": 4140,
+        "y": 3980,
         "wires": [
             [
                 "45a7d04b.f97db"
@@ -8188,8 +8212,8 @@
         "name": "/rfct/websocket",
         "server": "73ec76d9.becae8",
         "client": "",
-        "x": 1120,
-        "y": 3180,
+        "x": 1140,
+        "y": 3160,
         "wires": []
     },
     {
@@ -8199,8 +8223,8 @@
         "name": "/oo-display/websocket",
         "server": "c29a3d27.9bd56",
         "client": "",
-        "x": 1140,
-        "y": 3220,
+        "x": 1160,
+        "y": 3200,
         "wires": []
     },
     {
@@ -8210,8 +8234,8 @@
         "name": "/oo-spec/websocket",
         "server": "522ee5c7.5fbe7c",
         "client": "",
-        "x": 1140,
-        "y": 3260,
+        "x": 1160,
+        "y": 3240,
         "wires": []
     },
     {
@@ -8224,8 +8248,8 @@
             "439b1d51.6f5e64",
             "84974c1b.507e5"
         ],
-        "x": 995,
-        "y": 3180,
+        "x": 1015,
+        "y": 3160,
         "wires": [
             [
                 "cf4aa6c0.2d2178"
@@ -8241,8 +8265,8 @@
             "439b1d51.6f5e64",
             "9d4bada0.71b3b"
         ],
-        "x": 995,
-        "y": 3220,
+        "x": 1015,
+        "y": 3200,
         "wires": [
             [
                 "483ca7ab.6917f8"
@@ -8257,8 +8281,8 @@
         "links": [
             "9d4bada0.71b3b"
         ],
-        "x": 995,
-        "y": 3260,
+        "x": 1015,
+        "y": 3240,
         "wires": [
             [
                 "ef96514.0f55eb"
@@ -8273,8 +8297,8 @@
         "links": [
             "674b3b5a.aec814"
         ],
-        "x": 855,
-        "y": 3180,
+        "x": 875,
+        "y": 3160,
         "wires": []
     },
     {
@@ -8286,8 +8310,8 @@
             "3013c7d6.60d5c8",
             "6bfd49cd.905e58"
         ],
-        "x": 855,
-        "y": 3220,
+        "x": 875,
+        "y": 3200,
         "wires": []
     },
     {
@@ -8299,7 +8323,7 @@
             "674b3b5a.aec814"
         ],
         "x": 855,
-        "y": 3700,
+        "y": 3680,
         "wires": []
     },
     {
@@ -8310,7 +8334,7 @@
         "server": "73ec76d9.becae8",
         "client": "",
         "x": 120,
-        "y": 4180,
+        "y": 4020,
         "wires": [
             [
                 "45a7d04b.f97db"
@@ -8325,7 +8349,7 @@
         "server": "c29a3d27.9bd56",
         "client": "",
         "x": 140,
-        "y": 4220,
+        "y": 4060,
         "wires": [
             [
                 "45a7d04b.f97db"
@@ -9066,6 +9090,359 @@
         "wires": [
             [
                 "be5d9ff7.ea74b"
+            ]
+        ]
+    },
+    {
+        "id": "b14f1a96.91bed8",
+        "type": "function",
+        "z": "e17f7487.2a78e8",
+        "name": "Create mode-0-damper Database entry",
+        "func": "var device = \n{\n    name         : 'r3',\n    deviceType   : \"mode-0-damper\",\n    arcPeriod    : 60000,\n    timeStamp    : 0,\n    lastArchive  : 0,\n    linkQuality  : { action : 'reading', type : 'scalar',    value : 0,      unit : '/70',     alarm : {value : 0, limits: {lolo :  30,  low : 40,     high : 71,       hihi : 80   }, notify:{name:'', number:'', time:0} } },\n    signalLevel  : { action : 'reading', type : 'scalar',    value : 0,      unit : 'dBm',     alarm : {value : 0, limits: {lolo : -70,  low : -60,    high : 0,        hihi : 30   }, notify:{name:'', number:'', time:0} } },\n    maxAcDipole  : { action : 'setting', type : 'scalar',    value : 50,     unit : 'unit',    alarm : {value : 0, limits: {lolo : 0,    low : 0,    high : 1024,    hihi : 1024}, notify:{name:'', number:'', time:0} } },\n    maxAcQuad    : { action : 'setting', type : 'scalar',    value : 50,     unit : 'unit',    alarm : {value : 0, limits: {lolo : 0,    low : 0,    high : 1024,    hihi : 1024}, notify:{name:'', number:'', time:0} } },\n    offsetDipole : { action : 'setting', type : 'scalar',    value : 555,    unit : 'unit',    alarm : {value : 0, limits: {lolo : 0,    low : 0,    high : 1024,    hihi : 1024}, notify:{name:'', number:'', time:0} } },\n    offsetQuad   : { action : 'setting', type : 'scalar',    value : 455,    unit : 'unit',    alarm : {value : 0, limits: {lolo : 0,    low : 0,    high : 1024,    hihi : 1024}, notify:{name:'', number:'', time:0} } },\n    onDipole     : { action : 'setting', type : 'scalar',    value : 1,      unit : 'unit',    alarm : {value : 0, limits: {lolo : -1,   low : -1,   high : 2,       hihi : 2   }, notify:{name:'', number:'', time:0} } },\n    onQuad       : { action : 'setting', type : 'scalar',    value : 0,      unit : 'unit',    alarm : {value : 0, limits: {lolo : -1,   low : -1,   high : 2,       hihi : 2   }, notify:{name:'', number:'', time:0} } },\n    signDipole   : { action : 'setting', type : 'scalar',    value : 1,      unit : 'unit',    alarm : {value : 0, limits: {lolo : -2,   low : -2,   high : 2,       hihi : 2   }, notify:{name:'', number:'', time:0} } },\n    signQuad     : { action : 'setting', type : 'scalar',    value : -1,     unit : 'unit',    alarm : {value : 0, limits: {lolo : -2,   low : -2,   high : 2,       hihi : 2   }, notify:{name:'', number:'', time:0} } },\n    gainDipole   : { action : 'setting', type : 'scalar',    value : 2,      unit : 'unit',    alarm : {value : 0, limits: {lolo : -8,   low : -8,   high : 8,       hihi : 8   }, notify:{name:'', number:'', time:0} } },\n    gainQuad     : { action : 'setting', type : 'scalar',    value : 1,      unit : 'unit',    alarm : {value : 0, limits: {lolo : -8,   low : -8,   high : 8,       hihi : 8   }, notify:{name:'', number:'', time:0} } },\n    filterDipole : { action : 'setting', type : 'scalar',    value : 18,     unit : 'unit',    alarm : {value : 0, limits: {lolo : 1,    low : 1,    high : 20,      hihi : 20  }, notify:{name:'', number:'', time:0} } },\n    filterQuad   : { action : 'setting', type : 'scalar',    value : 9,      unit : 'unit',    alarm : {value : 0, limits: {lolo : 1,    low : 1,    high : 20,      hihi : 20  }, notify:{name:'', number:'', time:0} } },\n};\nreturn {topic:'mode-0-damper',payload:device};",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 380,
+        "y": 1260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dfbe8486.0a7be8",
+        "type": "inject",
+        "z": "e17f7487.2a78e8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 120,
+        "y": 1260,
+        "wires": [
+            [
+                "b14f1a96.91bed8"
+            ]
+        ]
+    },
+    {
+        "id": "11a2823a.5af11e",
+        "type": "http in",
+        "z": "f809cfb5.e6718",
+        "name": "/mode-0-damper",
+        "url": "/mode-0-damper",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 600,
+        "wires": [
+            [
+                "2aba5033.8ac5e"
+            ]
+        ]
+    },
+    {
+        "id": "38b6f537.c0b0ca",
+        "type": "template",
+        "z": "f809cfb5.e6718",
+        "name": "script.global",
+        "field": "payload.script.global",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "// Global Javascript\n        var restfulDevice = \n        {\n            deviceType  : '{{{payload.script.deviceType}}}',\n            name        : '{{{payload.script.name}}}',\n            project     : '{{{payload.script.project}}}'\n        };\n        var mqttDevice = null;\n        var device = null;\n\n        useWebSockets(true);\n        function onDocumentReady()\n        {\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            \n        }\n        function onWebSocketMessage(msg)\n        {\n            switch(msg.topic)\n            {\n                case 'readings':\n                    if (msg.mqttDevice.name == restfulDevice.name)\n                    {\n                        heartbeat();\n                        device = msg.payload;\n                        mqttDevice = msg.mqttDevice;\n                        updateDmaReadings();\n                    }\n                    break;\n                case 'getJwtToken':\n                    if (msg.userID == userID) loadJwtToken(msg);\n                    break;\n                case 'settingAcknowledge':\n                    if (msg.userID == userID)\n                    {\n                        if (msg.payload != 'Success!') acknowledgeDialog('Acknowledge', 'Setting', msg.payload);\n                    }\n                    break;\n                default:\n                // code block\n            }\n        }\n",
+        "output": "str",
+        "x": 650,
+        "y": 600,
+        "wires": [
+            [
+                "d5c1a5f9.d5cb38"
+            ]
+        ]
+    },
+    {
+        "id": "d5c1a5f9.d5cb38",
+        "type": "template",
+        "z": "f809cfb5.e6718",
+        "name": "script.updateReadings",
+        "field": "payload.script.updateReadings",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "// Update Readings Javascript\n        function updateDmaReadings()\n        {\n            $('#linkQualityId').text(device.linkQuality.value);\n            $('#signalLevelId').text(device.signalLevel.value);\n            updateDipoleReadings();\n            updateQuadReadings();\n        }\n",
+        "output": "str",
+        "x": 680,
+        "y": 640,
+        "wires": [
+            [
+                "1513065b.83079a"
+            ]
+        ]
+    },
+    {
+        "id": "6da17702.3f0108",
+        "type": "template",
+        "z": "f809cfb5.e6718",
+        "name": "html.dipole",
+        "field": "payload.html.dipole",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<!-- Dipole HTML -->\n                <div class='card'>\n                    <p class='card-title'>Dipole</p>\n                    <div class='card-body' align=\"center\">\n                        <div class='row' style='padding-bottom: 25px;'>\n                            <table width='100%'>\n                                <tr>\n                                    <td width='70%' align='left'>\n                                        <span class='card-text'>On (0 - 1)</span>\n                                    </td>\n                                    <td width='10%'>\n                                        <button class='btn card-button btn-block card-title' onclick=\"chanOn0(-1)\">&#9660;</button>\n                                    </td>\n                                    <td width='10%' align='center'>\n                                        <span class='card-text' id='chanOn0'>-1</span>\n                                    </td>\n                                    <td width='10%'>\n                                        <button class='btn card-button btn-block card-title' onclick=\"chanOn0(1)\">&#9650;</button>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td width='70%' align='left'>\n                                        <span class='card-text'>Sign (-1 - +1)</span>\n                                    </td>\n                                    <td width='10%'>\n                                        <button class='btn card-button btn-block card-title' onclick=\"sign0(-1)\">&#9660;</button>\n                                    </td>\n                                    <td width='10%' align='center'>\n                                        <span class='card-text' id='sign0'>-1</span>\n                                    </td>\n                                    <td width='10%'>\n                                        <button class='btn card-button btn-block card-title' onclick=\"sign0(1)\">&#9650;</button>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td width='70%' align='left'>\n                                        <span class='card-text'>Gain (-4 - +4)</span>\n                                    </td>\n                                    <td width='10%'>\n                                        <button class='btn card-button btn-block card-title' onclick=\"gain0(-1)\">&#9660;</button>\n                                    </td>\n                                    <td width='10%' align='center'>\n                                        <span class='card-text' id='gain0'>-1</span>\n                                    </td>\n                                    <td width='10%'>\n                                        <button class='btn card-button btn-block card-title' onclick=\"gain0(1)\">&#9650;</button>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td width='70%' align='left'>\n                                        <span class='card-text'>Filter Tap (1 - 20)</span>\n                                    </td>\n                                    <td width='10%'>\n                                        <button class='btn card-button btn-block card-title' onclick=\"timeOffset0(-1)\">&#9660;</button>\n                                    </td>\n                                    <td width='10%' align='center'>\n                                        <span class='card-text' id='timeOffset0'>-1</span>\n                                    </td>\n                                    <td width='10%'>\n                                        <button class='btn card-button btn-block card-title' onclick=\"timeOffset0(1)\">&#9650;</button>\n                                    </td>\n                                </tr>\n                           </table>\n                            <table table width='100%'>\n                                <tr>\n                                    <td width='70%' align='left'>\n                                        <span class='card-text'>Max AC</span>\n                                    </td>\n                                    <td width='20%' align='center'>\n                                        <input id=\"maxAcValue0\" type=\"text\" value=\"0\" class=\"big-text\" oninput=\"maxAcValue0Change()\"/>\n                                    </td>\n                                    <td width='10%'>\n                                        <button class='btn card-button btn-block card-title' id=\"maxAcValue0Button\" onclick=\"maxAcValue0()\" disabled>&#10004;</button>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td width='70%' align='left'>\n                                        <span class='card-text'>Offset</span>\n                                    </td>\n                                    <td width='20%' align='center'>\n                                        <input id=\"dacOffset0\" type=\"text\" value=\"0\" class=\"big-text\" oninput=\"dacOffset0Change()\"/>\n                                    </td>\n                                    <td width='10%'>\n                                        <button class='btn card-button btn-block card-title' id=\"dacOffset0Button\" onclick=\"dacOffset0()\" disabled>&#10004;</button>\n                                    </td>\n                                </tr>\n                            </table>\n                        </div>\n                   </div>\n                </div>\n",
+        "output": "str",
+        "x": 970,
+        "y": 600,
+        "wires": [
+            [
+                "e2fb4acb.78b348"
+            ]
+        ]
+    },
+    {
+        "id": "5df283cb.c627ac",
+        "type": "template",
+        "z": "f809cfb5.e6718",
+        "name": "html.wifimon",
+        "field": "payload.html.wifimon",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<!-- Dashboard HTML -->\n                <div class='card'>\n                    <p class='card-title'>WiFi Connection</p>\n                    <div class='card-body' align=\"center\">\n                        <div class='row'  style='padding-top: 0px;'>\n                            <table width='100%'>\n                                <tr>\n                                    <td width='60%' >\n                                        <span class='card-text' >Device Update</span>\n                                    </td>\n                                    <td width='20%' align='center'></td>\n                                    <td width='20%' align='center'>\n                                        <img src='/img/heartRed.png' id='heartBeatID' width='100px' height='100px'/>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td width='60%' >\n                                        <span class='card-text' >Signal Level (dBm)</span>\n                                    </td>\n                                    <td width='20%' align='center'></td>\n                                    <td width='20%' align='center'>\n                                        <span class='card-text' id='signalLevelId' >-100</span>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td width='60%' >\n                                        <span class='card-text' >Link Quality (/70)</span>\n                                    </td>\n                                    <td width='20%' align='center'></td>\n                                    <td width='20%' align='center'>\n                                        <span class='card-text' id='linkQualityId' >-1</span>\n                                    </td>\n                                </tr>\n                            </table>\n                        </div>\n                    </div>\n                </div>\n",
+        "output": "str",
+        "x": 970,
+        "y": 680,
+        "wires": [
+            [
+                "daa45dd6.14bde"
+            ]
+        ]
+    },
+    {
+        "id": "daa45dd6.14bde",
+        "type": "template",
+        "z": "f809cfb5.e6718",
+        "name": "body",
+        "field": "payload.body",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "    <div width=\"100%\">\n        <div class='row' style='padding-bottom: 25px;'>\n            <div class='col-md-12' align='center'>\n{{{payload.html.dipole}}}\n            </div>\n        </div>\n        <div class='row' style='padding-bottom: 25px;'>\n            <div class='col-md-12' align='center'>\n{{{payload.html.quad}}}\n            </div>\n        </div>\n        <div class='row' style='padding-bottom: 25px;'>\n            <div class='col-md-12'>\n{{{payload.html.wifimon}}}\n            </div>\n        </div>\n    </div>",
+        "output": "str",
+        "x": 950,
+        "y": 720,
+        "wires": [
+            [
+                "738c3c09.4de694"
+            ]
+        ]
+    },
+    {
+        "id": "e2fb4acb.78b348",
+        "type": "template",
+        "z": "f809cfb5.e6718",
+        "name": "html.quad",
+        "field": "payload.html.quad",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<!-- Dipole HTML -->\n                <div class='card'>\n                    <p class='card-title'>Quadrupole</p>\n                    <div class='card-body' align=\"center\">\n                        <div class='row' style='padding-bottom: 25px;'>\n                            <table width='100%'>\n                                <tr>\n                                    <td width='70%' align='left'>\n                                        <span class='card-text'>On (0 - 1)</span>\n                                    </td>\n                                    <td width='10%'>\n                                        <button class='btn card-button btn-block card-title' onclick=\"chanOn1(-1)\">&#9660;</button>\n                                    </td>\n                                    <td width='10%' align='center'>\n                                        <span class='card-text' id='chanOn1'>-1</span>\n                                    </td>\n                                    <td width='10%'>\n                                        <button class='btn card-button btn-block card-title' onclick=\"chanOn1(1)\">&#9650;</button>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td width='70%' align='left'>\n                                        <span class='card-text'>Sign (-1 - +1)</span>\n                                    </td>\n                                    <td width='10%'>\n                                        <button class='btn card-button btn-block card-title' onclick=\"sign1(-1)\">&#9660;</button>\n                                    </td>\n                                    <td width='10%' align='center'>\n                                        <span class='card-text' id='sign1'>-1</span>\n                                    </td>\n                                    <td width='10%'>\n                                        <button class='btn card-button btn-block card-title' onclick=\"sign1(1)\">&#9650;</button>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td width='70%' align='left'>\n                                        <span class='card-text'>Gain (-4 - +4)</span>\n                                    </td>\n                                    <td width='10%'>\n                                        <button class='btn card-button btn-block card-title' onclick=\"gain1(-1)\">&#9660;</button>\n                                    </td>\n                                    <td width='10%' align='center'>\n                                        <span class='card-text' id='gain1'>-1</span>\n                                    </td>\n                                    <td width='10%'>\n                                        <button class='btn card-button btn-block card-title' onclick=\"gain1(1)\">&#9650;</button>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td width='70%' align='left'>\n                                        <span class='card-text'>Filter Tap (1 - 20)</span>\n                                    </td>\n                                    <td width='10%'>\n                                        <button class='btn card-button btn-block card-title' onclick=\"timeOffset1(-1)\">&#9660;</button>\n                                    </td>\n                                    <td width='10%' align='center'>\n                                        <span class='card-text' id='timeOffset1'>-1</span>\n                                    </td>\n                                    <td width='10%'>\n                                        <button class='btn card-button btn-block card-title' onclick=\"timeOffset1(1)\">&#9650;</button>\n                                    </td>\n                                </tr>\n                           </table>\n                            <table table width='100%'>\n                                <tr>\n                                    <td width='70%' align='left'>\n                                        <span class='card-text'>Max AC</span>\n                                    </td>\n                                    <td width='20%' align='center'>\n                                        <input id=\"maxAcValue1\" type=\"text\" value=\"0\" class=\"big-text\" oninput=\"maxAcValue1Change()\"/>\n                                    </td>\n                                    <td width='10%'>\n                                        <button class='btn card-button btn-block card-title' id=\"maxAcValue1Button\" onclick=\"maxAcValue1()\" disabled>&#10004;</button>\n                                    </td>\n                                </tr>\n                                <tr>\n                                    <td width='70%' align='left'>\n                                        <span class='card-text'>Offset</span>\n                                    </td>\n                                    <td width='20%' align='center'>\n                                        <input id=\"dacOffset1\" type=\"text\" value=\"0\" class=\"big-text\" oninput=\"dacOffset1Change()\"/>\n                                    </td>\n                                    <td width='10%'>\n                                        <button class='btn card-button btn-block card-title' id=\"dacOffset1Button\" onclick=\"dacOffset1()\" disabled>&#10004;</button>\n                                    </td>\n                                </tr>\n                            </table>\n                        </div>\n                   </div>\n                </div>\n",
+        "output": "str",
+        "x": 960,
+        "y": 640,
+        "wires": [
+            [
+                "5df283cb.c627ac"
+            ]
+        ]
+    },
+    {
+        "id": "1513065b.83079a",
+        "type": "template",
+        "z": "f809cfb5.e6718",
+        "name": "script.dipole",
+        "field": "payload.script.dipole",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "function chanOn0(up)\n{\n    var chanOn0 = Number($('#chanOn0').html());\n    chanOn0 = chanOn0 + up;\n    if (chanOn0 > 1) chanOn0 = 1;\n    if (chanOn0 < 0) chanOn0 = 0;\n    var setAttr = device.onDipole;\n    setAttr.value = chanOn0;\n    var mqttMessage = \n    {\n        topic   : mqttDevice.project + '/' +  mqttDevice.deviceType + '/' +  mqttDevice.name + '/setting',\n        payload :  device\n    };\n    checkLogin(sendSettingToMqtt, mqttMessage);\n}\nfunction sign0(up)\n{\n    var sign0 = Number($('#sign0').html());\n    sign0 = sign0 + 2 * up;\n    if (sign0 > 1) sign0 = 1;\n    if (sign0 < -1) sign0 = -1;\n    var setAttr = device.signDipole;\n    setAttr.value = sign0;\n    var mqttMessage = \n    {\n        topic   : mqttDevice.project + '/' +  mqttDevice.deviceType + '/' +  mqttDevice.name + '/setting',\n        payload :  device\n    };\n    checkLogin(sendSettingToMqtt, mqttMessage);\n}\nfunction gain0(up)\n{\n    var gain0 = Number($('#gain0').html());\n    gain0 = gain0 + up;\n    if (gain0 > 4) gain0 = 4;\n    if (gain0 < -4) gain0 = -4;\n    var setAttr = device.gainDipole;\n    setAttr.value = gain0;\n    var mqttMessage = \n    {\n        topic   : mqttDevice.project + '/' +  mqttDevice.deviceType + '/' +  mqttDevice.name + '/setting',\n        payload :  device\n    };\n    checkLogin(sendSettingToMqtt, mqttMessage);\n}\nfunction timeOffset0(up)\n{\n    var timeOffset0 = Number($('#timeOffset0').html());\n    timeOffset0 = timeOffset0 + up;\n    if (timeOffset0 > 20) timeOffset0 = 20;\n    if (timeOffset0 < 1) timeOffset0 = 1;\n    var setAttr = device.filterDipole;\n    setAttr.value = timeOffset0;\n    var mqttMessage = \n    {\n        topic   : mqttDevice.project + '/' +  mqttDevice.deviceType + '/' +  mqttDevice.name + '/setting',\n        payload :  device\n    };\n    checkLogin(sendSettingToMqtt, mqttMessage);\n}\nvar maxAcValue0Changed = false;\nfunction maxAcValue0Change()\n{\n    maxAcValue0Changed = true;\n    $('#maxAcValue0Button').prop('disabled', false);\n \n}\nfunction maxAcValue0()\n{\n    $('#maxAcValue0Button').prop('disabled', true);\n    if (isNaN($('#maxAcValue0').val()))\n    {\n        maxAcValue0Changed = false;\n        return;\n    }\n    var maxAcValue0 = Number($('#maxAcValue0').val());\n    var setAttr = device.maxAcDipole;\n    setAttr.value = maxAcValue0;\n    var mqttMessage = \n    {\n        topic   : mqttDevice.project + '/' +  mqttDevice.deviceType + '/' +  mqttDevice.name + '/setting',\n        payload :  device\n    };\n    checkLogin(sendSettingToMqtt, mqttMessage);\n    maxAcValue0Changed = false;\n}\nvar dacOffset0Changed = false;\nfunction dacOffset0Change()\n{\n    dacOffset0Changed = true;\n    $('#dacOffset0Button').prop('disabled', false);\n \n}\nfunction dacOffset0()\n{\n    $('#dacOffset0Button').prop('disabled', true);\n    if (isNaN($('#dacOffset0').val()))\n    {\n        dacOffset0Changed = false;\n        return;\n    }\n    var dacOffset0 = Number($('#dacOffset0').val());\n    var setAttr = device.offsetDipole;\n    setAttr.value = dacOffset0;\n    var mqttMessage = \n    {\n        topic   : mqttDevice.project + '/' +  mqttDevice.deviceType + '/' +  mqttDevice.name + '/setting',\n        payload :  device\n    };\n    checkLogin(sendSettingToMqtt, mqttMessage);\n    dacOffset0Changed = false;\n}\nfunction updateDipoleReadings()\n{\n    $('#chanOn0').text(device.onDipole.value.toString());\n    $('#sign0').text(device.signDipole.value.toString());\n    $('#gain0').text(device.gainDipole.value.toString());\n    $('#timeOffset0').text(device.filterDipole.value.toString());\n    if (!$('#maxAcValue0').is(':focus') && !maxAcValue0Changed) $('#maxAcValue0').val(device.maxAcDipole.value.toString());\n    if (!$('#dacOffset0').is(':focus')  && !dacOffset0Changed)  $('#dacOffset0').val(device.offsetDipole.value.toString());\n}\n",
+        "output": "str",
+        "x": 650,
+        "y": 680,
+        "wires": [
+            [
+                "3c271598.621eca"
+            ]
+        ]
+    },
+    {
+        "id": "3c271598.621eca",
+        "type": "template",
+        "z": "f809cfb5.e6718",
+        "name": "script.quad",
+        "field": "payload.script.quad",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "function chanOn1(up)\n{\n    var chanOn1 = Number($('#chanOn1').html());\n    chanOn1 = chanOn1 + up;\n    if (chanOn1 > 1) chanOn1 = 1;\n    if (chanOn1 < 0) chanOn1 = 0;\n    var setAttr = device.onQuad;\n    setAttr.value = chanOn1;\n    var mqttMessage = \n    {\n        topic   : mqttDevice.project + '/' +  mqttDevice.deviceType + '/' +  mqttDevice.name + '/setting',\n        payload :  device\n    };\n    checkLogin(sendSettingToMqtt, mqttMessage);\n}\nfunction sign1(up)\n{\n    var sign1 = Number($('#sign1').html());\n    sign1 = sign1 + 2 * up;\n    if (sign1 > 1) sign1 = 1;\n    if (sign1 < -1) sign1 = -1;\n    var setAttr = device.signQuad;\n    setAttr.value = sign1;\n    var mqttMessage = \n    {\n        topic   : mqttDevice.project + '/' +  mqttDevice.deviceType + '/' +  mqttDevice.name + '/setting',\n        payload :  device\n    };\n    checkLogin(sendSettingToMqtt, mqttMessage);\n}\nfunction gain1(up)\n{\n    var gain1 = Number($('#gain1').html());\n    gain1 = gain1 + up;\n    if (gain1 > 4) gain1 = 4;\n    if (gain1 < -4) gain1 = -4;\n    var setAttr = device.gainQuad;\n    setAttr.value = gain1;\n    var mqttMessage = \n    {\n        topic   : mqttDevice.project + '/' +  mqttDevice.deviceType + '/' +  mqttDevice.name + '/setting',\n        payload :  device\n    };\n    checkLogin(sendSettingToMqtt, mqttMessage);\n}\nfunction timeOffset1(up)\n{\n    var timeOffset1 = Number($('#timeOffset1').html());\n    timeOffset1 = timeOffset1 + up;\n    if (timeOffset1 > 20) timeOffset1 = 20;\n    if (timeOffset1 < 1) timeOffset1 = 1;\n    var setAttr = device.filterQuad;\n    setAttr.value = timeOffset1;\n    var mqttMessage = \n    {\n        topic   : mqttDevice.project + '/' +  mqttDevice.deviceType + '/' +  mqttDevice.name + '/setting',\n        payload :  device\n    };\n    checkLogin(sendSettingToMqtt, mqttMessage);\n}\nvar maxAcValue1Changed = false;\nfunction maxAcValue1Change()\n{\n    maxAcValue1Changed = true;\n    $('#maxAcValue1Button').prop('disabled', false);\n \n}\nfunction maxAcValue1()\n{\n    $('#maxAcValue1Button').prop('disabled', true);\n    if (isNaN($('#maxAcValue1').val()))\n    {\n        maxAcValue1Changed = false;\n        return;\n    }\n    var maxAcValue1 = Number($('#maxAcValue1').val());\n    var setAttr = device.maxAcQuad;\n    setAttr.value = maxAcValue1;\n    var mqttMessage = \n    {\n        topic   : mqttDevice.project + '/' +  mqttDevice.deviceType + '/' +  mqttDevice.name + '/setting',\n        payload :  device\n    };\n    checkLogin(sendSettingToMqtt, mqttMessage);\n    maxAcValue1Changed = false;\n}\nvar dacOffset1Changed = false;\nfunction dacOffset1Change()\n{\n    dacOffset1Changed = true;\n    $('#dacOffset1Button').prop('disabled', false);\n \n}\nfunction dacOffset1()\n{\n    $('#dacOffset1Button').prop('disabled', true);\n    if (isNaN($('#dacOffset1').val()))\n    {\n        dacOffset1Changed = false;\n        return;\n    }\n    var dacOffset1 = Number($('#dacOffset1').val());\n    var setAttr = device.offsetQuad;\n    setAttr.value = dacOffset1;\n    var mqttMessage = \n    {\n        topic   : mqttDevice.project + '/' +  mqttDevice.deviceType + '/' +  mqttDevice.name + '/setting',\n        payload :  device\n    };\n    checkLogin(sendSettingToMqtt, mqttMessage);\n    dacOffset1Changed = false;\n}\nfunction updateQuadReadings()\n{\n    $('#chanOn1').text(device.onQuad.value.toString());\n    $('#sign1').text(device.signQuad.value.toString());\n    $('#gain1').text(device.gainQuad.value.toString());\n    $('#timeOffset1').text(device.filterQuad.value.toString());\n    if (!$('#maxAcValue1').is(':focus') && !maxAcValue1Changed) $('#maxAcValue1').val(device.maxAcQuad.value.toString());\n    if (!$('#dacOffset1').is(':focus')  && !dacOffset1Changed)  $('#dacOffset1').val(device.offsetQuad.value.toString());\n}\n",
+        "output": "str",
+        "x": 650,
+        "y": 720,
+        "wires": [
+            [
+                "fc79c4e.d76e838"
+            ]
+        ]
+    },
+    {
+        "id": "fc79c4e.d76e838",
+        "type": "template",
+        "z": "f809cfb5.e6718",
+        "name": "javascript",
+        "field": "payload.javascript",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "{{{payload.script.global}}}\n{{{payload.script.updateReadings}}}\n{{{payload.script.dipole}}}\n{{{payload.script.quad}}}\n",
+        "output": "str",
+        "x": 640,
+        "y": 760,
+        "wires": [
+            [
+                "6da17702.3f0108"
+            ]
+        ]
+    },
+    {
+        "id": "2aba5033.8ac5e",
+        "type": "function",
+        "z": "f809cfb5.e6718",
+        "name": "Get Name",
+        "func": "var deviceType = 'mode-0-damper';\nvar name = msg.payload.name;\nmsg.payload = {};\nmsg.payload['script'] = {};\nmsg.payload['script']['name'] = name;\nmsg.payload['script']['deviceType'] = 'mode-0-damper';\nmsg.payload['script']['project'] = global.get('projectName');\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 330,
+        "y": 600,
+        "wires": [
+            [
+                "a6f8fd07.634e9"
+            ]
+        ]
+    },
+    {
+        "id": "a6f8fd07.634e9",
+        "type": "template",
+        "z": "f809cfb5.e6718",
+        "name": "Title 1",
+        "field": "payload.title",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Mode 0 Damper {{{payload.script.name}}}",
+        "output": "str",
+        "x": 310,
+        "y": 640,
+        "wires": [
+            [
+                "87b29818.5933b8"
+            ]
+        ]
+    },
+    {
+        "id": "87b29818.5933b8",
+        "type": "template",
+        "z": "f809cfb5.e6718",
+        "name": "navBarIcon",
+        "field": "payload.navBarIcon",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "balance.png",
+        "output": "str",
+        "x": 330,
+        "y": 680,
+        "wires": [
+            [
+                "38b6f537.c0b0ca"
+            ]
+        ]
+    },
+    {
+        "id": "738c3c09.4de694",
+        "type": "subflow:8341090a.df9758",
+        "z": "f809cfb5.e6718",
+        "name": "",
+        "x": 1180,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "7b0c2d08.b392b4",
+        "type": "websocket out",
+        "z": "8475ab9.3d26058",
+        "name": "/mode-0-damper/websocket",
+        "server": "df8b76c8.6474b8",
+        "client": "",
+        "x": 1180,
+        "y": 3280,
+        "wires": []
+    },
+    {
+        "id": "48e2cd50.db32a4",
+        "type": "link out",
+        "z": "8475ab9.3d26058",
+        "name": "mode-0-damper device mqtt",
+        "links": [
+            "3bafbb0a.bd3834"
+        ],
+        "x": 875,
+        "y": 3280,
+        "wires": []
+    },
+    {
+        "id": "5affdedd.5d6c",
+        "type": "link out",
+        "z": "8475ab9.3d26058",
+        "name": "Archive mode-0-damper Out",
+        "links": [
+            "3bafbb0a.bd3834"
+        ],
+        "x": 855,
+        "y": 3720,
+        "wires": []
+    },
+    {
+        "id": "3bafbb0a.bd3834",
+        "type": "link in",
+        "z": "8475ab9.3d26058",
+        "name": "mode-0-damper device socket",
+        "links": [
+            "439b1d51.6f5e64",
+            "48e2cd50.db32a4",
+            "5affdedd.5d6c"
+        ],
+        "x": 1015,
+        "y": 3280,
+        "wires": [
+            [
+                "7b0c2d08.b392b4"
+            ]
+        ]
+    },
+    {
+        "id": "12aa14d7.99e20b",
+        "type": "websocket in",
+        "z": "8475ab9.3d26058",
+        "name": "/mode-0-damper/websocket",
+        "server": "df8b76c8.6474b8",
+        "client": "",
+        "x": 160,
+        "y": 4100,
+        "wires": [
+            [
+                "45a7d04b.f97db"
             ]
         ]
     }
