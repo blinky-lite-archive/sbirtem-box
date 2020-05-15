@@ -10061,8 +10061,7 @@
         "y": 4020,
         "wires": [
             [
-                "86264611.2bfc98",
-                "92397802.194418"
+                "86264611.2bfc98"
             ]
         ]
     },
@@ -10688,20 +10687,6 @@
         "name": "",
         "x": 1280,
         "y": 3380,
-        "wires": []
-    },
-    {
-        "id": "92397802.194418",
-        "type": "debug",
-        "z": "8475ab9.3d26058",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 600,
-        "y": 4080,
         "wires": []
     }
 ]
