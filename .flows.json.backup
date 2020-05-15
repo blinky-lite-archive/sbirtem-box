@@ -670,7 +670,7 @@
         "z": "",
         "name": "blinky-lite-mqtt-01",
         "broker": "$(MQTTIMAGESERVERIP)",
-        "port": "5822",
+        "port": "$(MQTTIMAGESERVERPORT)",
         "clientid": "$(MQTTIMAGECLIENTID)",
         "usetls": false,
         "compatmode": false,
@@ -10024,7 +10024,7 @@
         "topic": "$(IMAGETOPIC)",
         "qos": "0",
         "datatype": "buffer",
-        "broker": "88c29bd2.c889a8",
+        "broker": "84d80994.260508",
         "x": 140,
         "y": 4020,
         "wires": [
@@ -10061,7 +10061,8 @@
         "y": 4020,
         "wires": [
             [
-                "86264611.2bfc98"
+                "86264611.2bfc98",
+                "92397802.194418"
             ]
         ]
     },
@@ -10687,6 +10688,20 @@
         "name": "",
         "x": 1280,
         "y": 3380,
+        "wires": []
+    },
+    {
+        "id": "92397802.194418",
+        "type": "debug",
+        "z": "8475ab9.3d26058",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 600,
+        "y": 4080,
         "wires": []
     }
 ]
