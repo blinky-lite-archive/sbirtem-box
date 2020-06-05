@@ -572,7 +572,7 @@
         "id": "e71c9288.03dd3",
         "type": "websocket-listener",
         "z": "",
-        "path": "/vad-kul-flir-lepton/websocket",
+        "path": "/vad-kul/websocket",
         "wholemsg": "false"
     },
     {
@@ -593,7 +593,7 @@
         "id": "28462261.44a97e",
         "type": "websocket-listener",
         "z": "",
-        "path": "/vad-kul-flir-lepton-archive/websocket",
+        "path": "/vad-kul-archive/websocket",
         "wholemsg": "false"
     },
     {
@@ -2769,7 +2769,7 @@
             },
             {
                 "t": "eq",
-                "v": "vad-kul-flir-lepton",
+                "v": "vad-kul",
                 "vt": "str"
             }
         ],
@@ -4900,7 +4900,7 @@
         "type": "function",
         "z": "e17f7487.2a78e8",
         "name": "Find Device Type",
-        "func": "var newMsg = \n{\n    topic           : 'test',\n    payload         : {deviceType: 'vad-kul-flir-lepton'},\n};\nreturn newMsg;\n",
+        "func": "var newMsg = \n{\n    topic           : 'test',\n    payload         : {deviceType: 'vad-kul'},\n};\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
         "x": 310,
@@ -4935,7 +4935,7 @@
         "service": "_ext_",
         "configNode": "9cd5ff5e.caf86",
         "name": "",
-        "collection": "archiver",
+        "collection": "devices",
         "operation": "find.toArray",
         "x": 550,
         "y": 1200,
@@ -5513,14 +5513,16 @@
         "id": "54d1b0ea.581f6",
         "type": "function",
         "z": "e17f7487.2a78e8",
-        "name": "Create vad-kul-flir-lepton Database entry",
-        "func": "var device = \n{\n  \"deviceType\": \"vad-kul-flir-lepton\",\n  \"name\": \"01\",\n  \"arcPeriod\": 60000,\n  \"timeStamp\": 1590229074375,\n  \"lastArchive\": 1584283329231,\n  \"linkQuality\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 70,\n    \"unit\": \"/70\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 30,\n        \"low\": 40,\n        \"high\": 71,\n        \"hihi\": 80\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"signalLevel\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": -39,\n    \"unit\": \"dBm\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -70,\n        \"low\": -60,\n        \"high\": 0,\n        \"hihi\": 30\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"pixelMin\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 20.76,\n    \"unit\": \"C\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -10,\n        \"low\": 0,\n        \"high\": 30,\n        \"hihi\": 40\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"pixelMax\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 32.96,\n    \"unit\": \"C\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 30,\n        \"low\": 33,\n        \"high\": 36,\n        \"hihi\": 39\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"takeImage\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 1,\n    \"unit\": \"unit\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -2,\n        \"low\": -1,\n        \"high\": 2,\n        \"hihi\": 3\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"imageData\": {\n    \"action\": \"reading\",\n    \"type\": \"pgm\",\n    \"value\": null,\n    \"unit\": \"unit\"\n  }\n}\nreturn {topic:'vad-kul-flir-lepton',payload:device};",
+        "name": "Create vad-kul Database entry",
+        "func": "var device = \n{\n  \"deviceType\": \"vad-kul\",\n  \"name\": \"01\",\n  \"arcPeriod\": 60000,\n  \"timeStamp\": 1590229074375,\n  \"lastArchive\": 1584283329231,\n  \"linkQuality\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 70,\n    \"unit\": \"/70\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 30,\n        \"low\": 40,\n        \"high\": 71,\n        \"hihi\": 80\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"signalLevel\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": -39,\n    \"unit\": \"dBm\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -70,\n        \"low\": -60,\n        \"high\": 0,\n        \"hihi\": 30\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"pixelMin\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 20.76,\n    \"unit\": \"C\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -10,\n        \"low\": 0,\n        \"high\": 30,\n        \"hihi\": 40\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"pixelMax\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 32.96,\n    \"unit\": \"C\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 30,\n        \"low\": 33,\n        \"high\": 36,\n        \"hihi\": 39\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"takeImage\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 1,\n    \"unit\": \"unit\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -2,\n        \"low\": -1,\n        \"high\": 2,\n        \"hihi\": 3\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"imageData\": {\n    \"action\": \"reading\",\n    \"type\": \"pgm\",\n    \"value\": null,\n    \"unit\": \"unit\"\n  }\n}\nreturn {topic:'vad-kul-flir-lepton',payload:device};",
         "outputs": 1,
         "noerr": 0,
-        "x": 400,
+        "x": 370,
         "y": 1780,
         "wires": [
-            []
+            [
+                "194e0a53.8d5cd6"
+            ]
         ]
     },
     {
@@ -5539,10 +5541,10 @@
         "id": "68378c41.1d2814",
         "type": "websocket out",
         "z": "8475ab9.3d26058",
-        "name": "/vad-kul-flir-lepton/websocket",
+        "name": "/vad-kul/websocket",
         "server": "e71c9288.03dd3",
         "client": "",
-        "x": 1200,
+        "x": 1170,
         "y": 600,
         "wires": []
     },
@@ -5568,10 +5570,10 @@
         "id": "e0b147d3.332368",
         "type": "websocket in",
         "z": "8475ab9.3d26058",
-        "name": "/vad-kul-flir-lepton/websocket",
+        "name": "/vad-kul/websocket",
         "server": "e71c9288.03dd3",
         "client": "",
-        "x": 180,
+        "x": 150,
         "y": 1580,
         "wires": [
             [
@@ -5641,7 +5643,8 @@
         "y": 380,
         "wires": [
             [
-                "731fcbcd.96f0a4"
+                "731fcbcd.96f0a4",
+                "84347285.9d5a5"
             ]
         ]
     },
@@ -5715,7 +5718,7 @@
             },
             {
                 "t": "eq",
-                "v": "vad-kul-flir-lepton",
+                "v": "vad-kul",
                 "vt": "str"
             }
         ],
@@ -5905,7 +5908,9 @@
         "x": 140,
         "y": 1860,
         "wires": [
-            []
+            [
+                "54d1b0ea.581f6"
+            ]
         ]
     },
     {
@@ -10264,7 +10269,7 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "<!-- Body HTML -->\n    <div class='container' width=\"100%\">\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-flir-lepton?name=01\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul 01</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-flir-lepton-archive?name=01\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Archiver 01</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n       <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/core\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/coreYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Core Apps</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n         <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <iframe src=\"https://shiftr.io/Blinky-Lite/blinky-lite/embed?zoom=1\" width=\"700\" height=\"500\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>\n                <p>Blinky-Lite MQTT Broker</p>\n            </div>\n        </div>\n    </div>",
+        "template": "<!-- Body HTML -->\n    <div class='container' width=\"100%\">\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul?name=01\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul 01</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-archive?name=01\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Archiver 01</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n       <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/core\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/coreYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Core Apps</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n         <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <iframe src=\"https://shiftr.io/Blinky-Lite/blinky-lite/embed?zoom=1\" width=\"700\" height=\"500\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>\n                <p>Blinky-Lite MQTT Broker</p>\n            </div>\n        </div>\n    </div>",
         "output": "str",
         "x": 770,
         "y": 460,
@@ -10855,12 +10860,12 @@
         "id": "f8769455.406158",
         "type": "http in",
         "z": "9c854ea3.68416",
-        "name": "/vad-kul-flir-lepton",
-        "url": "/vad-kul-flir-lepton",
+        "name": "/vad-kul",
+        "url": "/vad-kul",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 140,
+        "x": 100,
         "y": 3660,
         "wires": [
             [
@@ -10920,7 +10925,7 @@
         "type": "function",
         "z": "9c854ea3.68416",
         "name": "Get Name",
-        "func": "var name = msg.payload.name;\nmsg.payload = {};\nmsg.payload['script'] = {};\nmsg.payload['script']['name'] = name;\nmsg.payload['script']['deviceType'] = 'vad-kul-flir-lepton';\nmsg.payload['script']['project'] = global.get('projectName');\nreturn msg;",
+        "func": "var name = msg.payload.name;\nmsg.payload = {};\nmsg.payload['script'] = {};\nmsg.payload['script']['name'] = name;\nmsg.payload['script']['deviceType'] = 'vad-kul';\nmsg.payload['script']['project'] = global.get('projectName');\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 330,
@@ -11125,12 +11130,12 @@
         "id": "6a44099f.9aa5d8",
         "type": "http in",
         "z": "9c854ea3.68416",
-        "name": "/vad-kul-flir-lepton-archive",
-        "url": "/vad-kul-flir-lepton-archive",
+        "name": "/vad-kul-archive",
+        "url": "/vad-kul-archive",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 150,
+        "x": 120,
         "y": 3940,
         "wires": [
             [
@@ -11162,7 +11167,7 @@
         "type": "function",
         "z": "9c854ea3.68416",
         "name": "Get Name",
-        "func": "var deviceType = 'vad-kul-flir-lepton';\nvar name = msg.payload.name;\nmsg.payload = {};\nmsg.payload['script'] = {};\nmsg.payload['script']['name'] = name;\nmsg.payload['script']['deviceType'] = 'vad-kul-flir-lepton';\nmsg.payload['script']['project'] = global.get('projectName');\nreturn msg;",
+        "func": "var deviceType = 'vad-kul';\nvar name = msg.payload.name;\nmsg.payload = {};\nmsg.payload['script'] = {};\nmsg.payload['script']['name'] = name;\nmsg.payload['script']['deviceType'] = 'vad-kul';\nmsg.payload['script']['project'] = global.get('projectName');\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 370,
@@ -11182,7 +11187,7 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "basicYellow.png",
+        "template": "discoYellow.png",
         "output": "str",
         "x": 370,
         "y": 4020,
@@ -11319,10 +11324,10 @@
         "id": "d88175bf.604ae8",
         "type": "websocket out",
         "z": "8475ab9.3d26058",
-        "name": "/vad-kul-flir-lepton-archive/websocket",
+        "name": "/vad-kul-archive/websocket",
         "server": "28462261.44a97e",
         "client": "",
-        "x": 1770,
+        "x": 1740,
         "y": 1660,
         "wires": []
     },
@@ -11330,10 +11335,10 @@
         "id": "92841167.1dace",
         "type": "websocket in",
         "z": "8475ab9.3d26058",
-        "name": "/vad-kul-flir-lepton-archive/websocket",
+        "name": "/vad-kul-archive/websocket",
         "server": "28462261.44a97e",
         "client": "",
-        "x": 210,
+        "x": 170,
         "y": 1680,
         "wires": [
             [
@@ -11559,6 +11564,117 @@
             [
                 "d88175bf.604ae8"
             ]
+        ]
+    },
+    {
+        "id": "f4c20cbb.b03f1",
+        "type": "debug",
+        "z": "e17f7487.2a78e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 490,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "84347285.9d5a5",
+        "type": "switch",
+        "z": "e17f7487.2a78e8",
+        "name": "",
+        "property": "device.deviceType",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "basic",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "solar-regulator",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "shiverSim",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "cosmic-interval",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "green-thumb",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off-n-on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "rfct",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "osc-over",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "mode-0-damper",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "shimmy-shake",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "sync-transmit",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "sync-receive",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "vad-kul",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 13,
+        "x": 290,
+        "y": 540,
+        "wires": [
+            [],
+            [
+                "f4c20cbb.b03f1"
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
         ]
     }
 ]
