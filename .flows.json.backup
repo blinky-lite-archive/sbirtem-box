@@ -5643,8 +5643,7 @@
         "y": 380,
         "wires": [
             [
-                "731fcbcd.96f0a4",
-                "84347285.9d5a5"
+                "731fcbcd.96f0a4"
             ]
         ]
     },
@@ -11564,117 +11563,6 @@
             [
                 "d88175bf.604ae8"
             ]
-        ]
-    },
-    {
-        "id": "f4c20cbb.b03f1",
-        "type": "debug",
-        "z": "e17f7487.2a78e8",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 490,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "84347285.9d5a5",
-        "type": "switch",
-        "z": "e17f7487.2a78e8",
-        "name": "",
-        "property": "device.deviceType",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "basic",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "solar-regulator",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "shiverSim",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "cosmic-interval",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "green-thumb",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "off-n-on",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "rfct",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "osc-over",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "mode-0-damper",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "shimmy-shake",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "sync-transmit",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "sync-receive",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "vad-kul",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 13,
-        "x": 290,
-        "y": 540,
-        "wires": [
-            [],
-            [
-                "f4c20cbb.b03f1"
-            ],
-            [],
-            [],
-            [],
-            [],
-            [],
-            [],
-            [],
-            [],
-            [],
-            [],
-            []
         ]
     }
 ]
