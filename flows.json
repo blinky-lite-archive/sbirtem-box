@@ -4347,7 +4347,7 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "<!-- Body HTML -->\n    <div class='container' width=\"100%\">\n        <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-index\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul</td>\n                        </tr>\n                    </table>\n               </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/core\" id=\"blinky-lite-core\">\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/coreYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Core Apps</td>\n                        </tr>\n                    </table>\n                </a> \n            </div>\n        </div>\n       <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/info\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/infoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">More Info</td>\n                        </tr>\n                    </table>\n                </a> \n            </div>\n        </div>\n         <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <iframe src=\"https://shiftr.io/Blinky-Lite/blinky-lite/embed?zoom=1\" width=\"700\" height=\"500\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>\n                <p>Blinky-Lite MQTT Broker</p>\n            </div>\n        </div>\n    </div>",
+        "template": "<!-- Body HTML -->\n    <div class='container' width=\"100%\">\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul?name=01\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul 01</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-archive?name=01\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Archiver 01</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/core\" id=\"blinky-lite-core\">\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/coreYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Core Apps</td>\n                        </tr>\n                    </table>\n                </a> \n            </div>\n        </div>\n       <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/info\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/infoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">More Info</td>\n                        </tr>\n                    </table>\n                </a> \n            </div>\n        </div>\n         <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <iframe src=\"https://shiftr.io/Blinky-Lite/vad-kul/embed?zoom=1\" width=\"700\" height=\"500\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>\n                <p>Vad-Kul MQTT Broker</p>\n            </div>\n        </div>\n    </div>",
         "output": "str",
         "x": 770,
         "y": 40,
@@ -4366,7 +4366,7 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "Blinky-Lite Apps",
+        "template": "Vad Kul",
         "output": "str",
         "x": 490,
         "y": 40,
@@ -4414,7 +4414,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 110,
-        "y": 160,
+        "y": 100,
         "wires": [
             [
                 "c2752485.831228"
@@ -4433,7 +4433,7 @@
         "template": "Blinky-Lite Info",
         "output": "str",
         "x": 490,
-        "y": 160,
+        "y": 100,
         "wires": [
             [
                 "be1ae265.bb8ed"
@@ -4452,7 +4452,7 @@
         "template": "        useWebSockets(false);\n        function onDocumentReady()\n        {\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            \n        }\n        function onWebSocketMessage(msg)\n        {\n        }\n\n",
         "output": "str",
         "x": 350,
-        "y": 160,
+        "y": 100,
         "wires": [
             [
                 "44c9f88c.651918"
@@ -4465,7 +4465,7 @@
         "z": "a858ad3a.95706",
         "name": "",
         "x": 940,
-        "y": 160,
+        "y": 100,
         "wires": []
     },
     {
@@ -4480,7 +4480,7 @@
         "template": "<!-- Body HTML -->\n    <div align='center'>\n        <iframe src=\"https://docs.google.com/presentation/d/e/2PACX-1vR2vyqzXVdf_xuC4Ylq7hOJ4dmltmJfskOdLsC-6HzfqZxkfeD7iA5T68mZRb-VzEUcmPsNRJbqTd2H/embed?start=true&loop=false&delayms=8000\" frameborder=\"0\" width=\"925\" height=\"728\" allowfullscreen=\"true\" mozallowfullscreen=\"true\" webkitallowfullscreen=\"true\"></iframe>\n    </div>",
         "output": "str",
         "x": 770,
-        "y": 160,
+        "y": 100,
         "wires": [
             [
                 "6a6091da.4dbce"
@@ -4496,7 +4496,7 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "appsYellow.png",
+        "template": "discoYellow.png",
         "output": "str",
         "x": 630,
         "y": 40,
@@ -4518,112 +4518,10 @@
         "template": "infoYellow.png",
         "output": "str",
         "x": 630,
-        "y": 160,
+        "y": 100,
         "wires": [
             [
                 "9da6d44.953da28"
-            ]
-        ]
-    },
-    {
-        "id": "71f5faee.300374",
-        "type": "http in",
-        "z": "a858ad3a.95706",
-        "name": "/vad-kul-index",
-        "url": "/vad-kul-index",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 130,
-        "y": 100,
-        "wires": [
-            [
-                "9db0cd7d.a9121"
-            ]
-        ]
-    },
-    {
-        "id": "52e6477d.ab4608",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "Title",
-        "field": "payload.title",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "Vad Kul",
-        "output": "str",
-        "x": 490,
-        "y": 100,
-        "wires": [
-            [
-                "d2cf6f13.bd902"
-            ]
-        ]
-    },
-    {
-        "id": "9db0cd7d.a9121",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "JavaScript",
-        "field": "payload.javascript",
-        "fieldType": "msg",
-        "format": "javascript",
-        "syntax": "mustache",
-        "template": "        useWebSockets(false);\n        function onDocumentReady()\n        {\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            \n        }\n        function onWebSocketMessage(msg)\n        {\n        }\n\n",
-        "output": "str",
-        "x": 350,
-        "y": 100,
-        "wires": [
-            [
-                "52e6477d.ab4608"
-            ]
-        ]
-    },
-    {
-        "id": "c6b7a013.fbe39",
-        "type": "subflow:8341090a.df9758",
-        "z": "a858ad3a.95706",
-        "name": "",
-        "x": 940,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "d2cf6f13.bd902",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "navBarIcon",
-        "field": "payload.navBarIcon",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "discoYellow.png",
-        "output": "str",
-        "x": 630,
-        "y": 100,
-        "wires": [
-            [
-                "59cfc89c.144b58"
-            ]
-        ]
-    },
-    {
-        "id": "59cfc89c.144b58",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "Body",
-        "field": "payload.body",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "<!-- Body HTML -->\n    <div class='container' width=\"100%\">\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul?name=01\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul 01</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-archive?name=01\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Archiver 01</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n       <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/core\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/coreYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Core Apps</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n         <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <iframe src=\"https://shiftr.io/Blinky-Lite/blinky-lite/embed?zoom=1\" width=\"700\" height=\"500\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>\n                <p>Blinky-Lite MQTT Broker</p>\n            </div>\n        </div>\n    </div>",
-        "output": "str",
-        "x": 770,
-        "y": 100,
-        "wires": [
-            [
-                "c6b7a013.fbe39"
             ]
         ]
     },
