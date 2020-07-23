@@ -742,6 +742,43 @@
      "file": "/home/dmcginnis427/Dropbox/gitRepositories/vad-kul-box/node_modules/node-red-node-tail/28-tail.js"
     }
    }
+  },
+  "node-red-contrib-httpauth": {
+   "name": "node-red-contrib-httpauth",
+   "version": "1.0.12",
+   "local": true,
+   "nodes": {
+    "node-red-contrib-httpauth": {
+     "name": "node-red-contrib-httpauth",
+     "types": [
+      "node-red-contrib-httpauth"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-httpauth",
+     "file": "/home/dmcginnis427/Dropbox/gitRepositories/vad-kul-box/node_modules/node-red-contrib-httpauth/nodes/http-auth.js"
+    },
+    "node-red-contrib-httpauthcred": {
+     "name": "node-red-contrib-httpauthcred",
+     "types": [
+      "node-red-contrib-httpauthcred"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-httpauth",
+     "file": "/home/dmcginnis427/Dropbox/gitRepositories/vad-kul-box/node_modules/node-red-contrib-httpauth/nodes/http-auth-cred.js"
+    },
+    "node-red-contrib-httpauthfile": {
+     "name": "node-red-contrib-httpauthfile",
+     "types": [
+      "node-red-contrib-httpauthfile"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-httpauth",
+     "file": "/home/dmcginnis427/Dropbox/gitRepositories/vad-kul-box/node_modules/node-red-contrib-httpauth/nodes/http-auth-file.js"
+    }
+   }
   }
  },
  "users": {
