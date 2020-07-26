@@ -2,7 +2,7 @@
  "nodes": {
   "node-red": {
    "name": "node-red",
-   "version": "1.0.3-git",
+   "version": "1.1.2-git",
    "local": false,
    "nodes": {
     "inject": {
@@ -494,7 +494,7 @@
   },
   "node-red-dashboard": {
    "name": "node-red-dashboard",
-   "version": "2.19.4",
+   "version": "2.23.0",
    "local": true,
    "nodes": {
     "ui_base": {
@@ -711,7 +711,7 @@
   },
   "node-red-node-rbe": {
    "name": "node-red-node-rbe",
-   "version": "0.2.8",
+   "version": "0.2.9",
    "local": true,
    "nodes": {
     "rbe": {
@@ -728,7 +728,7 @@
   },
   "node-red-node-tail": {
    "name": "node-red-node-tail",
-   "version": "0.0.3",
+   "version": "0.1.1",
    "local": true,
    "nodes": {
     "tail": {
@@ -783,7 +783,7 @@
   "node-red-contrib-users": {
    "name": "node-red-contrib-users",
    "version": "0.1.9",
-   "local": false,
+   "local": true,
    "nodes": {
     "users_config": {
      "name": "users_config",

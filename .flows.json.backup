@@ -499,7 +499,14 @@
         "wholemsg": "false"
     },
     {
-        "id": "28462261.44a97e",
+        "id": "3e221845.cc5ef8",
+        "type": "users_config",
+        "appPath": "/users",
+        "jwtCookieName": "nr.nodeUsers.jwt",
+        "jwtHttpsOnly": false
+    },
+    {
+        "id": "e154ab6.e010658",
         "type": "websocket-listener",
         "z": "",
         "path": "/vad-kul-archive/websocket",
@@ -1232,13 +1239,13 @@
         "type": "inject",
         "z": "e17f7487.2a78e8",
         "name": "projectName",
-        "topic": "projectName",
-        "payload": "PROJECT",
-        "payloadType": "env",
         "repeat": "",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
+        "topic": "projectName",
+        "payload": "PROJECT",
+        "payloadType": "env",
         "x": 130,
         "y": 260,
         "wires": [
@@ -1397,13 +1404,13 @@
         "type": "inject",
         "z": "dc20c6e0.0feb98",
         "name": "Every 10 sec",
-        "topic": "",
-        "payload": "'name'",
-        "payloadType": "str",
         "repeat": "10",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "'name'",
+        "payloadType": "str",
         "x": 140,
         "y": 740,
         "wires": [
@@ -1527,13 +1534,13 @@
         "type": "inject",
         "z": "e17f7487.2a78e8",
         "name": "settingsPassword",
-        "topic": "settingsPassword",
-        "payload": "SETTINGSPASSWORD",
-        "payloadType": "env",
         "repeat": "",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
+        "topic": "settingsPassword",
+        "payload": "SETTINGSPASSWORD",
+        "payloadType": "env",
         "x": 150,
         "y": 320,
         "wires": [
@@ -2317,13 +2324,13 @@
         "type": "inject",
         "z": "e17f7487.2a78e8",
         "name": "maxDbSize",
-        "topic": "maxDbSize",
-        "payload": "MAXDBSIZE",
-        "payloadType": "env",
         "repeat": "",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
+        "topic": "maxDbSize",
+        "payload": "MAXDBSIZE",
+        "payloadType": "env",
         "x": 130,
         "y": 380,
         "wires": [
@@ -2354,8 +2361,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 370,
-        "y": 1220,
+        "x": 390,
+        "y": 580,
         "wires": [
             [
                 "908d7fde.10525"
@@ -2371,8 +2378,8 @@
         "qos": "0",
         "datatype": "auto",
         "broker": "84d80994.260508",
-        "x": 150,
-        "y": 220,
+        "x": 130,
+        "y": 80,
         "wires": [
             [
                 "ebb8ce.0c3d873"
@@ -2387,8 +2394,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 310,
-        "y": 220,
+        "x": 290,
+        "y": 80,
         "wires": [
             [
                 "764116fd.f6e648"
@@ -2412,8 +2419,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 790,
-        "y": 220,
+        "x": 770,
+        "y": 80,
         "wires": [
             [
                 "5f767381.0ac26c"
@@ -2428,8 +2435,8 @@
         "func": "if (!global.get('systemClockSynchronized')) return null;\nvar mqttArray = msg.topic.split('/');\nvar device = \n{\n    project     : mqttArray[0],\n    deviceType  : mqttArray[1],\n    name        : mqttArray[2],\n    prop        : mqttArray[3],\n};\nreturn {topic : msg.topic, payload:{topic:'readings', mqttDevice : device, payload:msg.payload}};",
         "outputs": 1,
         "noerr": 0,
-        "x": 540,
-        "y": 220,
+        "x": 520,
+        "y": 80,
         "wires": [
             [
                 "81c39fe.b208a6"
@@ -2463,8 +2470,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 3,
-        "x": 490,
-        "y": 1220,
+        "x": 510,
+        "y": 580,
         "wires": [
             [
                 "b6b8b063.9f62f"
@@ -2485,8 +2492,8 @@
         "func": "return {\n    topic   : msg.payload.mqttMessage.topic, \n    payload : msg.payload.mqttMessage.payload, \n    token   : msg.payload.token, \n    userID  : msg.payload.userID };\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 650,
-        "y": 1200,
+        "x": 670,
+        "y": 560,
         "wires": [
             [
                 "1f59a828.f68858"
@@ -2501,8 +2508,8 @@
         "func": "if (global.get('settingsPassword') == 'NULL')\n{\n    return [null, {topic:'getJwtToken',payload:msg.payload.userID, userID : msg.payload.userID}];    \n}\nif (msg.payload.payload.loginPassword != global.get('settingsPassword'))\n{\n    return [{topic:'getJwtToken', payload:{topic:'getJwtToken', userID:msg.payload.userID, token: null}}, null];\n}\nreturn [null, {topic:'getJwtToken',payload:msg.payload.userID, userID : msg.payload.userID}];",
         "outputs": 2,
         "noerr": 0,
-        "x": 630,
-        "y": 1240,
+        "x": 650,
+        "y": 600,
         "wires": [
             [
                 "439b1d51.6f5e64"
@@ -2518,8 +2525,8 @@
         "z": "8475ab9.3d26058",
         "name": "get Token",
         "tokenconfig": "6acefdd9.69f124",
-        "x": 820,
-        "y": 1320,
+        "x": 840,
+        "y": 680,
         "wires": [
             [
                 "e6482ef3.6b5a9"
@@ -2534,8 +2541,8 @@
         "func": "return {topic:'getJwtToken', payload:{topic:'getJwtToken', userID:msg.userID, token: msg.token}};\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 1010,
-        "y": 1320,
+        "x": 1030,
+        "y": 680,
         "wires": [
             [
                 "439b1d51.6f5e64"
@@ -2564,8 +2571,8 @@
             "762e5ad6.d1beb4",
             "f2d4dfb2.28205"
         ],
-        "x": 1155,
-        "y": 1300,
+        "x": 1175,
+        "y": 660,
         "wires": []
     },
     {
@@ -2574,8 +2581,8 @@
         "z": "8475ab9.3d26058",
         "name": "decrypt Token",
         "tokenconfig": "6acefdd9.69f124",
-        "x": 840,
-        "y": 1200,
+        "x": 860,
+        "y": 560,
         "wires": [
             [
                 "3506b658.01b13a"
@@ -2590,8 +2597,8 @@
         "func": "if (Number(msg.token) == msg.userID)\n{\n    return [msg, {topic : 'acknowledge', payload:{topic:'settingAcknowledge', payload: 'Success!', userID : msg.userID}}]\n}\nreturn [null, {topic : 'acknowledge', payload:{topic:'settingAcknowledge', payload: 'Bad token', userID : msg.userID}}];",
         "outputs": 2,
         "noerr": 0,
-        "x": 1010,
-        "y": 1200,
+        "x": 1030,
+        "y": 560,
         "wires": [
             [
                 "2132a017.ba23f",
@@ -2611,8 +2618,8 @@
         "qos": "0",
         "retain": "false",
         "broker": "84d80994.260508",
-        "x": 1220,
-        "y": 1180,
+        "x": 1240,
+        "y": 540,
         "wires": []
     },
     {
@@ -2683,8 +2690,8 @@
         "id": "ee0ee61b.770a18",
         "type": "subflow:e13648d6.d698c8",
         "z": "8475ab9.3d26058",
-        "x": 1230,
-        "y": 1240,
+        "x": 1250,
+        "y": 600,
         "wires": []
     },
     {
@@ -3311,13 +3318,13 @@
         "type": "inject",
         "z": "90f83725.6dae08",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 140,
         "y": 700,
         "wires": [
@@ -3379,13 +3386,13 @@
         "type": "inject",
         "z": "90f83725.6dae08",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 140,
         "y": 780,
         "wires": [
@@ -3701,13 +3708,13 @@
         "type": "inject",
         "z": "90f83725.6dae08",
         "name": "Inject after 2 seconds",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": true,
         "onceDelay": "2",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 180,
         "y": 1060,
         "wires": [
@@ -4004,8 +4011,8 @@
         "name": "",
         "collection": "archiver",
         "operation": "find.toArray",
-        "x": 690,
-        "y": 1080,
+        "x": 750,
+        "y": 240,
         "wires": [
             [
                 "28d7885b.29ba58"
@@ -4020,36 +4027,13 @@
         "func": "function objectLength( object ) {\n    var length = 0;\n    for( var key in object ) {\n        if( object.hasOwnProperty(key) ) {\n            ++length;\n        }\n    }\n    return length;\n}\n\nfunction sortByKey(arr, key) \n{\n    return arr.sort( function(a, b) \n        {\n            var x = a[key]; \n            var y = b[key];\n            return ((x < y) ? -1 : ((x > y) ? 1 : 0));\n        } );\n}\n\nvar numRecords = objectLength(msg.payload);\nif (numRecords < 1)\n{\n    return {\n        topic : msg.device.deviceType,\n        payload:{\n            topic           : 'getArchiveValues',\n            payload         : {device: msg.device, trace:null},\n            userID          : msg.userID,\n        }\n    };\n}\nvar records = [];\nfor (var ii = 0; ii < numRecords; ++ii) records[ii] = msg.payload[ii]; \nsortByKey(records, 'timeStamp');\nvar trace = [];\nfor (var ii = 0; ii < numRecords; ++ii)\n{\n    trace[ii] = {timeStamp: records[ii].timeStamp};\n    for (var ij = 0; ij < msg.device.attr.length; ++ij)\n    {\n        trace[ii][msg.device.attr[ij]] = records[ii][msg.device.attr[ij]];\n    }\n}\n\nreturn {\n    topic : msg.device.deviceType,\n    payload:{\n        topic           : 'getArchiveValues',\n        payload         : {device: msg.device, trace: trace},\n        userID          : msg.userID,\n    }\n};\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 630,
-        "y": 880,
+        "initialize": "",
+        "finalize": "",
+        "x": 990,
+        "y": 240,
         "wires": [
             [
-                "afc4764a.490a98"
-            ]
-        ]
-    },
-    {
-        "id": "afc4764a.490a98",
-        "type": "switch",
-        "z": "8475ab9.3d26058",
-        "name": "",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "vad-kul",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 790,
-        "y": 880,
-        "wires": [
-            [
-                "2cb0a19d.f5382e"
+                "e8d9edd7.6f769"
             ]
         ]
     },
@@ -4061,8 +4045,10 @@
         "func": "var projectionFilter =  \n{\n    projection:\n    {\n        _id                         :   0, \n        deviceType                  :   1,  \n        name                        :   1,  \n        timeStamp                   :   1 \n    } \n};\nfor (var ii = 0; ii < msg.payload.device.attr.length; ++ii)\n{\n    projectionFilter.projection[msg.payload.device.attr[ii]] = 1;\n}\nvar queryFilter = \n{\n    $and :\n    [\n        {\n            deviceType: msg.payload.device.deviceType\n        },\n        {\n            name: msg.payload.device.name\n        },\n        {\n            timeStamp :\n            {\n                $gte: msg.payload.device.startDate,\n                $lte: msg.payload.device.stopDate\n            }\n        }\n    ] \n    \n}\nvar newMsg = \n{\n    topic           : 'getArchiveValues',\n    userID          : msg.payload.userID,\n    payload         : [queryFilter, projectionFilter],\n    device          : msg.payload.device,\n};\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 660,
-        "y": 1140,
+        "initialize": "",
+        "finalize": "",
+        "x": 500,
+        "y": 240,
         "wires": [
             [
                 "a3efdc0a.76eff"
@@ -4077,8 +4063,8 @@
         "links": [
             "7e343bf8.8fec14"
         ],
-        "x": 895,
-        "y": 220,
+        "x": 875,
+        "y": 80,
         "wires": []
     },
     {
@@ -4088,8 +4074,8 @@
         "name": "/vad-kul/websocket",
         "server": "e71c9288.03dd3",
         "client": "",
-        "x": 1150,
-        "y": 220,
+        "x": 1130,
+        "y": 80,
         "wires": []
     },
     {
@@ -4102,8 +4088,8 @@
             "439b1d51.6f5e64",
             "27616c81.533484"
         ],
-        "x": 995,
-        "y": 220,
+        "x": 975,
+        "y": 80,
         "wires": [
             [
                 "68378c41.1d2814"
@@ -4117,8 +4103,8 @@
         "name": "/vad-kul/websocket",
         "server": "e71c9288.03dd3",
         "client": "",
-        "x": 150,
-        "y": 1580,
+        "x": 170,
+        "y": 940,
         "wires": [
             [
                 "45a7d04b.f97db",
@@ -4252,7 +4238,7 @@
         "action": "",
         "pretty": false,
         "x": 390,
-        "y": 1580,
+        "y": 940,
         "wires": [
             [
                 "c808d99f.eddb18"
@@ -4267,8 +4253,10 @@
         "func": "if (msg.payload.topic != 'getLastImage') return null;\nreturn {\n    topic   :msg.payload.restfulDevice.deviceType + '-' + msg.payload.restfulDevice.name, \n    payload : \n    [\n        {\n            $and   :    \n            [\n                {\n                    deviceType : msg.payload.restfulDevice.deviceType\n                },\n                {\n                    name : msg.payload.restfulDevice.name\n                }\n            ]\n        }, \n        {\n            projection  :\n            {\n                _id :   0\n                \n            }\n        }\n    ],\n    'device'    :   msg.payload\n};\n\n",
         "outputs": 1,
         "noerr": 0,
+        "initialize": "",
+        "finalize": "",
         "x": 530,
-        "y": 1580,
+        "y": 940,
         "wires": [
             [
                 "25932781.fdea58"
@@ -4285,7 +4273,7 @@
         "collection": "devices",
         "operation": "findOne",
         "x": 730,
-        "y": 1580,
+        "y": 940,
         "wires": [
             [
                 "40e7209b.74dbb"
@@ -4300,8 +4288,10 @@
         "func": "return {topic : msg.topic, payload:{topic:'lastImage' ,userID:msg.device.userID,payload:msg.payload}};",
         "outputs": 1,
         "noerr": 0,
-        "x": 950,
-        "y": 1580,
+        "initialize": "",
+        "finalize": "",
+        "x": 930,
+        "y": 940,
         "wires": [
             [
                 "27616c81.533484"
@@ -4316,8 +4306,8 @@
         "links": [
             "7e343bf8.8fec14"
         ],
-        "x": 1075,
-        "y": 1580,
+        "x": 1095,
+        "y": 940,
         "wires": []
     },
     {
@@ -4346,7 +4336,7 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "<!-- Body HTML -->\n    <div class='container' width=\"100%\">\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul?name=01\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul 01</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul?name=02\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul 02</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul?name=03\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul 03</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul?name=04\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul 04</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-archive?name=01\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Archiver 01</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-archive?name=02\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Archiver 02</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-archive?name=03\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Archiver 03</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-archive?name=04\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Archiver 04</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/core\" id=\"blinky-lite-core\">\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/coreYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Core Apps</td>\n                        </tr>\n                    </table>\n                </a> \n            </div>\n        </div>\n       <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/info\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/infoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">More Info</td>\n                        </tr>\n                    </table>\n                </a> \n            </div>\n        </div>\n         <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <iframe src=\"https://shiftr.io/Blinky-Lite/vad-kul/embed?zoom=1\" width=\"700\" height=\"500\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>\n                <p>Vad-Kul MQTT Broker</p>\n            </div>\n        </div>\n    </div>",
+        "template": "<!-- Body HTML -->\n    <div class='container' width=\"100%\">\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/sensors\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Sensors</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-archive\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Archiver</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/core\" id=\"blinky-lite-core\">\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/coreYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Core Apps</td>\n                        </tr>\n                    </table>\n                </a> \n            </div>\n        </div>\n         <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <iframe src=\"https://shiftr.io/Blinky-Lite/vad-kul/embed?zoom=1\" width=\"700\" height=\"500\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>\n                <p>Vad-Kul MQTT Broker</p>\n            </div>\n        </div>\n    </div>",
         "output": "str",
         "x": 770,
         "y": 40,
@@ -4404,89 +4394,6 @@
         "wires": []
     },
     {
-        "id": "c41e5fdd.0bee5",
-        "type": "http in",
-        "z": "a858ad3a.95706",
-        "name": "/info",
-        "url": "/info",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 110,
-        "y": 100,
-        "wires": [
-            [
-                "c2752485.831228"
-            ]
-        ]
-    },
-    {
-        "id": "44c9f88c.651918",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "Title",
-        "field": "payload.title",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "Blinky-Lite Info",
-        "output": "str",
-        "x": 490,
-        "y": 100,
-        "wires": [
-            [
-                "be1ae265.bb8ed"
-            ]
-        ]
-    },
-    {
-        "id": "c2752485.831228",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "JavaScript",
-        "field": "payload.javascript",
-        "fieldType": "msg",
-        "format": "javascript",
-        "syntax": "mustache",
-        "template": "        useWebSockets(false);\n        function onDocumentReady()\n        {\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            \n        }\n        function onWebSocketMessage(msg)\n        {\n        }\n\n",
-        "output": "str",
-        "x": 350,
-        "y": 100,
-        "wires": [
-            [
-                "44c9f88c.651918"
-            ]
-        ]
-    },
-    {
-        "id": "6a6091da.4dbce",
-        "type": "subflow:8341090a.df9758",
-        "z": "a858ad3a.95706",
-        "name": "",
-        "x": 940,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "9da6d44.953da28",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "Body",
-        "field": "payload.body",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "<!-- Body HTML -->\n    <div align='center'>\n        <iframe src=\"https://docs.google.com/presentation/d/e/2PACX-1vR2vyqzXVdf_xuC4Ylq7hOJ4dmltmJfskOdLsC-6HzfqZxkfeD7iA5T68mZRb-VzEUcmPsNRJbqTd2H/embed?start=true&loop=false&delayms=8000\" frameborder=\"0\" width=\"925\" height=\"728\" allowfullscreen=\"true\" mozallowfullscreen=\"true\" webkitallowfullscreen=\"true\"></iframe>\n    </div>",
-        "output": "str",
-        "x": 770,
-        "y": 100,
-        "wires": [
-            [
-                "6a6091da.4dbce"
-            ]
-        ]
-    },
-    {
         "id": "c241b88d.b93c68",
         "type": "template",
         "z": "a858ad3a.95706",
@@ -4506,52 +4413,6 @@
         ]
     },
     {
-        "id": "be1ae265.bb8ed",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "navBarIcon",
-        "field": "payload.navBarIcon",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "infoYellow.png",
-        "output": "str",
-        "x": 630,
-        "y": 100,
-        "wires": [
-            [
-                "9da6d44.953da28"
-            ]
-        ]
-    },
-    {
-        "id": "d88175bf.604ae8",
-        "type": "websocket out",
-        "z": "8475ab9.3d26058",
-        "name": "/vad-kul-archive/websocket",
-        "server": "28462261.44a97e",
-        "client": "",
-        "x": 1740,
-        "y": 1660,
-        "wires": []
-    },
-    {
-        "id": "92841167.1dace",
-        "type": "websocket in",
-        "z": "8475ab9.3d26058",
-        "name": "/vad-kul-archive/websocket",
-        "server": "28462261.44a97e",
-        "client": "",
-        "x": 170,
-        "y": 1680,
-        "wires": [
-            [
-                "7475027d.6c11fc",
-                "45a7d04b.f97db"
-            ]
-        ]
-    },
-    {
         "id": "7475027d.6c11fc",
         "type": "json",
         "z": "8475ab9.3d26058",
@@ -4559,117 +4420,11 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 430,
-        "y": 1680,
+        "x": 390,
+        "y": 1040,
         "wires": [
-            [
-                "8da9c618.8e84d8"
-            ]
-        ]
-    },
-    {
-        "id": "fcbb4434.978d48",
-        "type": "function",
-        "z": "8475ab9.3d26058",
-        "name": "parse getLastImage",
-        "func": "var newMsg = \n{\n    topic   :msg.payload.restfulDevice.deviceType + '-' + msg.payload.restfulDevice.name, \n    payload : \n    [\n        {\n            $and   :    \n            [\n                {\n                    deviceType : msg.payload.restfulDevice.deviceType\n                },\n                {\n                    name : msg.payload.restfulDevice.name\n                }\n            ]\n        }, \n        {\n            projection  :\n            {\n                _id :   0\n                \n            }\n        }\n    ],\n    'device'    :   msg.payload\n};\n\nreturn newMsg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 780,
-        "y": 1660,
-        "wires": [
-            [
-                "2cc80948.df4ea6"
-            ]
-        ]
-    },
-    {
-        "id": "2cc80948.df4ea6",
-        "type": "mongodb3 in",
-        "z": "8475ab9.3d26058",
-        "service": "_ext_",
-        "configNode": "9cd5ff5e.caf86",
-        "name": "",
-        "collection": "devices",
-        "operation": "findOne",
-        "x": 1030,
-        "y": 1660,
-        "wires": [
-            [
-                "ad6f98fa.8c0bc8"
-            ]
-        ]
-    },
-    {
-        "id": "ad6f98fa.8c0bc8",
-        "type": "function",
-        "z": "8475ab9.3d26058",
-        "name": "Parse lastImage results",
-        "func": "return {topic : msg.topic, payload:{topic:'lastImage' ,userID:msg.device.userID,payload:msg.payload}};",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1290,
-        "y": 1660,
-        "wires": [
-            [
-                "d88175bf.604ae8"
-            ]
-        ]
-    },
-    {
-        "id": "8da9c618.8e84d8",
-        "type": "switch",
-        "z": "8475ab9.3d26058",
-        "name": "",
-        "property": "payload.topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "getLastImage",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "getImageList",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "getImage",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 3,
-        "x": 550,
-        "y": 1680,
-        "wires": [
-            [
-                "fcbb4434.978d48"
-            ],
-            [
-                "2e30f41e.bf447c"
-            ],
             [
                 "a397bafe.51f798"
-            ]
-        ]
-    },
-    {
-        "id": "2e30f41e.bf447c",
-        "type": "function",
-        "z": "8475ab9.3d26058",
-        "name": "parse getImageList",
-        "func": "var projectionFilter =  \n{\n    projection:\n    {\n        _id                         :   0, \n        timeStamp                   :   1 \n    } \n};\nvar queryFilter = \n{\n    $and :\n    [\n        {\n            deviceType: msg.payload.restfulDevice.deviceType\n        },\n        {\n            name: msg.payload.restfulDevice.name\n        },\n        {\n            timeStamp :\n            {\n                $gte: msg.payload.startDate,\n                $lte: msg.payload.stopDate\n            }\n        }\n    ] \n    \n}\nvar newMsg = \n{\n    topic           : msg.payload.topic,\n    userID          : msg.payload.userID,\n    payload         : [queryFilter, projectionFilter],\n};\nreturn newMsg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 770,
-        "y": 1700,
-        "wires": [
-            [
-                "ac3ea01f.a3491"
             ]
         ]
     },
@@ -4682,27 +4437,11 @@
         "name": "",
         "collection": "archiver",
         "operation": "find.toArray",
-        "x": 1050,
-        "y": 1700,
+        "x": 770,
+        "y": 1040,
         "wires": [
             [
-                "d5cde20e.3d36d"
-            ]
-        ]
-    },
-    {
-        "id": "7153b3e7.49f9dc",
-        "type": "function",
-        "z": "8475ab9.3d26058",
-        "name": "Parse imageList results",
-        "func": "function objectLength( object ) {\n    var length = 0;\n    for( var key in object ) {\n        if( object.hasOwnProperty(key) ) {\n            ++length;\n        }\n    }\n    return length;\n}\n\nvar numRecords = objectLength(msg.payload);\nvar timeStampArray = [];\nfor (var ii = 0; ii < numRecords; ++ii) timeStampArray[ii] = msg.payload[ii].timeStamp; \ntimeStampArray = timeStampArray.sort( function(x, y) \n        {\n            return ((x < y) ? 1 : ((x > y) ? -1 : 0));\n        } );\nvar imageListMsg = \n{\n    topic:'imageList' ,\n    userID:msg.userID,\n    payload:timeStampArray\n}\nreturn {topic : msg.topic, payload:imageListMsg};",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 1450,
-        "y": 1700,
-        "wires": [
-            [
-                "d88175bf.604ae8"
+                "2f5820b2.d52e9"
             ]
         ]
     },
@@ -4711,47 +4450,16 @@
         "type": "function",
         "z": "8475ab9.3d26058",
         "name": "parse getImage",
-        "func": "var projectionFilter =  \n{\n    projection:\n    {\n        _id                         :   0 \n    } \n};\nvar queryFilter = \n{\n    $and :\n    [\n        {\n            deviceType: msg.payload.restfulDevice.deviceType\n        },\n        {\n            name: msg.payload.restfulDevice.name\n        },\n        {\n            timeStamp : msg.payload.timeStamp\n        }\n    ] \n    \n}\nvar newMsg = \n{\n    topic           : msg.payload.topic,\n    userID          : msg.payload.userID,\n    payload         : [queryFilter, projectionFilter],\n};\nreturn newMsg;\n",
+        "func": "if (msg.payload.topic != 'getImage') return null;\nvar projectionFilter =  \n{\n    projection:\n    {\n        _id                         :   0 \n    } \n};\nvar queryFilter = \n{\n    $and :\n    [\n        {\n            deviceType: msg.payload.restfulDevice.deviceType\n        },\n        {\n            name: msg.payload.restfulDevice.name\n        },\n        {\n            timeStamp : msg.payload.timeStamp\n        }\n    ] \n    \n}\nvar newMsg = \n{\n    topic           : msg.payload.topic,\n    userID          : msg.payload.userID,\n    payload         : [queryFilter, projectionFilter],\n};\nreturn newMsg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 760,
-        "y": 1740,
+        "initialize": "",
+        "finalize": "",
+        "x": 540,
+        "y": 1040,
         "wires": [
             [
                 "ac3ea01f.a3491"
-            ]
-        ]
-    },
-    {
-        "id": "d5cde20e.3d36d",
-        "type": "switch",
-        "z": "8475ab9.3d26058",
-        "name": "",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "getImageList",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "getImage",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1250,
-        "y": 1700,
-        "wires": [
-            [
-                "7153b3e7.49f9dc"
-            ],
-            [
-                "2f5820b2.d52e9"
             ]
         ]
     },
@@ -4763,11 +4471,13 @@
         "func": "var imageMsg = \n{\n    topic:'image' ,\n    userID:msg.userID,\n    payload:msg.payload[0]\n}\nreturn {topic : msg.topic, payload:imageMsg};",
         "outputs": 1,
         "noerr": 0,
-        "x": 1440,
-        "y": 1740,
+        "initialize": "",
+        "finalize": "",
+        "x": 1020,
+        "y": 1040,
         "wires": [
             [
-                "d88175bf.604ae8"
+                "350f2ab6.194ae6"
             ]
         ]
     },
@@ -5042,173 +4752,17 @@
         ]
     },
     {
-        "id": "558e6397.dcda9c",
-        "type": "http in",
-        "z": "9c854ea3.68416",
-        "name": "/vad-kul-archive",
-        "url": "/vad-kul-archive",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 120,
-        "y": 440,
-        "wires": [
-            [
-                "9cbadb28.aac358"
-            ]
-        ]
-    },
-    {
-        "id": "5d170400.3eb75c",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "Title",
-        "field": "payload.title",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "Vad Kul Archive {{{payload.script.name}}}",
-        "output": "str",
-        "x": 350,
-        "y": 480,
-        "wires": [
-            [
-                "b030f2e3.8a649"
-            ]
-        ]
-    },
-    {
-        "id": "9cbadb28.aac358",
-        "type": "function",
-        "z": "9c854ea3.68416",
-        "name": "Get Name",
-        "func": "var deviceType = 'vad-kul';\nvar name = msg.payload.name;\nmsg.payload = {};\nmsg.payload['script'] = {};\nmsg.payload['script']['name'] = name;\nmsg.payload['script']['deviceType'] = 'vad-kul';\nmsg.payload['script']['project'] = global.get('projectName');\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 370,
-        "y": 440,
-        "wires": [
-            [
-                "5d170400.3eb75c"
-            ]
-        ]
-    },
-    {
-        "id": "b030f2e3.8a649",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "navBarIcon",
-        "field": "payload.navBarIcon",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "discoYellow.png",
-        "output": "str",
-        "x": 370,
-        "y": 520,
-        "wires": [
-            [
-                "7148bcbc.13bd74"
-            ]
-        ]
-    },
-    {
-        "id": "7148bcbc.13bd74",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "script.global",
-        "field": "payload.script.global",
-        "fieldType": "msg",
-        "format": "javascript",
-        "syntax": "mustache",
-        "template": "// Global Javascript\n        var restfulDevice = \n        {\n            deviceType  : '{{{payload.script.deviceType}}}',\n            name        : '{{{payload.script.name}}}',\n            project     : '{{{payload.script.project}}}'\n        };\n        var colorScale = true;\n        var enhancementLevel = 0;\n        var pgm = null;\n        var startSearchDate = 0;\n        var stopSearchDate = 0;\n        var programStarted = false;\n \n        var archiveRequestList = [];\n        var archiveList = [];\n\n        useWebSockets(true);\n        function onDocumentReady()\n        {\n            $('#newSearchDiv').hide();\n            $( function()\n            {\n                $('#startSearchDate').datetimepicker({timeFormat: \"HH:mm\", dateFormat: \"yy-mm-dd\"});\n            } );\n            $( function()\n            {\n                $('#stopSearchDate').datetimepicker({timeFormat: \"HH:mm\", dateFormat: \"yy-mm-dd\"});\n            } );\n        }\n        function onWebSocketOpen()\n        {\n            if (!programStarted)\n            {\n                programStarted = true;\n                getLastImage();\n                getArchive(24);\n            }\n        }\n        function onWebSocketClose()\n        {\n            \n        }\n        function onWebSocketMessage(msg)\n        {\n            switch(msg.topic)\n            {\n                case 'lastImage':\n                    if (msg.userID == userID)\n                    {\n                        processLastImage(msg.payload);\n                    }\n                    break;\n                case 'imageList' :\n                    if (msg.userID == userID)\n                    {\n                        processImageList(msg.payload);\n                    }\n                    break;\n                case 'image' :\n                    if (msg.userID == userID)\n                    {\n                        $('#snapshotTimeStamp').text(new Date(msg.payload.timeStamp).toLocaleString('en-SE', { timeZone: 'Europe/Stockholm' }).replace(',', ''));\n                        pgm = JSON.parse(JSON.stringify(msg.payload.imageData));\n                        plotImage();\n                    }\n                    break;\n                case 'getArchiveValues':\n                    if (msg.userID == userID)\n                    {\n                        if ((msg.payload.device.deviceType == restfulDevice.deviceType) && (msg.payload.device.name == restfulDevice.name) )\n                            putArchiveValues(msg.payload);\n                    }\n                    break;\n                case 'getJwtToken':\n                    if (msg.userID == userID) loadJwtToken(msg);\n                    break;\n                default:\n                // code block\n            }\n        }\n        function getLastImage()\n        {\n            sendWebSocketMessageObject({topic : 'getLastImage', userID : userID, 'restfulDevice': restfulDevice});\n        }\n        function processLastImage(lastImage)\n        {\n            stopSearchDate = new Date(lastImage.lastArchive).getTime();\n            startSearchDate = new Date(lastImage.lastArchive - 60000).getTime();\n            var queryMsg = \n            {\n                topic : 'getImageList', \n                userID : userID, \n                'restfulDevice': restfulDevice,\n                startDate : startSearchDate,\n                stopDate : stopSearchDate\n            };\n            sendWebSocketMessageObject(queryMsg);\n        }\n        function processImageList(imageListTimeStamp)\n        {\n            if (imageListTimeStamp.length < 1) return;\n            $('#imageListTable').append('<tbody id=\"imageListTableBody\"></tbody>');\n            for (var irow = 0; irow < imageListTimeStamp.length; ++irow)\n            {\n                var timeString = new Date(imageListTimeStamp[irow]).toLocaleString('en-SE', { timeZone: 'Europe/Stockholm' }).replace(',', '');\n                var rowHtml = '<tr><td width=\"100%\" align=\"center\">';\n                rowHtml = rowHtml + '<button class=\"btn btn-link big-text\" style=\"color:#415c71;\" ';\n                rowHtml = rowHtml + 'onclick=\"getImage(' + imageListTimeStamp[irow].toString();\n                rowHtml = rowHtml + ')\" >' + timeString + '</button>';\n                rowHtml = rowHtml + '</td></tr>';\n                $('#imageListTableBody').append(rowHtml);\n            }\n            getImage(imageListTimeStamp[0]);\n        }\n        function getImage(timeStamp)\n        {\n            var queryMsg = \n            {\n                topic : 'getImage', \n                userID : userID, \n                'restfulDevice': restfulDevice,\n                'timeStamp' : timeStamp,\n            };\n            sendWebSocketMessageObject(queryMsg);\n        }\n        function plotImage()\n        {\n            var rgb = [];\n            var plow = (pgm.minval - 27315) / 100;\n            var phigh = (pgm.maxval - 27315) / 100;\n            for (var ibox = 0; ibox < 9; ++ibox)\n            {\n                var intensity = ibox / 8.0;\n                var pbox = Math.round(((phigh - plow) * intensity + plow) * 10.0) / 10.0;\n                $('#box' + (ibox + 1).toString() + 'Label').text(pbox.toString());\n                if (enhancementLevel == -2) intensity = Math.pow(intensity, 1/3.0);\n                if (enhancementLevel == -1) intensity = Math.pow(intensity, 1/2.0);\n                if (enhancementLevel ==  0) intensity = Math.pow(intensity, 1);\n                if (enhancementLevel ==  1) intensity = Math.pow(intensity, 2.0);\n                if (enhancementLevel ==  2) intensity = Math.pow(intensity, 3.0);\n                if (colorScale)\n                {\n                    rgb = getRGB(intensity);\n                }\n                else\n                {\n                    rgb[0] = Math.floor(255 * intensity);\n                    rgb[1] = Math.floor(255 * intensity);\n                    rgb[2] = Math.floor(255 * intensity);\n                }\n                var style='width:88px;height:50px;background-color:' + 'rgb(' + rgb[0].toString() + ', ' + rgb[1].toString() + ', ' + rgb[2].toString() + ')';\n                $('#box' + (ibox + 1).toString()).attr('style',style);\n            }\n            var canvas = document.getElementById(\"flirCanvas\");\n            var canvasContext = canvas.getContext(\"2d\");\n            var canvasWidth  = Number($('#flirCanvas').attr('width'));\n            var canvasHeight = Number($('#flirCanvas').attr('height'));\n            var rectWidth  = canvasWidth  / pgm.ncols;\n            var rectHeight = canvasHeight / pgm.nrows;\n            for (var irow = 0; irow < pgm.nrows; ++irow)\n            {\n                for (var icol = 0; icol < pgm.ncols; ++icol)\n                {\n                    var intensity = pgm.imageArray[irow][icol] / 256.0;\n                    if (enhancementLevel == -2) intensity = Math.pow(intensity, 1/3.0);\n                    if (enhancementLevel == -1) intensity = Math.pow(intensity, 1/2.0);\n                    if (enhancementLevel ==  0) intensity = Math.pow(intensity, 1);\n                    if (enhancementLevel ==  1) intensity = Math.pow(intensity, 2.0);\n                    if (enhancementLevel ==  2) intensity = Math.pow(intensity, 3.0);\n                    if (colorScale)\n                    {\n                        rgb = getRGB(intensity);\n                        rgb[0] = Math.floor(rgb[0]);\n                        rgb[1] = Math.floor(rgb[1]);\n                        rgb[2] = Math.floor(rgb[2]);\n                    }\n                    else\n                    {\n                        rgb[0] = Math.floor(255 * intensity);\n                        rgb[1] = Math.floor(255 * intensity);\n                        rgb[2] = Math.floor(255 * intensity);\n                    }\n                    canvasContext.fillStyle = 'rgb(' + rgb[0].toString() + ', ' + rgb[1].toString() + ', ' + rgb[2].toString() + ')';\n                    canvasContext.fillRect(icol * rectWidth, canvasHeight - rectHeight - irow * rectHeight, rectWidth, rectHeight);\n                }    \n            }\n        }\n        function getRGB(intensity)\n        {\n          var rgb = [0,0,0];\n          if ( (0 <= intensity) && (intensity <= 0.25) )\n          {\n            rgb[0] = 0;\n            rgb[1] = Math.floor(255 * intensity * 4);    \n            rgb[2] = 255;\n          }\n          if ( (0.25 < intensity) && (intensity <= 0.50) )\n          {\n            rgb[0] = 0;\n            rgb[1] = 255;    \n            rgb[2] = Math.floor(255 * (0.50 - intensity) * 4);\n          }\n          if ( (0.50 < intensity) && (intensity <= 0.75) )\n          {\n            rgb[0] = Math.floor(255 * (intensity - 0.50) * 4);\n            rgb[1] = 255;    \n            rgb[2] = 0;\n          }\n          if ( (0.75 < intensity) && (intensity <= 1.0) )\n          {\n            rgb[0] = 255;\n            rgb[1] = Math.floor(255 * (1.0 - intensity) * 4);    \n            rgb[2] = 0;\n          }\n          return rgb;\n        }\n        function toggleColorScale()\n        {\n            colorScale = !colorScale;\n            if (colorScale)\n            {\n                $('#colorScaleButton').text('Color');\n            }\n            else\n            {\n                $('#colorScaleButton').text('Gray');\n            }\n            plotImage();\n        }\n        function toggleEnhancedScale(deltaEnhanced)\n        {\n            enhancementLevel = enhancementLevel + deltaEnhanced;\n            if (enhancementLevel >  2) enhancementLevel = 2;\n            if (enhancementLevel < -2) enhancementLevel = -2;\n            $('#enhancementLevel').text(enhancementLevel.toString());\n            plotImage();\n        }\n        function showNewSearch()\n        {\n            var startSearchDateString = new Date(startSearchDate).toLocaleString('en-SE',\n            {\n                timeZone: 'Europe/Stockholm',\n                year: 'numeric', \n                month: '2-digit', \n                day : '2-digit', \n                hour12:false, \n                hour: '2-digit', \n                minute: '2-digit'}).replace(',', '');\n            var stopSearchDateString = new Date(stopSearchDate).toLocaleString('en-SE',\n            {\n                timeZone: 'Europe/Stockholm',\n                year: 'numeric', \n                month: '2-digit', \n                day : '2-digit', \n                hour12:false, \n                hour: '2-digit', \n                minute: '2-digit'}).replace(',', '');\n            $( \"#startSearchDate\" ).val(startSearchDateString);\n            $( \"#stopSearchDate\" ).val(stopSearchDateString);\n\n            $('#newSearchDiv').show();\n        }\n        function closeNewSearch()\n        {\n            $('#newSearchDiv').hide();\n        }\n        function getDateFromString(dateString)\n        {\n            var mydate = dateString.split(' ')[0].split('-');\n            var mytime = dateString.split(' ')[1].split(':');\n            var myyear = Number(mydate[0]);\n            var mymonth = Number(mydate[1]);\n            var myday = Number(mydate[2]);\n            var myhour = Number(mytime[0]);\n            var mymin = Number(mytime[1]);\n            var myNewDate = new Date(0);\n            myNewDate.setFullYear(myyear);\n            myNewDate.setMonth(mymonth - 1);\n            myNewDate.setDate(myday);\n            myNewDate.setHours(myhour);\n            myNewDate.setMinutes(mymin,0,0);\n            return myNewDate.getTime();\n        }\n        function search()\n        {\n            startSearchDate = getDateFromString($( \"#startSearchDate\" ).val());\n            stopSearchDate = getDateFromString($( \"#stopSearchDate\" ).val());\n            if (startSearchDate > stopSearchDate)\n            {\n                var temp = stopSearchDate;\n                stopSearchDate = startSearchDate;\n                startSearchDate = temp;\n            }\n            $('#newSearchDiv').hide(); \n            $('#imageListTableBody').remove();\n            clearImage();\n            var queryMsg = \n            {\n                topic : 'getImageList', \n                userID : userID, \n                'restfulDevice': restfulDevice,\n                startDate : startSearchDate,\n                stopDate : stopSearchDate\n            };\n            sendWebSocketMessageObject(queryMsg);\n        }\n        function clearImage()\n        {\n            var canvas = document.getElementById(\"flirCanvas\");\n            var canvasContext = canvas.getContext(\"2d\");\n            var canvasWidth  = Number($('#flirCanvas').attr('width'));\n            var canvasHeight = Number($('#flirCanvas').attr('height'));\n            canvasContext.clearRect(0, 0, canvasWidth, canvasHeight);        \n            $('#snapshotTimeStamp').text('-');\n            for (var ibox = 0; ibox < 9; ++ibox)\n            {\n                var intensity = ibox / 8.0;\n                var pbox = 0.0;\n                $('#box' + (ibox + 1).toString() + 'Label').text(pbox.toString());\n            } \n        }\n",
-        "output": "str",
-        "x": 600,
-        "y": 440,
-        "wires": [
-            [
-                "3c6f8ed2.f98512"
-            ]
-        ]
-    },
-    {
-        "id": "879ace8e.3e261",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "javascript",
-        "field": "payload.javascript",
-        "fieldType": "msg",
-        "format": "javascript",
-        "syntax": "mustache",
-        "template": "{{{payload.script.global}}}\n{{{payload.script.archive}}}",
-        "output": "str",
-        "x": 590,
-        "y": 520,
-        "wires": [
-            [
-                "c0e82308.7c5f2"
-            ]
-        ]
-    },
-    {
-        "id": "c36c6c6b.b95db",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "body",
-        "field": "payload.body",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "    <div width=\"100%\">\n        <div class='row' style='padding-bottom: 25px;'>\n            <div class='col-md-12' align='center'>\n{{{payload.html.imageView}}}\n            </div>\n        </div>\n        <div class='row' style='padding-bottom: 25px;'>\n            <div class='col-md-12' align='center'>\n{{{payload.html.archive}}}\n            </div>\n        </div>\n    </div>",
-        "output": "str",
-        "x": 900,
-        "y": 520,
-        "wires": [
-            [
-                "e3ca1b53.8518d8"
-            ]
-        ]
-    },
-    {
-        "id": "c0e82308.7c5f2",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "html.imageView",
-        "field": "payload.html.imageView",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "<!-- imageView HTML -->\n                <div class='card'>\n                    <p class='card-title'>Image View</p>\n                    <div class='card-body' align=\"center\">\n                        <div class='row' style='padding-bottom: 25px;'>\n                            <div class=\"container-fluid \" align=\"center\">\n                                <table width='800px'>\n                                    <tr>\n                                        <td>\n                                            <canvas id=\"flirCanvas\" width=\"800\" height=\"600\" style=\"border:1px solid #000000;\" ></canvas>\n                                        </td>\n                                    </tr>\n                                </table>\n                            </div>\n                            <div class=\"container-fluid \" align=\"center\" style='padding-top: 0px;'>\n                                <table  width='792'>\n                                    <tr>\n                                        <td width=\"88px\">\n                                            <div id='box1' style=\"width:88px;height:50px;background-color:#0000ff\"></div>\n                                        </td>\n                                        <td width=\"88px\">\n                                            <div id='box2' style=\"width:88px;height:50px;background-color:#0088ff\"></div>\n                                        </td>\n                                        <td width=\"88px\">\n                                            <div id='box3' style=\"width:88px;height:50px;background-color:#00ffff\"></div>\n                                        </td>\n                                        <td width=\"88px\">\n                                            <div id='box4' style=\"width:88px;height:50px;background-color:#00ff88\"></div>\n                                        </td>\n                                        <td width=\"88px\">\n                                            <div id='box5' style=\"width:88px;height:50px;background-color:#00ff00\"></div>\n                                        </td>\n                                        <td width=\"88px\">\n                                            <div id='box6' style=\"width:88px;height:50px;background-color:#88ff00\"></div>\n                                        </td>\n                                        <td width=\"88px\">\n                                            <div id='box7' style=\"width:88px;height:50px;background-color:#ffff00\"></div>\n                                        </td>\n                                        <td width=\"88px\">\n                                            <div id='box8' style=\"width:88px;height:50px;background-color:#ff8800\"></div>\n                                        </td>\n                                        <td width=\"88px\">\n                                            <div id='box9' style=\"width:88px;height:50px;background-color:#ff0000\"></div>\n                                        </td>\n                                    </tr>\n                                    <tr>\n                                        <td align='center' width=\"88px\">\n                                            <span style='font-size: 200%;' id='box1Label'>1</span>\n                                        </td>\n                                        <td align='center' width=\"88px\">\n                                            <span style='font-size: 200%;' id='box2Label'>2</span>\n                                        </td>\n                                        <td align='center' width=\"88px\">\n                                            <span style='font-size: 200%;' id='box3Label'>3</span>\n                                        </td>\n                                        <td align='center' width=\"88px\">\n                                            <span style='font-size: 200%;' id='box4Label'>4</span>\n                                        </td>\n                                        <td align='center' width=\"88px\">\n                                            <span style='font-size: 200%;' id='box5Label'>5</span>\n                                        </td>\n                                        <td align='center' width=\"88px\">\n                                            <span style='font-size: 200%;' id='box6Label'>6</span>\n                                        </td>\n                                        <td align='center' width=\"88px\">\n                                            <span style='font-size: 200%;' id='box7Label'>7</span>\n                                        </td>\n                                        <td align='center' width=\"88px\">\n                                            <span style='font-size: 200%;' id='box8Label'>8</span>\n                                        </td>\n                                        <td align='center' width=\"88px\">\n                                            <span style='font-size: 200%;' id='box9Label'>9</span>\n                                        </td>\n                                    </tr>\n                                </table>\n                                <table width='800px'>\n                                    <tr>\n                                        <td width='100%' align='center'>\n                                            <span  class='card-text' id='snapshotTimeStamp'></span>\n                                        </td>\n                                    </tr>\n                                </table>\n                                <div class='row' style='padding-bottom: 15px;'>\n                                    <div class=\"container-fluid \" align=\"center\">\n                                        <table  width='100%'>\n                                            <tr>\n                                                <td width=\"60%\" align='left'>\n                                                    <span  class='card-text'>Color Mode</span>\n                                                </td>\n                                                <td width=\"40%\">\n                                                    <button class='btn btn-block card-button big-text' id=\"colorScaleButton\" onclick=\"toggleColorScale()\" >Color</button>\n                                                </td>\n                                            </tr>\n                                        </table>\n                                    </div>\n                                </div>\n                                <div class='row' style='padding-bottom: 15px;'>\n                                    <div class=\"container-fluid \" align=\"center\">\n                                        <table  width='100%'>\n                                            <tr>\n                                                <td width=\"60%\" align='left'>\n                                                    <span  class='card-text'>Enhancement Level</span>\n                                                </td>\n                                                <td width=\"14%\" >\n                                                    <button class='btn btn-block card-button big-text' onclick=\"toggleEnhancedScale(-1)\">-</button>\n                                                </td>\n                                                <td width=\"12%px\" align='center'>\n                                                    <span  class='card-text' id=\"enhancementLevel\" >0</span>\n                                                </td>\n                                                <td width=\"14%\">\n                                                    <button class='btn btn-block card-button big-text' onclick=\"toggleEnhancedScale(1)\">+</button>\n                                                </td>\n                                            </tr>\n                                        </table>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                   </div>\n                </div>\n",
-        "output": "str",
-        "x": 930,
-        "y": 440,
-        "wires": [
-            [
-                "567cd742.be99f8"
-            ]
-        ]
-    },
-    {
-        "id": "e3ca1b53.8518d8",
-        "type": "subflow:8341090a.df9758",
-        "z": "9c854ea3.68416",
-        "name": "",
-        "x": 1250,
-        "y": 520,
-        "wires": []
-    },
-    {
         "id": "4627d72c.810368",
         "type": "inject",
         "z": "e17f7487.2a78e8",
         "name": "Prune every 2 hours",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "7200",
         "crontab": "",
         "once": true,
         "onceDelay": "10",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 160,
         "y": 460,
         "wires": [
@@ -5303,13 +4857,13 @@
         "type": "inject",
         "z": "e17f7487.2a78e8",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 120,
         "y": 640,
         "wires": [
@@ -5323,15 +4877,15 @@
         "type": "function",
         "z": "e17f7487.2a78e8",
         "name": "Find Device Type",
-        "func": "var queryFilter = \n{\n    $and :\n    [\n        {\n            \"deviceType\": \"vad-kul\"\n        },\n        {\n            \"name\": \"02\"\n        }\n    ] \n    \n}\nvar newMsg = \n{\n    topic           : 'getArchiveValues',\n    payload         : queryFilter,\n};\nreturn newMsg",
+        "func": "var queryFilter = \n{\n    $and :\n    [\n        {\n            \"deviceType\": \"vad-kul\"\n        },\n        {\n            \"name\": \"01\"\n        },\n        {\n            \"timeStamp\" : 1595513484397\n        }\n    ] \n    \n}\nvar newMsg = \n{\n    topic           : 'getArchiveValues',\n    payload         : queryFilter,\n};\nreturn newMsg",
         "outputs": 1,
         "noerr": 0,
+        "initialize": "",
+        "finalize": "",
         "x": 290,
         "y": 640,
         "wires": [
-            [
-                "2d28afa.778ba5"
-            ]
+            []
         ]
     },
     {
@@ -5418,13 +4972,13 @@
         "type": "inject",
         "z": "e17f7487.2a78e8",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 140,
         "y": 900,
         "wires": [
@@ -5475,13 +5029,13 @@
         "type": "inject",
         "z": "e17f7487.2a78e8",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 140,
         "y": 940,
         "wires": [
@@ -5511,13 +5065,13 @@
         "type": "inject",
         "z": "e17f7487.2a78e8",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 140,
         "y": 820,
         "wires": [
@@ -5541,89 +5095,6 @@
             [
                 "d6bd3dca.1456e"
             ]
-        ]
-    },
-    {
-        "id": "567cd742.be99f8",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "html.archive",
-        "field": "payload.html.archive",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "<!-- Archive HTML -->\n                <div class='card'>\n                    <p class='card-title'>Archive</p>\n                    <div class='card-body' align=\"center\">\n                        <div class='row' >\n                            <table width='100%'>\n                                <tr>\n                                    <td width='10%' align='center'>\n                                        <button class='btn btn-block big-text' style='background-color:var(--color1);color:var(--color5)' id=\"archive2hrButton\" onclick=\"getArchive(2)\" >2</button>\n                                    </td>\n                                    <td width='10%'  align='center'>\n                                        <button class='btn btn-block big-text' style='background-color:var(--color1);color:var(--color5)' id=\"archive4hrButton\" onclick=\"getArchive(4)\" >4</button>\n                                    </td>\n                                    <td width='10%'  align='center'>\n                                        <button class='btn btn-block big-text' style='background-color:var(--color1);color:var(--color5)' id=\"archive8hrButton\" onclick=\"getArchive(8)\" >8</button>\n                                    </td>\n                                    <td width='10%'  align='center'>\n                                        <button class='btn btn-block big-text' style='background-color:var(--color1);color:var(--color5)' id=\"archive24hrButton\" onclick=\"getArchive(24)\" >24</button>\n                                    </td>\n                                    <td width='10%' align='center'>\n                                        <button class='btn btn-block big-text' style='background-color:var(--color1);color:var(--color5)' id=\"archive72hrButton\" onclick=\"getArchive(72)\" >72</button>\n                                    </td>\n                                    <td width='10%' align='center'>\n                                        <button class='btn btn-block big-text' style='background-color:var(--color1);color:var(--color5)' id=\"archive168hrButton\" onclick=\"getArchive(168)\" >168</button>\n                                    </td>\n                                    <td width='10%' align='center'>\n                                        <span class='big-text' >Hours</span>\n                                    </td>\n                                </tr>\n                            </table>\n                        </div>\n                        <div class='row vert-pad'>\n                            <div class='col-md-12'>\n                                <div id=\"archiveChart\" width=\"100%\" ></div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n",
-        "output": "str",
-        "x": 920,
-        "y": 480,
-        "wires": [
-            [
-                "c36c6c6b.b95db"
-            ]
-        ]
-    },
-    {
-        "id": "3c6f8ed2.f98512",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "script.archive",
-        "field": "payload.script.archive",
-        "fieldType": "msg",
-        "format": "javascript",
-        "syntax": "mustache",
-        "template": "// Archive JavaScript\n        function getArchive(hours)\n        { \n//            if (hours > 2) messageDialog('Info', 'Wait', 'Getting Archive Data');\n            $('#archive2hrButton').attr(\"disabled\", true); \n            $('#archive4hrButton').attr(\"disabled\", true); \n            $('#archive8hrButton').attr(\"disabled\", true); \n            $('#archive24hrButton').attr(\"disabled\", true); \n            $('#archive72hrButton').attr(\"disabled\", true); \n            $('#archive168hrButton').attr(\"disabled\", true); \n            $('#archive2hrButton').css('color', 'var(--color5)'); \n            $('#archive2hrButton').css('background-color', 'var(--color1)'); \n            $('#archive4hrButton').css('color', 'var(--color5)'); \n            $('#archive4hrButton').css('background-color', 'var(--color1)'); \n            $('#archive8hrButton').css('color', 'var(--color5)'); \n            $('#archive8hrButton').css('background-color', 'var(--color1)'); \n            $('#archive24hrButton').css('color', 'var(--color5)'); \n            $('#archive24hrButton').css('background-color', 'var(--color1)'); \n            $('#archive72hrButton').css('color', 'var(--color5)'); \n            $('#archive72hrButton').css('background-color', 'var(--color1)'); \n            $('#archive168hrButton').css('color', 'var(--color5)'); \n            $('#archive168hrButton').css('background-color', 'var(--color1)'); \n            switch(hours)\n            {\n                case 2:\n                    $('#archive2hrButton').css('color', 'var(--color1)'); \n                    $('#archive2hrButton').css('background-color', 'var(--color5)'); \n                    break;\n                case 4:\n                    $('#archive4hrButton').css('color', 'var(--color1)'); \n                    $('#archive4hrButton').css('background-color', 'var(--color5)'); \n                    break;\n                case 8:\n                    $('#archive8hrButton').css('color', 'var(--color1)'); \n                    $('#archive8hrButton').css('background-color', 'var(--color5)'); \n                    break;\n                case 24:\n                    $('#archive24hrButton').css('color', 'var(--color1)'); \n                    $('#archive24hrButton').css('background-color', 'var(--color5)'); \n                    break;\n                case 72:\n                    $('#archive72hrButton').css('color', 'var(--color1)'); \n                    $('#archive72hrButton').css('background-color', 'var(--color5)'); \n                    break;\n                case 168:\n                    $('#archive168hrButton').css('color', 'var(--color1)'); \n                    $('#archive168hrButton').css('background-color', 'var(--color5)'); \n                    break;\n                default:\n                // code block\n            }\n\n            archiveRequestList = [];\n            archiveList = [];\n            var stopDate = new Date().getTime();\n            var startDate = stopDate - hours * 3600000;\n            archiveRequestList[0] = \n            {\n                deviceType : restfulDevice.deviceType,\n                name : restfulDevice.name, \n                attr : ['pixelMax','pixelMin'],\n                startDate: startDate, \n                stopDate: stopDate,\n            };\n             getArchiveValues();\n        }\n        function getArchiveValues()\n        {\n            sendWebSocketMessageObject(\n                {\n                    topic       : 'getArchive',\n                    userID      : userID,\n                    device      : archiveRequestList[0],\n                 });\n            archiveRequestList.shift();\n            return;\n        }\n        function putArchiveValues(data)\n        {\n            archiveList.push(data);\n            if (archiveRequestList.length > 0)\n            {\n                getArchiveValues();\n            }\n            else\n            {\n                plotArchive();\n            }\n        }\n\n        var plotConfig = \n        {\n            trace1Title : 'Max Temp (C)',\n            trace1Color : '#557a95',\n            trace1GridColor : '#beceda',\n            plotLength  : 600,\n            width   : '',\n            height  :   '500',\n            htmlId  :   'historyStripChart'\n        };\n\n        function plotArchive()\n        {\n//            $( \"#messageDialog\" ).dialog( \"close\" );\n            var layout =\n            {\n                showlegend  : true,\n                legend      : { x: 0, y: 1.15},\n                height      : '500',\n                width       : '',\n                xaxis       :\n                {\n//                    title: 'Hours since ' + new Date(archiveList[0].device.stopDate).toLocaleString(),\n                    type: 'date'\n                },\n                yaxis:\n                {\n                    title           : plotConfig.trace1Title,\n                    titlefont       : {color: plotConfig.trace1Color},\n                    tickfont        : {color:plotConfig.trace1Color},\n                    gridcolor       : plotConfig.trace1GridColor,\n                    zerolinecolor   : plotConfig.trace1GridColor,\n                    linecolor       : plotConfig.trace1GridColor\n\n                },\n                margin: \n                    {\n                        t: 30, //top margin\n    //                    l: 0, //left margin\n    //                    r: 0, //right margin\n    //                    b: 20 //bottom margin\n                    },\n            };\n            this.trace1 = \n            {\n                x: [],\n                y: [],\n                name: 'Max Temp',\n                yaxis: 'y1',\n                type: 'scatter',\n                mode: 'markers',\n                marker: {\n                    color: 'red',\n                    size: 10,\n                    symbol: 'circle'\n                }        \n            };\n            this.trace2 = \n            {\n                x: [],\n                y: [],\n                name: 'Min Temp',\n                yaxis: 'y1',\n                type: 'scatter',\n                mode: 'markers',\n                marker: {\n                    color: 'green',\n                    size: 10,\n                    symbol: 'square'\n                }        \n        \n            };\n            for (var ii = 0; ii < archiveList[0].trace.length; ++ii)\n            {\n//                var x = (archiveList[0].trace[ii].timeStamp - archiveList[0].device.stopDate) / 3600000.0;\n                var x = archiveList[0].trace[ii].timeStamp;\n                trace1.x[ii] = x;\n                trace1.y[ii] = archiveList[0].trace[ii][archiveList[0].device.attr[0]] ;\n                trace2.x[ii] = x;\n                trace2.y[ii] = archiveList[0].trace[ii][archiveList[0].device.attr[1]];\n            }\n\n            var myPlot = document.getElementById('archiveChart');\n\n            Plotly.newPlot('archiveChart', [trace1,trace2], layout);\n\n//            myPlot.on('plotly_click', function(data){console.log(archiveList[0].trace[data.points[0].pointIndex - 1].timeStamp); });\n            myPlot.on('plotly_click', function(data){getImage(archiveList[0].trace[data.points[0].pointIndex].timeStamp); });\n\n            $('#archive2hrButton').attr(\"disabled\", false); \n            $('#archive4hrButton').attr(\"disabled\", false); \n            $('#archive8hrButton').attr(\"disabled\", false); \n            $('#archive24hrButton').attr(\"disabled\", false); \n            $('#archive72hrButton').attr(\"disabled\", false); \n            $('#archive168hrButton').attr(\"disabled\", false); \n        }\n",
-        "output": "str",
-        "x": 600,
-        "y": 480,
-        "wires": [
-            [
-                "879ace8e.3e261"
-            ]
-        ]
-    },
-    {
-        "id": "2cb0a19d.f5382e",
-        "type": "websocket out",
-        "z": "8475ab9.3d26058",
-        "name": "/vad-kul-archive/websocket",
-        "server": "28462261.44a97e",
-        "client": "",
-        "x": 1120,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "450bb04d.9daf9",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "html.imageList",
-        "field": "payload.html.imageList",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "<!-- Dashboard HTML -->\n                <div class='card'>\n                    <table class='card-title' width='100%'>\n                        <tr>\n                            <td width='20%' >\n                            </td>\n                            <td width='60%' align='center'>\n                                <span >Image List</span>\n                            </td>\n                            <td width='20%'>\n                                <button class='btn btn-block card-button' style='font-size: 50%;' id='showNewSearchButton' onclick=\"showNewSearch()\" >New Search</button>\n                            </td>\n                        </tr>\n                    </table>\n                    <div class='card-body' align=\"center\">\n                        <div class='row' style='padding-bottom: 25px;'>\n                            <div class=\"container-fluid \" align=\"center\">\n                                <table width='80%' id='imageListTable'>\n                                 </table>\n                            </div>\n                        </div>\n                   </div>\n                </div>\n",
-        "output": "str",
-        "x": 610,
-        "y": 620,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "1ee2004b.f404f",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "html.newSearch",
-        "field": "payload.html.newSearch",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "<!-- searchImage HTML -->\n                <div class='card'>\n                    <table class='card-title' width='100%'>\n                        <tr>\n                            <td width='20%' >\n                                <button class='btn btn-block card-button' style='font-size: 50%;' id='closeNewSearchButton' onclick=\"closeNewSearch()\" >Close</button>\n                            </td>\n                            <td width='60%' align='center'>\n                                <span >New Search</span>\n                            </td>\n                            <td width='20%'>\n                                <button class='btn btn-block card-button' style='font-size: 50%;' id='searchButton' onclick=\"search()\" >Search</button>\n                            </td>\n                        </tr>\n                    </table>\n                    <div class='card-body' align=\"center\">\n                        <div class='row' style='padding-bottom: 25px;' >\n                            <style type=\"text/css\" scoped>\n                                div.ui-datepicker\n                                {\n                                    font-size:40px;\n                                }                            \n                            </style>\n                            <table width='100%'>\n                                <tr>\n                                    <td width=50% align=\"center\" class=\"tableHeading  big-text\">Start</td>\n                                    <td width=50% align=\"center\" class=\"tableHeading  big-text\">Stop</td>\n                                </tr>\n                                <tr>\n                                    <td align=\"center\">\n                                        <input class=\"form-control big-text\" id=\"startSearchDate\" type=\"text\"/>\n                                    </td>\n                                    <td align=\"center\">\n                                        <input class=\"form-control big-text\" id=\"stopSearchDate\" type=\"text\"/>\n                                    </td>\n                                </tr>\n                            </table>\n                        </div>\n                    </div>\n                </div>\n    ",
-        "output": "str",
-        "x": 610,
-        "y": 660,
-        "wires": [
-            []
         ]
     },
     {
@@ -5855,5 +5326,341 @@
         "x": 600,
         "y": 120,
         "wires": []
+    },
+    {
+        "id": "242737b6.141448",
+        "type": "http in",
+        "z": "9c854ea3.68416",
+        "name": "/vad-kul-archive",
+        "url": "/vad-kul-archive",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 640,
+        "wires": [
+            [
+                "a0b6b18e.c3f26"
+            ]
+        ]
+    },
+    {
+        "id": "43a3e163.d3c4b",
+        "type": "template",
+        "z": "9c854ea3.68416",
+        "name": "Title",
+        "field": "payload.title",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Vad Kul Archive",
+        "output": "str",
+        "x": 350,
+        "y": 680,
+        "wires": [
+            [
+                "c477444f.0052b8"
+            ]
+        ]
+    },
+    {
+        "id": "a0b6b18e.c3f26",
+        "type": "function",
+        "z": "9c854ea3.68416",
+        "name": "Get Name",
+        "func": "var deviceType = 'vad-kul';\nvar mode = msg.payload.mode;\nmsg.payload = {};\nmsg.payload['script'] = {};\nmsg.payload['script']['deviceType'] = 'vad-kul';\nmsg.payload['script']['mode'] = mode;\nmsg.payload['script']['project'] = global.get('projectName');\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 370,
+        "y": 640,
+        "wires": [
+            [
+                "43a3e163.d3c4b"
+            ]
+        ]
+    },
+    {
+        "id": "c477444f.0052b8",
+        "type": "template",
+        "z": "9c854ea3.68416",
+        "name": "navBarIcon",
+        "field": "payload.navBarIcon",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "discoYellow.png",
+        "output": "str",
+        "x": 370,
+        "y": 720,
+        "wires": [
+            [
+                "6a03ac5.bd5a654"
+            ]
+        ]
+    },
+    {
+        "id": "6a03ac5.bd5a654",
+        "type": "template",
+        "z": "9c854ea3.68416",
+        "name": "script.global",
+        "field": "payload.script.global",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "// Global Javascript\n        var mode       = '{{{payload.script.mode}}}';\n        var project    = '{{{payload.script.project}}}';\n        var deviceType = '{{{payload.script.deviceType}}}';\n        var deviceNames  = ['01', '02', '03', '04'];\n        var deviceColors = ['red', 'blue', 'green', 'magenta'];\n        var deviceShapes = ['circle', 'square', 'triangle', 'diamond'];\n        var colorScale = true;\n        var enhancementLevel = 0;\n        var pgm = null;\n        var lastArchiveDate = 0;\n        var programStarted = false;\n \n        var archiveRequestList = [];\n        var archiveList = [];\n\n        useWebSockets(true);\n        function onDocumentReady()\n        {\n            $('#imageView').hide();\n        }\n        function onWebSocketOpen()\n        {\n            if (!programStarted)\n            {\n                programStarted = true;\n                getArchive(168);\n            }\n        }\n        function onWebSocketClose()\n        {\n            \n        }\n        function onWebSocketMessage(msg)\n        {\n            switch(msg.topic)\n            {\n                case 'image' :\n                    if (msg.userID == userID)\n                    {\n                        $('#imageView').show();\n                        $('#snapshotTimeStamp').text(new Date(msg.payload.timeStamp).toLocaleString('en-SE', { timeZone: 'Europe/Stockholm' }).replace(',', ''));\n                        pgm = JSON.parse(JSON.stringify(msg.payload.imageData));\n                        plotImage();\n                    }\n                    break;\n                case 'getArchiveValues':\n                    if (msg.userID == userID)\n                    {\n                        if (msg.payload.device.deviceType == deviceType )\n                            putArchiveValues(msg.payload);\n                    }\n                    break;\n                case 'getJwtToken':\n                    if (msg.userID == userID) loadJwtToken(msg);\n                    break;\n                default:\n                // code block\n            }\n        }\n        function getImage(timeStamp, name)\n        {\n            var queryMsg = \n            {\n                topic : 'getImage', \n                userID : userID, \n                'restfulDevice': \n                {\n                    deviceType  : deviceType,\n                    name        : name,\n                    project     : project\n                },\n                'timeStamp' : timeStamp,\n            };\n            sendWebSocketMessageObject(queryMsg);\n        }\n        function plotImage()\n        {\n            var rgb = [];\n            var plow = (pgm.minval - 27315) / 100;\n            var phigh = (pgm.maxval - 27315) / 100;\n            for (var ibox = 0; ibox < 9; ++ibox)\n            {\n                var intensity = ibox / 8.0;\n                var pbox = Math.round(((phigh - plow) * intensity + plow) * 10.0) / 10.0;\n                $('#box' + (ibox + 1).toString() + 'Label').text(pbox.toString());\n                if (enhancementLevel == -2) intensity = Math.pow(intensity, 1/3.0);\n                if (enhancementLevel == -1) intensity = Math.pow(intensity, 1/2.0);\n                if (enhancementLevel ==  0) intensity = Math.pow(intensity, 1);\n                if (enhancementLevel ==  1) intensity = Math.pow(intensity, 2.0);\n                if (enhancementLevel ==  2) intensity = Math.pow(intensity, 3.0);\n                if (colorScale)\n                {\n                    rgb = getRGB(intensity);\n                }\n                else\n                {\n                    rgb[0] = Math.floor(255 * intensity);\n                    rgb[1] = Math.floor(255 * intensity);\n                    rgb[2] = Math.floor(255 * intensity);\n                }\n                var style='width:88px;height:50px;background-color:' + 'rgb(' + rgb[0].toString() + ', ' + rgb[1].toString() + ', ' + rgb[2].toString() + ')';\n                $('#box' + (ibox + 1).toString()).attr('style',style);\n            }\n            var canvas = document.getElementById(\"flirCanvas\");\n            var canvasContext = canvas.getContext(\"2d\");\n            var canvasWidth  = Number($('#flirCanvas').attr('width'));\n            var canvasHeight = Number($('#flirCanvas').attr('height'));\n            var rectWidth  = canvasWidth  / pgm.ncols;\n            var rectHeight = canvasHeight / pgm.nrows;\n            for (var irow = 0; irow < pgm.nrows; ++irow)\n            {\n                for (var icol = 0; icol < pgm.ncols; ++icol)\n                {\n                    var intensity = pgm.imageArray[irow][icol] / 256.0;\n                    if (enhancementLevel == -2) intensity = Math.pow(intensity, 1/3.0);\n                    if (enhancementLevel == -1) intensity = Math.pow(intensity, 1/2.0);\n                    if (enhancementLevel ==  0) intensity = Math.pow(intensity, 1);\n                    if (enhancementLevel ==  1) intensity = Math.pow(intensity, 2.0);\n                    if (enhancementLevel ==  2) intensity = Math.pow(intensity, 3.0);\n                    if (colorScale)\n                    {\n                        rgb = getRGB(intensity);\n                        rgb[0] = Math.floor(rgb[0]);\n                        rgb[1] = Math.floor(rgb[1]);\n                        rgb[2] = Math.floor(rgb[2]);\n                    }\n                    else\n                    {\n                        rgb[0] = Math.floor(255 * intensity);\n                        rgb[1] = Math.floor(255 * intensity);\n                        rgb[2] = Math.floor(255 * intensity);\n                    }\n                    canvasContext.fillStyle = 'rgb(' + rgb[0].toString() + ', ' + rgb[1].toString() + ', ' + rgb[2].toString() + ')';\n                    canvasContext.fillRect(icol * rectWidth, canvasHeight - rectHeight - irow * rectHeight, rectWidth, rectHeight);\n                }    \n            }\n        }\n        function getRGB(intensity)\n        {\n          var rgb = [0,0,0];\n          if ( (0 <= intensity) && (intensity <= 0.25) )\n          {\n            rgb[0] = 0;\n            rgb[1] = Math.floor(255 * intensity * 4);    \n            rgb[2] = 255;\n          }\n          if ( (0.25 < intensity) && (intensity <= 0.50) )\n          {\n            rgb[0] = 0;\n            rgb[1] = 255;    \n            rgb[2] = Math.floor(255 * (0.50 - intensity) * 4);\n          }\n          if ( (0.50 < intensity) && (intensity <= 0.75) )\n          {\n            rgb[0] = Math.floor(255 * (intensity - 0.50) * 4);\n            rgb[1] = 255;    \n            rgb[2] = 0;\n          }\n          if ( (0.75 < intensity) && (intensity <= 1.0) )\n          {\n            rgb[0] = 255;\n            rgb[1] = Math.floor(255 * (1.0 - intensity) * 4);    \n            rgb[2] = 0;\n          }\n          return rgb;\n        }\n        function toggleColorScale()\n        {\n            colorScale = !colorScale;\n            if (colorScale)\n            {\n                $('#colorScaleButton').text('Color');\n            }\n            else\n            {\n                $('#colorScaleButton').text('Gray');\n            }\n            plotImage();\n        }\n        function toggleEnhancedScale(deltaEnhanced)\n        {\n            enhancementLevel = enhancementLevel + deltaEnhanced;\n            if (enhancementLevel >  2) enhancementLevel = 2;\n            if (enhancementLevel < -2) enhancementLevel = -2;\n            $('#enhancementLevel').text(enhancementLevel.toString());\n            plotImage();\n        }\n        function clearImage()\n        {\n            var canvas = document.getElementById(\"flirCanvas\");\n            var canvasContext = canvas.getContext(\"2d\");\n            var canvasWidth  = Number($('#flirCanvas').attr('width'));\n            var canvasHeight = Number($('#flirCanvas').attr('height'));\n            canvasContext.clearRect(0, 0, canvasWidth, canvasHeight);        \n            $('#snapshotTimeStamp').text('-');\n            for (var ibox = 0; ibox < 9; ++ibox)\n            {\n                var intensity = ibox / 8.0;\n                var pbox = 0.0;\n                $('#box' + (ibox + 1).toString() + 'Label').text(pbox.toString());\n            } \n        }\n",
+        "output": "str",
+        "x": 600,
+        "y": 640,
+        "wires": [
+            [
+                "2f9fb617.e783fa"
+            ]
+        ]
+    },
+    {
+        "id": "b0d978e4.6bf488",
+        "type": "template",
+        "z": "9c854ea3.68416",
+        "name": "javascript",
+        "field": "payload.javascript",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "{{{payload.script.global}}}\n{{{payload.script.archive}}}",
+        "output": "str",
+        "x": 590,
+        "y": 720,
+        "wires": [
+            [
+                "9eddb755.220d98"
+            ]
+        ]
+    },
+    {
+        "id": "8464a064.b70e",
+        "type": "template",
+        "z": "9c854ea3.68416",
+        "name": "body",
+        "field": "payload.body",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "    <div width=\"100%\">\n        <div class='row' style='padding-bottom: 25px;'>\n            <div class='col-md-12' align='center'>\n{{{payload.html.archive}}}\n            </div>\n        </div>\n        <div class='row' style='padding-bottom: 25px;'>\n            <div class='col-md-12' align='center'>\n{{{payload.html.imageView}}}\n            </div>\n        </div>\n    </div>",
+        "output": "str",
+        "x": 900,
+        "y": 720,
+        "wires": [
+            [
+                "4d8f32af.1ec28c"
+            ]
+        ]
+    },
+    {
+        "id": "9eddb755.220d98",
+        "type": "template",
+        "z": "9c854ea3.68416",
+        "name": "html.imageView",
+        "field": "payload.html.imageView",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<!-- imageView HTML -->\n                <div class='card' id='imageView'>\n                    <p class='card-title'>Image View</p>\n                    <div class='card-body' align=\"center\">\n                        <div class='row' style='padding-bottom: 25px;'>\n                            <div class=\"container-fluid \" align=\"center\">\n                                <table width='800px'>\n                                    <tr>\n                                        <td>\n                                            <canvas id=\"flirCanvas\" width=\"800\" height=\"600\" style=\"border:1px solid #000000;\" ></canvas>\n                                        </td>\n                                    </tr>\n                                </table>\n                            </div>\n                            <div class=\"container-fluid \" align=\"center\" style='padding-top: 0px;'>\n                                <table  width='792'>\n                                    <tr>\n                                        <td width=\"88px\">\n                                            <div id='box1' style=\"width:88px;height:50px;background-color:#0000ff\"></div>\n                                        </td>\n                                        <td width=\"88px\">\n                                            <div id='box2' style=\"width:88px;height:50px;background-color:#0088ff\"></div>\n                                        </td>\n                                        <td width=\"88px\">\n                                            <div id='box3' style=\"width:88px;height:50px;background-color:#00ffff\"></div>\n                                        </td>\n                                        <td width=\"88px\">\n                                            <div id='box4' style=\"width:88px;height:50px;background-color:#00ff88\"></div>\n                                        </td>\n                                        <td width=\"88px\">\n                                            <div id='box5' style=\"width:88px;height:50px;background-color:#00ff00\"></div>\n                                        </td>\n                                        <td width=\"88px\">\n                                            <div id='box6' style=\"width:88px;height:50px;background-color:#88ff00\"></div>\n                                        </td>\n                                        <td width=\"88px\">\n                                            <div id='box7' style=\"width:88px;height:50px;background-color:#ffff00\"></div>\n                                        </td>\n                                        <td width=\"88px\">\n                                            <div id='box8' style=\"width:88px;height:50px;background-color:#ff8800\"></div>\n                                        </td>\n                                        <td width=\"88px\">\n                                            <div id='box9' style=\"width:88px;height:50px;background-color:#ff0000\"></div>\n                                        </td>\n                                    </tr>\n                                    <tr>\n                                        <td align='center' width=\"88px\">\n                                            <span style='font-size: 200%;' id='box1Label'>1</span>\n                                        </td>\n                                        <td align='center' width=\"88px\">\n                                            <span style='font-size: 200%;' id='box2Label'>2</span>\n                                        </td>\n                                        <td align='center' width=\"88px\">\n                                            <span style='font-size: 200%;' id='box3Label'>3</span>\n                                        </td>\n                                        <td align='center' width=\"88px\">\n                                            <span style='font-size: 200%;' id='box4Label'>4</span>\n                                        </td>\n                                        <td align='center' width=\"88px\">\n                                            <span style='font-size: 200%;' id='box5Label'>5</span>\n                                        </td>\n                                        <td align='center' width=\"88px\">\n                                            <span style='font-size: 200%;' id='box6Label'>6</span>\n                                        </td>\n                                        <td align='center' width=\"88px\">\n                                            <span style='font-size: 200%;' id='box7Label'>7</span>\n                                        </td>\n                                        <td align='center' width=\"88px\">\n                                            <span style='font-size: 200%;' id='box8Label'>8</span>\n                                        </td>\n                                        <td align='center' width=\"88px\">\n                                            <span style='font-size: 200%;' id='box9Label'>9</span>\n                                        </td>\n                                    </tr>\n                                </table>\n                                <table width='800px'>\n                                    <tr>\n                                        <td width='100%' align='center'>\n                                            <span  class='card-text' id='snapshotTimeStamp'></span>\n                                        </td>\n                                    </tr>\n                                </table>\n                                <div class='row' style='padding-bottom: 15px;'>\n                                    <div class=\"container-fluid \" align=\"center\">\n                                        <table  width='100%'>\n                                            <tr>\n                                                <td width=\"60%\" align='left'>\n                                                    <span  class='card-text'>Color Mode</span>\n                                                </td>\n                                                <td width=\"40%\">\n                                                    <button class='btn btn-block card-button big-text' id=\"colorScaleButton\" onclick=\"toggleColorScale()\" >Color</button>\n                                                </td>\n                                            </tr>\n                                        </table>\n                                    </div>\n                                </div>\n                                <div class='row' style='padding-bottom: 15px;'>\n                                    <div class=\"container-fluid \" align=\"center\">\n                                        <table  width='100%'>\n                                            <tr>\n                                                <td width=\"60%\" align='left'>\n                                                    <span  class='card-text'>Enhancement Level</span>\n                                                </td>\n                                                <td width=\"14%\" >\n                                                    <button class='btn btn-block card-button big-text' onclick=\"toggleEnhancedScale(-1)\">-</button>\n                                                </td>\n                                                <td width=\"12%px\" align='center'>\n                                                    <span  class='card-text' id=\"enhancementLevel\" >0</span>\n                                                </td>\n                                                <td width=\"14%\">\n                                                    <button class='btn btn-block card-button big-text' onclick=\"toggleEnhancedScale(1)\">+</button>\n                                                </td>\n                                            </tr>\n                                        </table>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                   </div>\n                </div>\n",
+        "output": "str",
+        "x": 930,
+        "y": 640,
+        "wires": [
+            [
+                "699b0776.2a3b58"
+            ]
+        ]
+    },
+    {
+        "id": "4d8f32af.1ec28c",
+        "type": "subflow:8341090a.df9758",
+        "z": "9c854ea3.68416",
+        "name": "",
+        "x": 1250,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "699b0776.2a3b58",
+        "type": "template",
+        "z": "9c854ea3.68416",
+        "name": "html.archive",
+        "field": "payload.html.archive",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<!-- Archive HTML -->\n                <div class='card'>\n                    <p class='card-title'>Archive</p>\n                    <div class='card-body' align=\"center\">\n                        <div class='row' >\n                            <table width='100%'>\n                                <tr>\n                                    <td width='10%' align='center'>\n                                        <button class='btn btn-block big-text' style='background-color:var(--color1);color:var(--color5)' id=\"archiveButton1\" onclick=\"getArchive(1)\" >1</button>\n                                    </td>\n                                    <td width='10%'  align='center'>\n                                        <button class='btn btn-block big-text' style='background-color:var(--color1);color:var(--color5)' id=\"archiveButton2\" onclick=\"getArchive(2)\" >2</button>\n                                    </td>\n                                    <td width='10%'  align='center'>\n                                        <button class='btn btn-block big-text' style='background-color:var(--color1);color:var(--color5)' id=\"archiveButton3\" onclick=\"getArchive(4)\" >4</button>\n                                    </td>\n                                    <td width='10%'  align='center'>\n                                        <button class='btn btn-block big-text' style='background-color:var(--color1);color:var(--color5)' id=\"archiveButton4\" onclick=\"getArchive(8)\" >8</button>\n                                    </td>\n                                    <td width='10%' align='center'>\n                                        <button class='btn btn-block big-text' style='background-color:var(--color1);color:var(--color5)' id=\"archiveButton5\" onclick=\"getArchive(16)\" >16</button>\n                                    </td>\n                                    <td width='10%' align='center'>\n                                        <button class='btn btn-block big-text' style='background-color:var(--color1);color:var(--color5)' id=\"archiveButton6\" onclick=\"getArchive(32)\" >32</button>\n                                    </td>\n                                    <td width='10%' align='center'>\n                                        <span class='big-text' >Days</span>\n                                    </td>\n                                </tr>\n                            </table>\n                        </div>\n                        <div class='row vert-pad'>\n                            <div class='col-md-12'>\n                                <div id=\"archiveChart\" width=\"100%\" ></div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n",
+        "output": "str",
+        "x": 920,
+        "y": 680,
+        "wires": [
+            [
+                "8464a064.b70e"
+            ]
+        ]
+    },
+    {
+        "id": "2f9fb617.e783fa",
+        "type": "template",
+        "z": "9c854ea3.68416",
+        "name": "script.archive",
+        "field": "payload.script.archive",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "// Archive JavaScript\n        function getArchive(days)\n        { \n            $('#imageView').hide();\n            $('#archiveButton1').attr(\"disabled\", true); \n            $('#archiveButton2').attr(\"disabled\", true); \n            $('#archiveButton3').attr(\"disabled\", true); \n            $('#archiveButton4').attr(\"disabled\", true); \n            $('#archiveButton5').attr(\"disabled\", true); \n            $('#archiveButton6').attr(\"disabled\", true); \n            $('#archiveButton1').css('color', 'var(--color5)'); \n            $('#archiveButton1').css('background-color', 'var(--color1)'); \n            $('#archiveButton2').css('color', 'var(--color5)'); \n            $('#archiveButton2').css('background-color', 'var(--color1)'); \n            $('#archiveButton3').css('color', 'var(--color5)'); \n            $('#archiveButton3').css('background-color', 'var(--color1)'); \n            $('#archiveButton4').css('color', 'var(--color5)'); \n            $('#archiveButton4').css('background-color', 'var(--color1)'); \n            $('#archiveButton5').css('color', 'var(--color5)'); \n            $('#archiveButton5').css('background-color', 'var(--color1)'); \n            $('#archiveButton6').css('color', 'var(--color5)'); \n            $('#archiveButton6').css('background-color', 'var(--color1)'); \n            switch(days)\n            {\n                case 1:\n                    $('#archiveButton1').css('color', 'var(--color1)'); \n                    $('#archiveButton1').css('background-color', 'var(--color5)'); \n                    break;\n                case 2:\n                    $('#archiveButton2').css('color', 'var(--color1)'); \n                    $('#archiveButton2').css('background-color', 'var(--color5)'); \n                    break;\n                case 4:\n                    $('#archiveButton3').css('color', 'var(--color1)'); \n                    $('#archiveButton3').css('background-color', 'var(--color5)'); \n                    break;\n                case 8:\n                    $('#archiveButton4').css('color', 'var(--color1)'); \n                    $('#archiveButton4').css('background-color', 'var(--color5)'); \n                    break;\n                case 16:\n                    $('#archiveButton5').css('color', 'var(--color1)'); \n                    $('#archiveButton5').css('background-color', 'var(--color5)'); \n                    break;\n                case 32:\n                    $('#archiveButton6').css('color', 'var(--color1)'); \n                    $('#archiveButton6').css('background-color', 'var(--color5)'); \n                    break;\n                default:\n                // code block\n            }\n\n            archiveRequestList = [];\n            archiveList = [];\n            var stopDate = new Date().getTime();\n            var startDate = stopDate - days * 24 * 3600000;\n            for (var idevice = 0; idevice < deviceNames.length; ++idevice)\n            {\n                archiveRequestList[idevice] = \n                {\n                    deviceType : deviceType,\n                    name : deviceNames[idevice], \n                    attr : ['pixelMax'],\n                    startDate: startDate, \n                    stopDate: stopDate,\n                };\n            }\n            getArchiveValues();\n        }\n        function getArchiveValues()\n        {\n            sendWebSocketMessageObject(\n                {\n                    topic       : 'getArchive',\n                    userID      : userID,\n                    device      : archiveRequestList[0],\n                 });\n            archiveRequestList.shift();\n            return;\n        }\n        function putArchiveValues(data)\n        {\n            archiveList.push(data);\n            if (archiveRequestList.length > 0)\n            {\n                getArchiveValues();\n            }\n            else\n            {\n                plotArchive();\n            }\n        }\n\n        var plotConfig = \n        {\n            trace1Title : 'Temperature (C)',\n            trace1Color : '#557a95',\n            trace1GridColor : '#beceda',\n            plotLength  : 600,\n            width   : '',\n            height  :   '500',\n            htmlId  :   'historyStripChart'\n        };\n\n        function plotArchive()\n        {\n//            $( \"#messageDialog\" ).dialog( \"close\" );\n            var layout =\n            {\n                showlegend  : true,\n                legend      : { x: 0, y: 1.15},\n                height      : '500',\n                width       : '',\n                xaxis       :\n                {\n//                    title: 'Hours since ' + new Date(archiveList[0].device.stopDate).toLocaleString(),\n                    type: 'date'\n                },\n                yaxis:\n                {\n                    title           : plotConfig.trace1Title,\n                    titlefont       : {color: plotConfig.trace1Color},\n                    tickfont        : {color:plotConfig.trace1Color},\n                    gridcolor       : plotConfig.trace1GridColor,\n                    zerolinecolor   : plotConfig.trace1GridColor,\n                    linecolor       : plotConfig.trace1GridColor\n\n                },\n                margin: \n                    {\n                        t: 70, //top margin\n    //                    l: 0, //left margin\n    //                    r: 0, //right margin\n    //                    b: 20 //bottom margin\n                    },\n            };\n            var traces = [];\n            for (var itrace = 0; itrace < archiveList.length; ++itrace)\n            {\n                traces[itrace] =\n                {\n                    x: [],\n                    y: [],\n                    name: deviceNames[itrace],\n                    yaxis: 'y1',\n                    type: 'scatter',\n                    mode: 'markers',\n                    marker: {\n                        color: deviceColors[itrace],\n                        size: 10,\n                        symbol: deviceShapes[itrace]\n                    }        \n                };\n                if (archiveList[itrace].trace != null)\n                {\n                    for (var ii = 0; ii < archiveList[itrace].trace.length; ++ii)\n                    {\n                        traces[itrace].x[ii] = archiveList[itrace].trace[ii].timeStamp;;\n                        traces[itrace].y[ii] = archiveList[itrace].trace[ii][archiveList[itrace].device.attr[0]] ;\n                    }\n                }\n            }\n\n            var myPlot = document.getElementById('archiveChart');\n\n            Plotly.newPlot('archiveChart', traces, layout);\n\n//            myPlot.on('plotly_click', function(data){console.log(data.points[0].curveNumber); });\n            if (mode == 'expert')\n            {\n                myPlot.on('plotly_click', function(data){getImage(archiveList[data.points[0].curveNumber].trace[data.points[0].pointIndex].timeStamp, deviceNames[data.points[0].curveNumber]); });\n            }\n\n            $('#archiveButton1').attr(\"disabled\", false); \n            $('#archiveButton2').attr(\"disabled\", false); \n            $('#archiveButton3').attr(\"disabled\", false); \n            $('#archiveButton4').attr(\"disabled\", false); \n            $('#archiveButton5').attr(\"disabled\", false); \n            $('#archiveButton6').attr(\"disabled\", false); \n        }\n",
+        "output": "str",
+        "x": 600,
+        "y": 680,
+        "wires": [
+            [
+                "b0d978e4.6bf488"
+            ]
+        ]
+    },
+    {
+        "id": "e8d9edd7.6f769",
+        "type": "websocket out",
+        "z": "8475ab9.3d26058",
+        "name": "/vad-kul-global-archive/websocket",
+        "server": "e154ab6.e010658",
+        "client": "",
+        "x": 1240,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "350f2ab6.194ae6",
+        "type": "websocket out",
+        "z": "8475ab9.3d26058",
+        "name": "/vad-kul-archive/websocket",
+        "server": "e154ab6.e010658",
+        "client": "",
+        "x": 1260,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "16e5839b.629abc",
+        "type": "websocket in",
+        "z": "8475ab9.3d26058",
+        "name": "/vad-kul-archive/websocket",
+        "server": "e154ab6.e010658",
+        "client": "",
+        "x": 190,
+        "y": 1040,
+        "wires": [
+            [
+                "7475027d.6c11fc",
+                "45a7d04b.f97db"
+            ]
+        ]
+    },
+    {
+        "id": "b16afde7.508fa",
+        "type": "http in",
+        "z": "a858ad3a.95706",
+        "name": "/sensors",
+        "url": "/sensors",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 100,
+        "wires": [
+            [
+                "f04f7a94.2eec78"
+            ]
+        ]
+    },
+    {
+        "id": "eb2a884d.a32b38",
+        "type": "template",
+        "z": "a858ad3a.95706",
+        "name": "Body",
+        "field": "payload.body",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<!-- Body HTML -->\n    <div class='container' width=\"100%\">\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul?name=01\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul 01</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul?name=02\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul 02</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul?name=03\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul 03</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul?name=04\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul 04</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/core\" id=\"blinky-lite-core\">\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/coreYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Core Apps</td>\n                        </tr>\n                    </table>\n                </a> \n            </div>\n        </div>\n         <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <iframe src=\"https://shiftr.io/Blinky-Lite/vad-kul/embed?zoom=1\" width=\"700\" height=\"500\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>\n                <p>Vad-Kul MQTT Broker</p>\n            </div>\n        </div>\n    </div>",
+        "output": "str",
+        "x": 770,
+        "y": 100,
+        "wires": [
+            [
+                "2a628b17.64c3e4"
+            ]
+        ]
+    },
+    {
+        "id": "516a3217.036b0c",
+        "type": "template",
+        "z": "a858ad3a.95706",
+        "name": "Title",
+        "field": "payload.title",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Vad Kul",
+        "output": "str",
+        "x": 490,
+        "y": 100,
+        "wires": [
+            [
+                "9c23e48c.80cc38"
+            ]
+        ]
+    },
+    {
+        "id": "f04f7a94.2eec78",
+        "type": "template",
+        "z": "a858ad3a.95706",
+        "name": "JavaScript",
+        "field": "payload.javascript",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "        useWebSockets(false);\n        function onDocumentReady()\n        {\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            \n        }\n        function onWebSocketMessage(msg)\n        {\n        }\n\n",
+        "output": "str",
+        "x": 350,
+        "y": 100,
+        "wires": [
+            [
+                "516a3217.036b0c"
+            ]
+        ]
+    },
+    {
+        "id": "2a628b17.64c3e4",
+        "type": "subflow:8341090a.df9758",
+        "z": "a858ad3a.95706",
+        "name": "",
+        "x": 940,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "9c23e48c.80cc38",
+        "type": "template",
+        "z": "a858ad3a.95706",
+        "name": "navBarIcon",
+        "field": "payload.navBarIcon",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "discoYellow.png",
+        "output": "str",
+        "x": 630,
+        "y": 100,
+        "wires": [
+            [
+                "eb2a884d.a32b38"
+            ]
+        ]
     }
 ]
