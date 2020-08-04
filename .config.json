@@ -743,33 +743,6 @@
     }
    }
   },
-  "node-red-contrib-users": {
-   "name": "node-red-contrib-users",
-   "version": "0.1.9",
-   "local": true,
-   "nodes": {
-    "users_config": {
-     "name": "users_config",
-     "types": [
-      "users_config"
-     ],
-     "enabled": true,
-     "local": true,
-     "module": "node-red-contrib-users",
-     "file": "/home/dmcginnis427/Dropbox/gitRepositories/vad-kul-box/node_modules/node-red-contrib-users/nodes/users_config.js"
-    },
-    "users_isloggedin": {
-     "name": "users_isloggedin",
-     "types": [
-      "users_isloggedin"
-     ],
-     "enabled": true,
-     "local": true,
-     "module": "node-red-contrib-users",
-     "file": "/home/dmcginnis427/Dropbox/gitRepositories/vad-kul-box/node_modules/node-red-contrib-users/nodes/users_isloggedin.js"
-    }
-   }
-  },
   "node-red-contrib-bcrypt": {
    "name": "node-red-contrib-bcrypt",
    "version": "0.0.49",

@@ -614,13 +614,6 @@
         "wholemsg": "false"
     },
     {
-        "id": "3e221845.cc5ef8",
-        "type": "users_config",
-        "appPath": "/users",
-        "jwtCookieName": "nr.nodeUsers.jwt",
-        "jwtHttpsOnly": false
-    },
-    {
         "id": "e154ab6.e010658",
         "type": "websocket-listener",
         "z": "",
