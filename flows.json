@@ -4825,7 +4825,7 @@
         "type": "function",
         "z": "e17f7487.2a78e8",
         "name": "Find Device Type",
-        "func": "var queryFilter = \n{\n    $and :\n    [\n        {\n            \"deviceType\": \"vad-kul\"\n        },\n        {\n            \"name\": \"01\"\n        },\n        {\n            \"timeStamp\" : 1595513484397\n        }\n    ] \n    \n}\nvar newMsg = \n{\n    topic           : 'getArchiveValues',\n    payload         : queryFilter,\n};\nreturn newMsg",
+        "func": "var queryFilter = \n{\n    $and :\n    [\n        {\n            \"deviceType\": \"vad-kul\"\n        },\n        {\n            \"name\": \"14\"\n        }\n    ] \n    \n}\nvar newMsg = \n{\n    topic           : 'getArchiveValues',\n    payload         : queryFilter,\n};\nreturn newMsg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4833,7 +4833,9 @@
         "x": 290,
         "y": 640,
         "wires": [
-            []
+            [
+                "cf34c25.b29984"
+            ]
         ]
     },
     {
@@ -4863,7 +4865,7 @@
         "collection": "archiver",
         "operation": "find.toArray",
         "x": 530,
-        "y": 640,
+        "y": 600,
         "wires": [
             [
                 "4dd34a88.974344"
