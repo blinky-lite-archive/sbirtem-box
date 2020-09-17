@@ -4825,7 +4825,7 @@
         "type": "function",
         "z": "e17f7487.2a78e8",
         "name": "Find Device Type",
-        "func": "var queryFilter = \n{\n    $and :\n    [\n        {\n            \"deviceType\": \"vad-kul\"\n        },\n        {\n            \"name\": \"13\"\n        }\n    ] \n    \n}\nvar newMsg = \n{\n    topic           : 'getArchiveValues',\n    payload         : queryFilter,\n};\nreturn newMsg",
+        "func": "var queryFilter = \n{\n    $and :\n    [\n        {\n            \"deviceType\": \"vad-kul\"\n        },\n        {\n            \"name\": \"14\"\n        }\n    ] \n    \n}\nvar newMsg = \n{\n    topic           : 'getArchiveValues',\n    payload         : queryFilter,\n};\nreturn newMsg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
