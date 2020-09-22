@@ -1569,6 +1569,8 @@
         "func": "function objectLength( object ) {\n    var length = 0;\n    for( var key in object ) {\n        if( object.hasOwnProperty(key) ) {\n            ++length;\n        }\n    }\n    return length;\n}\nvar oldAlarmList = context.get('oldAlarmList')\nif (oldAlarmList == undefined) oldAlarmList = [];\nvar numDevices = objectLength(msg.payload);\nvar props = ['readings', 'settings'];\nvar alarmList = [];\nvar alarmCount = 0;\nfor (var idev = 0; idev < numDevices; ++idev)\n{\n    var device = msg.payload[idev];\n    var keys = Object.keys(device);\n    for (var ii = 0; ii < keys.length; ++ii)\n    {\n        if (device[keys[ii]].hasOwnProperty('type'))\n        {\n            if (device[keys[ii]].type == 'scalar')\n            {\n                if (device[keys[ii]].alarm.value > 0)\n                {\n                    alarmList[alarmCount] = \n                    {\n                        deviceType: device.deviceType,\n                        name  : device.name,\n                        prop  : device[keys[ii]].action,\n                        attr  : keys[ii],\n                        value : device[keys[ii]].value,\n                        unit  : device[keys[ii]].unit,\n                        alarm : device[keys[ii]].alarm.value,\n                        id    : device.deviceType + '-' +  device.name + '-' +  device[keys[ii]].action + '-' + keys[ii],\n                        notify: device[keys[ii]].alarm.notify\n                    };\n                    ++alarmCount;\n                }\n            }\n        }\n    }\n}\n\nvar newAlarmList = [];\nvar newAlarmCount = 0;\nfor (var ialarm = 0; ialarm < alarmCount; ++ialarm)\n{\n    var oldAlarm = oldAlarmList.find(oldAlarm => oldAlarm.id === alarmList[ialarm].id);\n    if (oldAlarm == undefined) \n    {\n        newAlarmList[newAlarmCount] = alarmList[ialarm];\n        ++newAlarmCount;\n    }\n}\ncontext.set('oldAlarmList', alarmList);\nreturn [{topic:'alarmList', payload:{topic:'alarmList',payload:alarmList}},{topic:'newAlarmList', payload:newAlarmList}];",
         "outputs": 2,
         "noerr": 0,
+        "initialize": "",
+        "finalize": "",
         "x": 600,
         "y": 740,
         "wires": [
@@ -1589,7 +1591,7 @@
         "fr": "{{msg.from}}",
         "text": "{{msg.payload}}",
         "unicode": false,
-        "x": 1250,
+        "x": 1310,
         "y": 800,
         "wires": [
             [
@@ -1608,7 +1610,7 @@
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
-        "x": 1390,
+        "x": 1450,
         "y": 800,
         "wires": []
     },
@@ -1662,11 +1664,12 @@
         "func": "if (msg.payload.notify.name.length < 1) return null;\nif (msg.payload.notify.number.length < 1) return null;\nvar type = '';\nif (msg.payload.alarm == 1) type = 'LOW';\nif (msg.payload.alarm == 2) type = 'HIGH';\nif (msg.payload.alarm == 3) type = 'LOLO';\nif (msg.payload.alarm == 4) type = 'HIHI';\nvar message = 'Alarm-' + type + ': ' + msg.payload.id;\nmessage = message + ' is at ' + msg.payload.value.toString() + ' ' + msg.payload.unit\nreturn {topic:'sms',to:msg.payload.notify.number, payload:message, from:'46000000000'};\n",
         "outputs": 1,
         "noerr": 0,
+        "initialize": "",
+        "finalize": "",
         "x": 1080,
         "y": 800,
         "wires": [
             [
-                "1c8b36de.a489c9",
                 "78c1fcc3.ec6164"
             ]
         ]
@@ -2408,8 +2411,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 390,
-        "y": 580,
+        "x": 370,
+        "y": 820,
         "wires": [
             [
                 "908d7fde.10525"
@@ -2425,8 +2428,8 @@
         "qos": "0",
         "datatype": "auto",
         "broker": "84d80994.260508",
-        "x": 130,
-        "y": 80,
+        "x": 110,
+        "y": 320,
         "wires": [
             [
                 "ebb8ce.0c3d873"
@@ -2441,8 +2444,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 290,
-        "y": 80,
+        "x": 270,
+        "y": 320,
         "wires": [
             [
                 "764116fd.f6e648"
@@ -2466,11 +2469,12 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 770,
-        "y": 80,
+        "x": 750,
+        "y": 320,
         "wires": [
             [
-                "5f767381.0ac26c"
+                "5f767381.0ac26c",
+                "3de68366.1ae5cc"
             ]
         ]
     },
@@ -2482,8 +2486,8 @@
         "func": "if (!global.get('systemClockSynchronized')) return null;\nvar mqttArray = msg.topic.split('/');\nvar device = \n{\n    project     : mqttArray[0],\n    deviceType  : mqttArray[1],\n    name        : mqttArray[2],\n    prop        : mqttArray[3],\n};\nreturn {topic : msg.topic, payload:{topic:'readings', mqttDevice : device, payload:msg.payload}};",
         "outputs": 1,
         "noerr": 0,
-        "x": 520,
-        "y": 80,
+        "x": 500,
+        "y": 320,
         "wires": [
             [
                 "81c39fe.b208a6"
@@ -2512,8 +2516,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 510,
-        "y": 580,
+        "x": 490,
+        "y": 820,
         "wires": [
             [
                 "b6b8b063.9f62f"
@@ -2533,8 +2537,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 690,
-        "y": 600,
+        "x": 670,
+        "y": 840,
         "wires": [
             [
                 "2132a017.ba23f",
@@ -2551,8 +2555,8 @@
         "qos": "0",
         "retain": "false",
         "broker": "84d80994.260508",
-        "x": 900,
-        "y": 600,
+        "x": 880,
+        "y": 840,
         "wires": []
     },
     {
@@ -2627,8 +2631,8 @@
         "id": "ee0ee61b.770a18",
         "type": "subflow:e13648d6.d698c8",
         "z": "8475ab9.3d26058",
-        "x": 890,
-        "y": 660,
+        "x": 870,
+        "y": 900,
         "wires": []
     },
     {
@@ -3949,8 +3953,8 @@
         "name": "",
         "collection": "archiver",
         "operation": "find.toArray",
-        "x": 750,
-        "y": 420,
+        "x": 730,
+        "y": 660,
         "wires": [
             [
                 "28d7885b.29ba58"
@@ -3967,8 +3971,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 990,
-        "y": 420,
+        "x": 970,
+        "y": 660,
         "wires": [
             [
                 "e8d9edd7.6f769"
@@ -3985,8 +3989,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 500,
-        "y": 420,
+        "x": 480,
+        "y": 660,
         "wires": [
             [
                 "a3efdc0a.76eff"
@@ -4001,8 +4005,8 @@
         "links": [
             "7e343bf8.8fec14"
         ],
-        "x": 875,
-        "y": 80,
+        "x": 855,
+        "y": 320,
         "wires": []
     },
     {
@@ -4012,8 +4016,8 @@
         "name": "/vad-kul-sensor/websocket",
         "server": "e71c9288.03dd3",
         "client": "",
-        "x": 1160,
-        "y": 80,
+        "x": 1140,
+        "y": 320,
         "wires": []
     },
     {
@@ -4027,8 +4031,8 @@
             "27616c81.533484",
             "133903b.1d72afc"
         ],
-        "x": 975,
-        "y": 80,
+        "x": 955,
+        "y": 320,
         "wires": [
             [
                 "68378c41.1d2814",
@@ -4046,8 +4050,8 @@
         "name": "/vad-kul-sensor/websocket",
         "server": "e71c9288.03dd3",
         "client": "",
-        "x": 190,
-        "y": 940,
+        "x": 170,
+        "y": 1180,
         "wires": [
             [
                 "45a7d04b.f97db",
@@ -4182,8 +4186,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 390,
-        "y": 940,
+        "x": 370,
+        "y": 1180,
         "wires": [
             [
                 "c808d99f.eddb18"
@@ -4200,8 +4204,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 530,
-        "y": 940,
+        "x": 510,
+        "y": 1180,
         "wires": [
             [
                 "25932781.fdea58"
@@ -4217,8 +4221,8 @@
         "name": "",
         "collection": "devices",
         "operation": "findOne",
-        "x": 730,
-        "y": 940,
+        "x": 710,
+        "y": 1180,
         "wires": [
             [
                 "40e7209b.74dbb"
@@ -4235,8 +4239,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 930,
-        "y": 940,
+        "x": 910,
+        "y": 1180,
         "wires": [
             [
                 "27616c81.533484"
@@ -4251,8 +4255,8 @@
         "links": [
             "7e343bf8.8fec14"
         ],
-        "x": 1095,
-        "y": 940,
+        "x": 1075,
+        "y": 1180,
         "wires": []
     },
     {
@@ -4366,8 +4370,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 390,
-        "y": 1040,
+        "x": 370,
+        "y": 1280,
         "wires": [
             [
                 "a397bafe.51f798"
@@ -4383,8 +4387,8 @@
         "name": "",
         "collection": "archiver",
         "operation": "find.toArray",
-        "x": 770,
-        "y": 1040,
+        "x": 750,
+        "y": 1280,
         "wires": [
             [
                 "2f5820b2.d52e9"
@@ -4401,8 +4405,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 540,
-        "y": 1040,
+        "x": 520,
+        "y": 1280,
         "wires": [
             [
                 "ac3ea01f.a3491"
@@ -4419,8 +4423,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1020,
-        "y": 1040,
+        "x": 1000,
+        "y": 1280,
         "wires": [
             [
                 "350f2ab6.194ae6"
@@ -4999,7 +5003,7 @@
         "type": "function",
         "z": "e17f7487.2a78e8",
         "name": "Create vad-kul Database entry",
-        "func": "var device = {\n  \"deviceType\": \"vad-kul\",\n  \"name\": \"05\",\n  \"arcPeriod\": 60000,\n  \"timeStamp\": 1593601833498,\n  \"lastArchive\": 1584283329231,\n  \"linkQuality\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 70,\n    \"unit\": \"/70\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 30,\n        \"low\": 40,\n        \"high\": 71,\n        \"hihi\": 80\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"signalLevel\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": -36,\n    \"unit\": \"dBm\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -70,\n        \"low\": -60,\n        \"high\": 0,\n        \"hihi\": 30\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"pixelMin\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 10.68,\n    \"unit\": \"C\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -10,\n        \"low\": 0,\n        \"high\": 30,\n        \"hihi\": 40\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"pixelMax\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 33.02,\n    \"unit\": \"C\",\n    \"alarm\": {\n      \"value\": 2,\n      \"limits\": {\n        \"lolo\": 30,\n        \"low\": 33,\n        \"high\": 36,\n        \"hihi\": 39\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"ultraSoundDistance\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 367,\n    \"unit\": \"cm\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 10,\n        \"low\": 15,\n        \"high\": 20000,\n        \"hihi\": 21000\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"ultraSoundRange\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 150,\n    \"unit\": \"cm\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 10,\n        \"low\": 15,\n        \"high\": 20000,\n        \"hihi\": 21000\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"imageDelay\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 3000,\n    \"unit\": \"mS\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 1000,\n        \"low\": 1400,\n        \"high\": 20000,\n        \"hihi\": 21000\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"bodyTemp\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 37.5,\n    \"unit\": \"C\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 33,\n        \"low\": 36,\n        \"high\": 39,\n        \"hihi\": 42\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"offsetTemp\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 0,\n    \"unit\": \"C\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -10,\n        \"low\": -5,\n        \"high\": 5,\n        \"hihi\": 10\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"archiveMinTemp\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 30,\n    \"unit\": \"C\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 25,\n        \"low\": 26,\n        \"high\": 40,\n        \"hihi\": 41\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"archivePixelPercent\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 2,\n    \"unit\": \"%\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 1,\n        \"low\": 1.1,\n        \"high\": 25,\n        \"hihi\": 30\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"flipHorizontal\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 0,\n    \"unit\": \"unit\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -2,\n        \"low\": -1,\n        \"high\": 2,\n        \"hihi\": 3\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"flipVertical\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 0,\n    \"unit\": \"unit\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -2,\n        \"low\": -1,\n        \"high\": 2,\n        \"hihi\": 3\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"archiveData\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 0,\n    \"unit\": \"unit\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -2,\n        \"low\": -1,\n        \"high\": 2,\n        \"hihi\": 3\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"imageData\": {\n    \"action\": \"reading\",\n    \"type\": \"pgm\",\n    \"value\": null,\n    \"unit\": \"unit\"\n  }\n}\nreturn {topic:'vad-kul',payload:device};",
+        "func": "var device = {\n  \"deviceType\": \"vad-kul\",\n  \"name\": \"14\",\n  \"arcPeriod\": 60000,\n  \"timeStamp\": 1593601833498,\n  \"lastArchive\": 1584283329231,\n  \"linkQuality\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 70,\n    \"unit\": \"/70\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 30,\n        \"low\": 40,\n        \"high\": 71,\n        \"hihi\": 80\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"signalLevel\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": -36,\n    \"unit\": \"dBm\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -70,\n        \"low\": -60,\n        \"high\": 0,\n        \"hihi\": 30\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"pixelMin\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 10.68,\n    \"unit\": \"C\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -10,\n        \"low\": 0,\n        \"high\": 30,\n        \"hihi\": 40\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"pixelMax\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 33.02,\n    \"unit\": \"C\",\n    \"alarm\": {\n      \"value\": 2,\n      \"limits\": {\n        \"lolo\": 30,\n        \"low\": 33,\n        \"high\": 36,\n        \"hihi\": 39\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"ultraSoundDistance\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 367,\n    \"unit\": \"cm\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 10,\n        \"low\": 15,\n        \"high\": 20000,\n        \"hihi\": 21000\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"ultraSoundRange\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 150,\n    \"unit\": \"cm\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 10,\n        \"low\": 15,\n        \"high\": 20000,\n        \"hihi\": 21000\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"imageDelay\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 3000,\n    \"unit\": \"mS\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 1000,\n        \"low\": 1400,\n        \"high\": 20000,\n        \"hihi\": 21000\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"bodyTemp\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 37.5,\n    \"unit\": \"C\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 33,\n        \"low\": 36,\n        \"high\": 39,\n        \"hihi\": 42\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"offsetTemp\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 0,\n    \"unit\": \"C\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -10,\n        \"low\": -5,\n        \"high\": 5,\n        \"hihi\": 10\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"archiveMinTemp\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 30,\n    \"unit\": \"C\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 25,\n        \"low\": 26,\n        \"high\": 40,\n        \"hihi\": 41\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"archivePixelPercent\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 2,\n    \"unit\": \"%\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 1,\n        \"low\": 1.1,\n        \"high\": 25,\n        \"hihi\": 30\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"flipHorizontal\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 0,\n    \"unit\": \"unit\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -2,\n        \"low\": -1,\n        \"high\": 2,\n        \"hihi\": 3\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"flipVertical\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 0,\n    \"unit\": \"unit\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -2,\n        \"low\": -1,\n        \"high\": 2,\n        \"hihi\": 3\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"archiveData\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 0,\n    \"unit\": \"unit\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -2,\n        \"low\": -1,\n        \"high\": 2,\n        \"hihi\": 3\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"imageData\": {\n    \"action\": \"reading\",\n    \"type\": \"pgm\",\n    \"value\": null,\n    \"unit\": \"unit\"\n  }\n}\nreturn {topic:'vad-kul',payload:device};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -5311,8 +5315,8 @@
         "name": "/vad-kul-global-archive/websocket",
         "server": "e154ab6.e010658",
         "client": "",
-        "x": 1240,
-        "y": 420,
+        "x": 1220,
+        "y": 660,
         "wires": []
     },
     {
@@ -5322,8 +5326,8 @@
         "name": "/vad-kul-archive/websocket",
         "server": "e154ab6.e010658",
         "client": "",
-        "x": 1260,
-        "y": 1040,
+        "x": 1240,
+        "y": 1280,
         "wires": []
     },
     {
@@ -5333,8 +5337,8 @@
         "name": "/vad-kul-archive/websocket",
         "server": "e154ab6.e010658",
         "client": "",
-        "x": 190,
-        "y": 1040,
+        "x": 170,
+        "y": 1280,
         "wires": [
             [
                 "7475027d.6c11fc",
@@ -5640,8 +5644,8 @@
         "name": "/vad-kul-history/websocket",
         "server": "da60ea3b.6a2998",
         "client": "",
-        "x": 1160,
-        "y": 140,
+        "x": 1140,
+        "y": 380,
         "wires": []
     },
     {
@@ -5809,8 +5813,8 @@
         "name": "/vad-kul-tv/websocket",
         "server": "6308abaa.624654",
         "client": "",
-        "x": 1140,
-        "y": 220,
+        "x": 1120,
+        "y": 460,
         "wires": []
     },
     {
@@ -5839,8 +5843,8 @@
         "name": "/vad-kul-tv/websocket",
         "server": "6308abaa.624654",
         "client": "",
-        "x": 180,
-        "y": 880,
+        "x": 160,
+        "y": 1120,
         "wires": [
             [
                 "bba93a6e.3bdbd8"
@@ -5854,8 +5858,8 @@
         "name": "/vad-kul-bar/websocket",
         "server": "f7a2f382.03ec3",
         "client": "",
-        "x": 1150,
-        "y": 280,
+        "x": 1130,
+        "y": 520,
         "wires": []
     },
     {
@@ -5865,8 +5869,8 @@
         "name": "/vad-kul-bar/websocket",
         "server": "f7a2f382.03ec3",
         "client": "",
-        "x": 180,
-        "y": 820,
+        "x": 160,
+        "y": 1060,
         "wires": [
             [
                 "bba93a6e.3bdbd8"
@@ -6813,7 +6817,7 @@
         "type": "function",
         "z": "90f83725.6dae08",
         "name": "Add User",
-        "func": "var user = {\n  \"username\"        : \"mwaleij\",\n  \"password\"    : \"$2a$10$ePuLjSScLgbJUZKnFjdEUez8YZsZDM3oodhsV9mSEUu8wbWWLJ5A6\",\n  \"roles\"       : [\"expert\"]\n}\nreturn {topic:'user',payload:user};",
+        "func": "var user = {\n  \"username\"        : \"dmcginnis427\",\n  \"password\"    : \"$2a$10$0A6ffk8cGDqkl58TYaAF8OAiPk5964tU/PqBdpl5qvarW2FWDaNuW\",\n  \"roles\"       : [\"expert\"]\n}\nreturn {topic:'user',payload:user};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6882,7 +6886,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "braincool",
+        "payload": "zebograf",
         "payloadType": "str",
         "x": 170,
         "y": 1660,
@@ -7554,7 +7558,7 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "<!-- Dashboard HTML -->\n                <div class=\"container-fluid \" align=\"center\" style='padding-top: 0px;'>\n                    <table width='100%'>\n                        <tr>\n                           <td width=\"100%\" align='center'> <img id='thumb' src=\"/img/blackThumb.png\" height=\"70px\"/></td>\n                        </tr>\n                        <tr>\n                            <td width='100%' align='center'>\n                                <span  style='' id='maxTemp'></span>\n                            </td>\n                        </tr>\n                    </table>\n                </div>\n",
+        "template": "<!-- Dashboard HTML -->\n                <div class=\"container-fluid \" align=\"center\" style='padding-top: 0px;'>\n                    <table width='100%'>\n                        <tr>\n                           <td width=\"100%\" align='center'> <img id='thumb' src=\"/img/blackThumb.png\" height=\"150px\"/></td>\n                        </tr>\n                        <tr>\n                            <td width='100%' align='center'>\n                                <span  style='' id='maxTemp'></span>\n                            </td>\n                        </tr>\n                    </table>\n                </div>\n",
         "output": "str",
         "x": 830,
         "y": 1440,
@@ -7801,8 +7805,96 @@
         "name": "/vad-kul-simple/websocket",
         "server": "ba4b87fd.c788a8",
         "client": "",
-        "x": 1160,
-        "y": 340,
+        "x": 1140,
+        "y": 580,
         "wires": []
+    },
+    {
+        "id": "ec4b776f.c2f368",
+        "type": "sendsms",
+        "z": "8475ab9.3d26058",
+        "creds": "23623a1c.e4ce46",
+        "to": "{{msg.to}}",
+        "fr": "{{msg.from}}",
+        "text": "{{msg.payload}}",
+        "unicode": false,
+        "x": 1330,
+        "y": 240,
+        "wires": [
+            [
+                "765e7bf5.14dea4"
+            ]
+        ]
+    },
+    {
+        "id": "765e7bf5.14dea4",
+        "type": "debug",
+        "z": "8475ab9.3d26058",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 1470,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "58f29d7b.2cfe24",
+        "type": "delay",
+        "z": "8475ab9.3d26058",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 1140,
+        "y": 240,
+        "wires": [
+            [
+                "ec4b776f.c2f368",
+                "9fad58f9.ba8838"
+            ]
+        ]
+    },
+    {
+        "id": "9fad58f9.ba8838",
+        "type": "debug",
+        "z": "8475ab9.3d26058",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1330,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "3de68366.1ae5cc",
+        "type": "function",
+        "z": "8475ab9.3d26058",
+        "name": "Check bodyTemp alarm",
+        "func": "if (msg.payload.payload.imageData.value == null) return null;\nif (msg.payload.payload.bodyTemp.value < msg.payload.payload.bodyTemp.alarm.limits.high ) return null;\n\nif (msg.payload.payload.bodyTemp.alarm.notify.name.length < 1) return null;\nif (msg.payload.payload.bodyTemp.alarm.notify.number.length < 1) return null;\nvar message = 'Alarm! ' + msg.payload.payload.deviceType + '-' + msg.payload.payload.name + '-bodyTemp';\nmessage = message + ' is at ' + msg.payload.payload.bodyTemp.value.toString() + ' ' + msg.payload.payload.bodyTemp.unit\nreturn {topic:'sms',to:msg.payload.payload.bodyTemp.alarm.notify.number, payload:message, from:'46000000000'};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 930,
+        "y": 240,
+        "wires": [
+            [
+                "58f29d7b.2cfe24"
+            ]
+        ]
     }
 ]
