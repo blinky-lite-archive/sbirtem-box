@@ -642,17 +642,10 @@
         "wholemsg": "false"
     },
     {
-        "id": "ba4b87fd.c788a8",
-        "type": "websocket-listener",
-        "z": "",
-        "path": "/vad-kul-simple/websocket",
-        "wholemsg": "false"
-    },
-    {
         "id": "ee7a7e47.e8f98",
         "type": "websocket-listener",
         "z": "",
-        "path": "/vad-kul-profile/websocket",
+        "path": "/vad-kul-monitor/websocket",
         "wholemsg": "false"
     },
     {
@@ -1754,7 +1747,7 @@
         "fieldType": "msg",
         "format": "css",
         "syntax": "mustache",
-        "template": "        :root \n        {\n          --color1: #415c71;\n          --color2: #547792;\n          --color3: #9eb5c7;\n          --color4: #c6c2bb;\n          --color5: #fdc300;\n          --big-text-size :300%;\n          --bold-text :900;\n          --vert-pad : 25px;\n          --horz-pad : 25px;\n        }\n        body \n        {\n          background-color: white !important;\n          padding-left:25px;\n          padding-right:25px;\n        }\n        \n        img \n        {\n          object-fit: contain;\n        }\n        a\n        {\n            color: white;\n        }\n        a:visited \n        { \n            color: var(--white);\n        }\n        a:hover \n        { \n            color: var(--color5);\n        }\n\n        .jumbotron \n        {\n          background-color: var(--color2) !important;\n          color: white;\n          padding-top:25px;\n          padding-bottom:25px;\n        }\n        .jumbotron-title\n        {\n          color:var(--color5);\n        }\n        .jumbotron-button\n        {\n          color: white;\n          background-color: var(--color1);\n       }\n        .card\n        {\n          background-color: var(--color2) !important;\n          text-align: center;\n        }\n        .card-body\n        {\n          background-color: var(--color3);;\n        }\n        .card-button\n        {\n          color: var(--color5) !important;\n          background-color: var(--color1) !important;\n          font-weight: bold;\n        }\n        .card-title\n        {\n          color: var(--color5);\n          font-weight: var(--bold-text);\n          font-size: var(--big-text-size);\n         }\n        .card-text\n        {\n          color: white;\n          text-align: left;\n          font-size: var(--big-text-size);\n        }\n        .danger-card\n        {\n          background-color: yellow !important;\n          text-align: center;\n        }\n        .danger-card-body\n        {\n          background-color: yellow;\n        }\n        .danger-card-button\n        {\n          color: yellow !important;\n          background-color: red !important;\n          font-weight: bold;\n        }\n        .danger-card-title\n        {\n          color: red;\n          font-weight: var(--bold-text);\n          font-size: var(--big-text-size);\n         }\n        .danger-card-text\n        {\n          color: white;\n          text-align: left;\n          font-size: var(--big-text-size);\n        }\n        .tableHeading\n        {\n          color:var(--container-title-color);\n        }\n        .tableText\n        {\n          color:var(--container-text-color);\n          font-size: var(--big-text-size);\n        }\n       .vert-pad\n        {\n            padding-top:var(--vert-pad);;\n            padding-bottom:var(--vert-pad);;\n        }\n        .horz-pad\n        {\n            padding-left:var(--horz-pad);;\n            padding-right:var(--horz-pad);;\n        }\n        .big-text\n        {\n            font-size: var(--big-text-size);\n        }\n        .bold-text\n        {\n            font-weight: var(--bold-text);\n        }\n       .ui-dialog-titlebar-close \n        {\n            visibility: hidden;\n        }\n        input.inputLarger \n        { \n            transform: scale(3); \n            margin: 1px;\n        }\n        .googleSlide4by3-container \n        {\n            position: relative;\n            overflow: hidden;\n            padding-top: 75.0%;\n        }\n        .googleSlide4by3-iframe {\n            position: absolute;\n            top: 0;\n            left: 0;\n            width: 100%;\n            height: 100%;\n            border: 0;\n        }        \n",
+        "template": "        :root \n        {\n          --color1: #415c71;\n          --color2: #547792;\n          --color3: #9eb5c7;\n          --color4: #c6c2bb;\n          --color5: #fdc300;\n          --big-text-size :300%;\n          --bold-text :900;\n          --vert-pad : 25px;\n          --horz-pad : 25px;\n        }\n        body \n        {\n          background-color: white !important;\n          padding-left:25px;\n          padding-right:25px;\n        }\n        \n        img \n        {\n          object-fit: contain;\n        }\n        a\n        {\n            color: white;\n        }\n        a:visited \n        { \n            color: var(--white);\n        }\n        a:hover \n        { \n            color: var(--color5);\n        }\n\n        .jumbotron \n        {\n          background-color: var(--color2) !important;\n          color: white;\n          padding-top:25px;\n          padding-bottom:25px;\n        }\n        .jumbotron-title\n        {\n          color:var(--color5);\n        }\n        .jumbotron-button\n        {\n          color: white;\n          background-color: var(--color1);\n       }\n        .card\n        {\n          background-color: var(--color2) !important;\n          text-align: center;\n        }\n        .card-body\n        {\n          background-color: var(--color3);;\n        }\n        .card-button\n        {\n          color: var(--color5) !important;\n          background-color: var(--color1) !important;\n          font-weight: bold;\n        }\n        .card-title\n        {\n          color: var(--color5);\n          font-weight: var(--bold-text);\n          font-size: var(--big-text-size);\n         }\n        .card-text\n        {\n          color: white;\n          text-align: left;\n          font-size: var(--big-text-size);\n        }\n        .danger-card\n        {\n          background-color: yellow !important;\n          text-align: center;\n        }\n        .danger-card-body\n        {\n          background-color: yellow;\n        }\n        .danger-card-button\n        {\n          color: yellow !important;\n          background-color: red !important;\n          font-weight: bold;\n        }\n        .danger-card-title\n        {\n          color: red;\n          font-weight: var(--bold-text);\n          font-size: var(--big-text-size);\n         }\n        .danger-card-text\n        {\n          color: white;\n          text-align: left;\n          font-size: var(--big-text-size);\n        }\n        .tableHeading\n        {\n          color:var(--container-title-color);\n        }\n        .tableText\n        {\n          color:var(--container-text-color);\n          font-size: var(--big-text-size);\n        }\n       .vert-pad\n        {\n            padding-top:var(--vert-pad);;\n            padding-bottom:var(--vert-pad);;\n        }\n        .horz-pad\n        {\n            padding-left:var(--horz-pad);;\n            padding-right:var(--horz-pad);;\n        }\n        .big-text\n        {\n            font-size: var(--big-text-size);\n        }\n        .bold-text\n        {\n            font-weight: var(--bold-text);\n        }\n       .ui-dialog-titlebar-close \n        {\n            visibility: hidden;\n        }\n        input.inputLarger \n        { \n            transform: scale(3); \n            margin: 1px;\n        }\n        .googleSlide4by3-container \n        {\n            position: relative;\n            overflow: hidden;\n            padding-top: 75.0%;\n        }\n        .googleSlide4by3-iframe {\n            position: absolute;\n            top: 0;\n            left: 0;\n            width: 100%;\n            height: 100%;\n            border: 0;\n        }        \n        .custom-select\n        {\n            color: black;\n            background-color: white;\n            height:80px;\n            line-height:70px;\n        }\n",
         "output": "str",
         "x": 190,
         "y": 80,
@@ -4046,7 +4039,6 @@
                 "a22a4059.b84a8",
                 "b703adb9.a6106",
                 "85b2d1c0.f6aca",
-                "174e3953.1568f7",
                 "e755ffa5.cbbc3"
             ]
         ]
@@ -4293,7 +4285,7 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "<!-- Body HTML -->\n    <div class='container' width=\"100%\">\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-history?names=01,02\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul History</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-tv?names=01,02\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul TV</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-bar?names=01,02\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Bar</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-archive?names=01,02\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Archiver</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-sensor?name=01\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Sensors</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-simple?name=01\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Simple</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-profile?name=01\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Profile</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/core\" id=\"blinky-lite-core\">\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/coreYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Core Apps</td>\n                        </tr>\n                    </table>\n                </a> \n            </div>\n        </div>\n    </div>",
+        "template": "<!-- Body HTML -->\n    <div class='container' width=\"100%\">\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-monitor?name=01\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Monitor</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-sensor?name=01\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Sensors</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-archive?names=01,02\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Archiver</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-tv?names=01,02\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul TV</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-history?names=01,02\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul History</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-bar?names=01,02\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Bar</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/core\" id=\"blinky-lite-core\">\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/coreYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Core Apps</td>\n                        </tr>\n                    </table>\n                </a> \n            </div>\n        </div>\n    </div>",
         "output": "str",
         "x": 1010,
         "y": 40,
@@ -7218,340 +7210,6 @@
         ]
     },
     {
-        "id": "7f30dbd6.daf994",
-        "type": "http in",
-        "z": "9c854ea3.68416",
-        "name": "/vad-kul-simple",
-        "url": "/vad-kul-simple",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 120,
-        "y": 1440,
-        "wires": [
-            [
-                "656586a4.c9c5d8"
-            ]
-        ]
-    },
-    {
-        "id": "7bca68ab.36b718",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "script.global",
-        "field": "payload.script.global",
-        "fieldType": "msg",
-        "format": "javascript",
-        "syntax": "mustache",
-        "template": "// Global Javascript\n        var restfulDevice = \n        {\n            deviceType  : '{{{payload.script.deviceType}}}',\n            name        : '{{{payload.script.name}}}',\n            project     : '{{{payload.script.project}}}'\n        };\n        var mqttDevice = null;\n        var device = null;\n        var pgm = null;\n        var audioAlarm = new Audio('/audio/hold-your-horses.ogg');\n        var audioAlarmOn = true;\n        var lastUpdate = new Date().getTime();\n        var maxDisplayTime = 5000;\n\n        useWebSockets(true);\n        function onDocumentReady()\n        {\n            setInterval(function()\n            {\n                if ((new Date().getTime() - lastUpdate) > maxDisplayTime)\n                {\n                    $('#thumb').attr(\"src\", \"/img/blackThumb.png\");\n                    $('#maxTemp').text(\" \");\n                }\n            }, 1000);\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            wsConnectC();\n        }\n        function onWebSocketMessage(msg)\n        {\n            switch(msg.topic)\n            {\n                case 'readings':\n                    if (msg.mqttDevice.name == restfulDevice.name)\n                    {\n                        heartbeat();\n                        device = msg.payload;\n                        mqttDevice = msg.mqttDevice;\n                        updateDmaReadings();\n                        \n                    }\n                    break;\n                default:\n                // code block\n            }\n        }\n// Update Readings Javascript\n        function updateDmaReadings()\n        {\n            if (device.imageData.value != null)\n            {\n                var style = 'font-size:900%; font-weight:900; color:cyan';\n                var thumbAttr = \"/img/cyanThumb.png\";\n                if (device.bodyTemp.value >= device.bodyTemp.alarm.limits.high)\n                {\n                    style = 'font-size:900%; font-weight:900; color:pink';\n                    thumbAttr = \"/img/pinkThumb.png\";\n                }\n                $('#maxTemp').attr(\"style\", style);\n                $('#thumb').attr(\"src\", thumbAttr);\n                $('#maxTemp').text(device.bodyTemp.value.toString() + \" C\");\n                lastUpdate = new Date().getTime();\n            }\n        }\n",
-        "output": "str",
-        "x": 610,
-        "y": 1440,
-        "wires": [
-            [
-                "a775bf1a.90d73"
-            ]
-        ]
-    },
-    {
-        "id": "a775bf1a.90d73",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "javascript",
-        "field": "payload.javascript",
-        "fieldType": "msg",
-        "format": "javascript",
-        "syntax": "mustache",
-        "template": "{{{payload.script.stripChartWidget}}}\n{{{payload.script.global}}}\n{{{payload.script.horzbarWidget}}}\n{{{payload.script.editDevice}}}\n{{{payload.script.dangerZone}}}\n",
-        "output": "str",
-        "x": 600,
-        "y": 1480,
-        "wires": [
-            [
-                "ceda9656.ce2ab8"
-            ]
-        ]
-    },
-    {
-        "id": "42e1d93d.79e018",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "body",
-        "field": "payload.body",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "    <div width=\"100%\">\n        <div class='row' style='padding-bottom: 10px;'>\n            <div class='col-md-12' align='center'>\n{{{payload.html.display}}}\n            </div>\n        </div>\n    </div>\n",
-        "output": "str",
-        "x": 810,
-        "y": 1480,
-        "wires": [
-            [
-                "e16d68da.cb55c8"
-            ]
-        ]
-    },
-    {
-        "id": "ceda9656.ce2ab8",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "html.display",
-        "field": "payload.html.display",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "<!-- Dashboard HTML -->\n                <div class=\"container-fluid \" align=\"center\" style='padding-top: 0px;'>\n                    <table width='100%'>\n                        <tr>\n                           <td width=\"100%\" align='center'> <img id='thumb' src=\"/img/blackThumb.png\" height=\"150px\"/></td>\n                        </tr>\n                        <tr>\n                            <td width='100%' align='center'>\n                                <span  style='' id='maxTemp'></span>\n                            </td>\n                        </tr>\n                    </table>\n                </div>\n",
-        "output": "str",
-        "x": 830,
-        "y": 1440,
-        "wires": [
-            [
-                "42e1d93d.79e018"
-            ]
-        ]
-    },
-    {
-        "id": "e16d68da.cb55c8",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "CSS",
-        "field": "payload.css",
-        "fieldType": "msg",
-        "format": "css",
-        "syntax": "mustache",
-        "template": "        :root \n        {\n          --color1: #415c71;\n          --color2: #547792;\n          --color3: #9eb5c7;\n          --color4: #c6c2bb;\n          --color5: #fdc300;\n          --big-text-size :300%;\n          --bold-text :900;\n          --vert-pad : 25px;\n          --horz-pad : 25px;\n        }\n        body \n        {\n          background-color: black !important;\n          padding-left:25px;\n          padding-right:25px;\n        }\n        \n        img \n        {\n          object-fit: contain;\n        }\n        a\n        {\n            color: white;\n        }\n        a:visited \n        { \n            color: var(--white);\n        }\n        a:hover \n        { \n            color: var(--color5);\n        }\n\n        .jumbotron \n        {\n          background-color: var(--color2) !important;\n          color: white;\n          padding-top:25px;\n          padding-bottom:25px;\n        }\n        .jumbotron-title\n        {\n          color:var(--color5);\n        }\n        .jumbotron-button\n        {\n          color: white;\n          background-color: var(--color1);\n       }\n        .card\n        {\n          background-color: var(--color2) !important;\n          text-align: center;\n        }\n        .card-body\n        {\n          background-color: var(--color3);;\n        }\n        .card-button\n        {\n          color: var(--color5) !important;\n          background-color: var(--color1) !important;\n          font-weight: bold;\n        }\n        .card-title\n        {\n          color: var(--color5);\n          font-weight: var(--bold-text);\n          font-size: var(--big-text-size);\n         }\n        .card-text\n        {\n          color: white;\n          text-align: left;\n          font-size: var(--big-text-size);\n        }\n        .danger-card\n        {\n          background-color: yellow !important;\n          text-align: center;\n        }\n        .danger-card-body\n        {\n          background-color: yellow;\n        }\n        .danger-card-button\n        {\n          color: yellow !important;\n          background-color: red !important;\n          font-weight: bold;\n        }\n        .danger-card-title\n        {\n          color: red;\n          font-weight: var(--bold-text);\n          font-size: var(--big-text-size);\n         }\n        .danger-card-text\n        {\n          color: white;\n          text-align: left;\n          font-size: var(--big-text-size);\n        }\n        .tableHeading\n        {\n          color:var(--container-title-color);\n        }\n        .tableText\n        {\n          color:var(--container-text-color);\n          font-size: var(--big-text-size);\n        }\n       .vert-pad\n        {\n            padding-top:var(--vert-pad);;\n            padding-bottom:var(--vert-pad);;\n        }\n        .horz-pad\n        {\n            padding-left:var(--horz-pad);;\n            padding-right:var(--horz-pad);;\n        }\n        .big-text\n        {\n            font-size: var(--big-text-size);\n        }\n        .bold-text\n        {\n            font-weight: var(--bold-text);\n        }\n        .ui-slider\n        {\n            height: 90px;\n            background-color: var(--color1) !important;\n        }\n        .ui-slider .ui-slider-handle \n        {\n            height: 100px;\n            width: 100px;\n            background-color: var(--color5) !important;\n        }\n        .ui-dialog-titlebar-close \n        {\n            visibility: hidden;\n        }\n",
-        "output": "str",
-        "x": 990,
-        "y": 1480,
-        "wires": [
-            [
-                "7c1d3ca7.d98e54"
-            ]
-        ]
-    },
-    {
-        "id": "7c1d3ca7.d98e54",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "navBar",
-        "field": "payload.navBar",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "<!-- navBar -->\n",
-        "output": "str",
-        "x": 1140,
-        "y": 1480,
-        "wires": [
-            [
-                "7a24371f.6506d8"
-            ]
-        ]
-    },
-    {
-        "id": "be1000c9.f6303",
-        "type": "function",
-        "z": "9c854ea3.68416",
-        "name": "Get Name",
-        "func": "var name = msg.payload.name;\nmsg.payload = {};\nmsg.payload['script'] = {};\nmsg.payload['script']['name'] = name;\nmsg.payload['script']['deviceType'] = 'vad-kul';\nmsg.payload['script']['project'] = global.get('projectName');\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 330,
-        "y": 1520,
-        "wires": [
-            [
-                "7bca68ab.36b718"
-            ]
-        ]
-    },
-    {
-        "id": "656586a4.c9c5d8",
-        "type": "function",
-        "z": "9c854ea3.68416",
-        "name": "Allowed Role",
-        "func": "msg.payload.allowedRole = 'expert';\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 330,
-        "y": 1440,
-        "wires": [
-            [
-                "44859d40.9c6844"
-            ]
-        ]
-    },
-    {
-        "id": "44859d40.9c6844",
-        "type": "subflow:2d027d69.1fdeb2",
-        "z": "9c854ea3.68416",
-        "name": "",
-        "env": [],
-        "x": 340,
-        "y": 1480,
-        "wires": [
-            [
-                "be1000c9.f6303"
-            ]
-        ]
-    },
-    {
-        "id": "7a24371f.6506d8",
-        "type": "subflow:ca529822.9112f8",
-        "z": "9c854ea3.68416",
-        "name": "",
-        "x": 1280,
-        "y": 1480,
-        "wires": []
-    },
-    {
-        "id": "b6f21b15.c5c478",
-        "type": "http in",
-        "z": "a858ad3a.95706",
-        "name": "/simple",
-        "url": "/simple",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 90,
-        "y": 300,
-        "wires": [
-            [
-                "5755cfd7.ace9e"
-            ]
-        ]
-    },
-    {
-        "id": "b7a44a7f.f09628",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "Body",
-        "field": "payload.body",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "<!-- Body HTML -->\n    <div class='container' width=\"100%\">\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-simple?name=05\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul 05</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-simple?name=06\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul 06</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/core\" id=\"blinky-lite-core\">\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/coreYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Core Apps</td>\n                        </tr>\n                    </table>\n                </a> \n            </div>\n        </div>\n    </div>",
-        "output": "str",
-        "x": 1010,
-        "y": 300,
-        "wires": [
-            [
-                "7dbe0caa.aa0634"
-            ]
-        ]
-    },
-    {
-        "id": "e99ca5d1.ac4bc8",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "Title",
-        "field": "payload.title",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "Vad Kul",
-        "output": "str",
-        "x": 730,
-        "y": 300,
-        "wires": [
-            [
-                "c16982fc.0bb4e"
-            ]
-        ]
-    },
-    {
-        "id": "c1315f3e.520e",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "JavaScript",
-        "field": "payload.javascript",
-        "fieldType": "msg",
-        "format": "javascript",
-        "syntax": "mustache",
-        "template": "        useWebSockets(false);\n        function onDocumentReady()\n        {\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            \n        }\n        function onWebSocketMessage(msg)\n        {\n        }\n\n",
-        "output": "str",
-        "x": 590,
-        "y": 300,
-        "wires": [
-            [
-                "e99ca5d1.ac4bc8"
-            ]
-        ]
-    },
-    {
-        "id": "7dbe0caa.aa0634",
-        "type": "subflow:8341090a.df9758",
-        "z": "a858ad3a.95706",
-        "name": "",
-        "x": 1150,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "c16982fc.0bb4e",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "navBarIcon",
-        "field": "payload.navBarIcon",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "discoYellow.png",
-        "output": "str",
-        "x": 870,
-        "y": 300,
-        "wires": [
-            [
-                "b7a44a7f.f09628"
-            ]
-        ]
-    },
-    {
-        "id": "5755cfd7.ace9e",
-        "type": "function",
-        "z": "a858ad3a.95706",
-        "name": "Allowed Role",
-        "func": "msg.payload.allowedRole = 'expert';\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 250,
-        "y": 300,
-        "wires": [
-            [
-                "ee0de6f0.75b3b8"
-            ]
-        ]
-    },
-    {
-        "id": "ee0de6f0.75b3b8",
-        "type": "subflow:2d027d69.1fdeb2",
-        "z": "a858ad3a.95706",
-        "name": "",
-        "x": 420,
-        "y": 300,
-        "wires": [
-            [
-                "c1315f3e.520e"
-            ]
-        ]
-    },
-    {
-        "id": "174e3953.1568f7",
-        "type": "websocket out",
-        "z": "8475ab9.3d26058",
-        "name": "/vad-kul-simple/websocket",
-        "server": "ba4b87fd.c788a8",
-        "client": "",
-        "x": 1140,
-        "y": 320,
-        "wires": []
-    },
-    {
         "id": "ec4b776f.c2f368",
         "type": "sendsms",
         "z": "8475ab9.3d26058",
@@ -7846,125 +7504,11 @@
         ]
     },
     {
-        "id": "7eb64930.096a88",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "script.global",
-        "field": "payload.script.global",
-        "fieldType": "msg",
-        "format": "javascript",
-        "syntax": "mustache",
-        "template": "// Global Javascript\n        var restfulDevice = \n        {\n            deviceType  : '{{{payload.script.deviceType}}}',\n            name        : '{{{payload.script.name}}}',\n            project     : '{{{payload.script.project}}}'\n        };\n        var mqttDevice = null;\n        var device = null;\n        var colorScale = true;\n        var enhancementLevel = 0;\n        var pgm = null;\n        var lastUpdate = new Date().getTime();\n        var maxDisplayTime = 5000;\n        var imageArray =  null;\n\n        useWebSockets(true);\n        function onDocumentReady()\n        {\n            $('#tempLegend').hide();\n            $('#pixelMaxBarPlot').hide();\n            setInterval(function()\n            {\n                if ((new Date().getTime() - lastUpdate) > maxDisplayTime)\n                {\n                    $('#thumb').attr(\"src\", \"/img/blackThumb.png\");\n                    $('#maxTemp').text(\" \");\n                    clearImage();\n                    $('#tempLegend').hide();\n                    $('#pixelMaxBarPlot').hide();\n                    \n                }\n            }, 1000);\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            wsConnectC();\n        }\n        function onWebSocketMessage(msg)\n        {\n            switch(msg.topic)\n            {\n                case 'readings':\n                    if (msg.mqttDevice.name == restfulDevice.name)\n                    {\n                        heartbeat();\n                        device = msg.payload;\n                        mqttDevice = msg.mqttDevice;\n                        updateDmaReadings();\n                        \n                    }\n                    break;\n                default:\n                // code block\n            }\n        }\n// Update Readings Javascript\n        function updateDmaReadings()\n        {\n            if (device.imageData.value != null)\n            {\n                var style = 'font-size:300%; font-weight:300; color:cyan';\n                var thumbAttr = \"/img/cyanThumb.png\";\n                if (device.bodyTemp.value >= device.bodyTemp.alarm.limits.high)\n                {\n                    style = 'font-size:300%; font-weight:300; color:pink';\n                    thumbAttr = \"/img/pinkThumb.png\";\n                }\n                $('#maxTemp').attr(\"style\", style);\n                $('#thumb').attr(\"src\", thumbAttr);\n                $('#maxTemp').text(device.bodyTemp.value.toString() + \" C\");\n                lastUpdate = new Date().getTime();\n            }\n            if (device.imageData.value != null)\n            {\n                pgm = JSON.parse(JSON.stringify(device.imageData.value));\n                var processImage = 1;\n                try {processImage = device.processImage.value;} catch(err) {processImage = 1;}\n                switch (processImage)\n                {\n                    case 0:  \n                        imageArray = pgm.imageArray;\n                        break;\n                    case 1:  \n                        imageArray = blurImage(pgm.imageArray);\n                        break;\n                    default: \n                        imageArray = blurImage(pgm.imageArray);\n                        break;\n                }\n                plotImage();\n                $('#pixelMaxBarPlot').show();\n                var pixelMaxBarConfig = \n                    {\n                        lolo            : device.bodyTemp.alarm.limits.lolo, \n                        low             : device.bodyTemp.alarm.limits.low, \n                        high            : device.bodyTemp.alarm.limits.high, \n                        hihi            : device.bodyTemp.alarm.limits.hihi, \n                        value           : device.bodyTemp.value, \n                        unit            : device.bodyTemp.unit, \n                        textsize        : 20,\n                        label           : 'body temp', \n                        lowColor        : '#0000ff', \n                        mediumColor     : '#00ff00',\n                        highColor       : '#ff0000', \n                        backgroundColor : '#000000', \n                        labelColor      : '#ffffff', \n                        gridColor       : '#000000',\n                        height          : 50, \n                        htmlId          : 'pixelMaxBarPlot'\n                    };\n                setHorzBarWidget(pixelMaxBarConfig);\n             }\n        }\n        function plotImage()\n        {\n            $('#tempLegend').show();\n            var rgb = [];\n            var plow = (pgm.minval - 27315) / 100;\n            var phigh = (pgm.maxval - 27315) / 100;\n            var pdelta = phigh - plow;\n            for (var ibox = 0; ibox < 9; ++ibox)\n            {\n                var intensity = ibox / 8.0;\n                var pbox = Math.round(((phigh - plow) * intensity + plow) * 10.0) / 10.0;\n                $('#box' + (ibox + 1).toString() + 'Label').text(pbox.toString());\n                if (enhancementLevel == -2) intensity = Math.pow(intensity, 1/3.0);\n                if (enhancementLevel == -1) intensity = Math.pow(intensity, 1/2.0);\n                if (enhancementLevel ==  0) intensity = Math.pow(intensity, 1);\n                if (enhancementLevel ==  1) intensity = Math.pow(intensity, 2.0);\n                if (enhancementLevel ==  2) intensity = Math.pow(intensity, 3.0);\n                if (colorScale)\n                {\n                    rgb = getRGB(intensity);\n                }\n                else\n                {\n                    rgb[0] = Math.floor(255 * intensity);\n                    rgb[1] = Math.floor(255 * intensity);\n                    rgb[2] = Math.floor(255 * intensity);\n                }\n                var style='width:44px;height:25px;background-color:' + 'rgb(' + rgb[0].toString() + ', ' + rgb[1].toString() + ', ' + rgb[2].toString() + ')';\n                $('#box' + (ibox + 1).toString()).attr('style',style);\n            }\n            var canvas = document.getElementById(\"flirCanvas\");\n            var canvasContext = canvas.getContext(\"2d\");\n            var tipPointer = document.getElementById(\"tipPointer\");\n            var tipPointerContext = tipPointer.getContext(\"2d\");\n            var tip = document.getElementById(\"tip\");\n            var tipContext = tip.getContext(\"2d\");\n            tipContext.font = \"15px Arial\";\n            tipContext.fillStyle = \"cyan\";\n            tipPointerContext.fillStyle = \"cyan\";\n            if (colorScale) tipContext.fillStyle = \"black\";\n            if (colorScale) tipPointerContext.fillStyle = \"black\";\n            tipContext.textAlign = \"left\";\n\n            var canvasWidth  = Number($('#flirCanvas').attr('width'));\n            var canvasHeight = Number($('#flirCanvas').attr('height'));\n            var rectWidth  = canvasWidth  / pgm.ncols;\n            var rectHeight = canvasHeight / pgm.nrows;\n            canvas.onmousemove = function (e) \n            {\n                var icol = Math.floor(e.layerX / rectWidth);\n                if (icol < 0) icol = 0;\n                if (icol >= pgm.ncols) icol = pgm.ncols - 1;\n                var irow = Math.floor((canvasHeight - e.layerY) / rectHeight);\n                if (irow < 0) irow = 0;\n                if (irow >= pgm.nrows) irow = pgm.nrows - 1;\n                var temp = Math.floor(100.0 * (pdelta * imageArray[irow][icol] / 256.0 + plow)) / 100;\n\n                tipPointer.style.top = (e.layerY  - tipPointer.height / 2).toString()  + \"px\";\n                tipPointer.style.left = (e.layerX - tipPointer.width / 2).toString() + \"px\";\n                tipPointerContext.clearRect(0, 0, tipPointer.width, tipPointer.height);\n                tipPointerContext.fillRect( 0, 0, tipPointer.width, tipPointer.height);\n\n                tip.style.top = (e.layerY - tip.height - tipPointer.height).toString()  + \"px\";\n                tip.style.left = (e.layerX).toString() + \"px\";\n                tipContext.clearRect(0, 0, tip.width, tip.height);\n                tipContext.fillText(temp.toString() + ' C', 0, 30);\n            };\n\n            for (var irow = 0; irow < pgm.nrows; ++irow)\n            {\n                for (var icol = 0; icol < pgm.ncols; ++icol)\n                {\n                    var intensity = imageArray[irow][icol] / 256.0;\n                    if (enhancementLevel == -2) intensity = Math.pow(intensity, 1/3.0);\n                    if (enhancementLevel == -1) intensity = Math.pow(intensity, 1/2.0);\n                    if (enhancementLevel ==  0) intensity = Math.pow(intensity, 1);\n                    if (enhancementLevel ==  1) intensity = Math.pow(intensity, 2.0);\n                    if (enhancementLevel ==  2) intensity = Math.pow(intensity, 3.0);\n                    if (colorScale)\n                    {\n                        rgb = getRGB(intensity);\n                        rgb[0] = Math.floor(rgb[0]);\n                        rgb[1] = Math.floor(rgb[1]);\n                        rgb[2] = Math.floor(rgb[2]);\n                    }\n                    else\n                    {\n                        rgb[0] = Math.floor(255 * intensity);\n                        rgb[1] = Math.floor(255 * intensity);\n                        rgb[2] = Math.floor(255 * intensity);\n                    }\n                    canvasContext.fillStyle = 'rgb(' + rgb[0].toString() + ', ' + rgb[1].toString() + ', ' + rgb[2].toString() + ')';\n                    if (intensity > 0.98) \n                    {\n                        canvasContext.fillStyle='magenta';\n                        if (colorScale) canvasContext.fillStyle='white';\n                    }\n\n                    canvasContext.fillRect(icol * rectWidth, canvasHeight - rectHeight - irow * rectHeight, rectWidth, rectHeight);\n                }    \n            }\n        }\n        function blurImage(inputImage)\n        {\n            var kernal = [[1,2,1], [2,4,2], [1,2,1]];\n            var blurImage = [];\n            var nrows = inputImage.length;\n            var ncols = inputImage[0].length;\n            for (var irow = 0; irow < nrows; ++irow)\n            {\n                blurImage[irow] = [];\n                for (var icol = 0; icol < ncols; ++icol)\n                {\n                    if ((irow == 0) || (irow == (nrows - 1)))\n                    {\n                        blurImage[irow][icol] =  inputImage[irow][icol];\n                    }\n                    else\n                    {\n                        if ((icol == 0) || (icol == (ncols - 1)))\n                        {\n                            blurImage[irow][icol] =  inputImage[irow][icol];\n                        }\n                        else\n                        {\n                            blurImage[irow][icol] = 0;\n                            for (var ikrow = 0; ikrow < 3; ++ikrow)\n                            {\n                                for (var ikcol = 0; ikcol < 3; ++ikcol)\n                                {\n                                    blurImage[irow][icol] = blurImage[irow][icol] + inputImage[irow + ikrow - 1][icol + ikcol - 1] * kernal[ikrow][ikcol];\n                                }\n                            }\n                            blurImage[irow][icol] = Math.round(blurImage[irow][icol] / 16.0);\n                        }\n                    }\n                }\n            }\n            return blurImage;\n        }\n        function mouseLeftCanvas()\n        {\n            var tip = document.getElementById(\"tip\");\n            var tipContext = tip.getContext(\"2d\");\n            tipContext.clearRect(0, 0, tip.width, tip.height);\n            var tipPointer = document.getElementById(\"tipPointer\");\n            var tipPointerContext = tipPointer.getContext(\"2d\");\n            tipPointerContext.clearRect(0, 0, tipPointer.width, tipPointer.height);\n        }\n        function getRGB(intensity)\n        {\n          var rgb = [0,0,0];\n          if ( (0 <= intensity) && (intensity <= 0.25) )\n          {\n            rgb[0] = 0;\n            rgb[1] = Math.floor(255 * intensity * 4);    \n            rgb[2] = 255;\n          }\n          if ( (0.25 < intensity) && (intensity <= 0.50) )\n          {\n            rgb[0] = 0;\n            rgb[1] = 255;    \n            rgb[2] = Math.floor(255 * (0.50 - intensity) * 4);\n          }\n          if ( (0.50 < intensity) && (intensity <= 0.75) )\n          {\n            rgb[0] = Math.floor(255 * (intensity - 0.50) * 4);\n            rgb[1] = 255;    \n            rgb[2] = 0;\n          }\n          if ( (0.75 < intensity) && (intensity <= 1.0) )\n          {\n            rgb[0] = 255;\n            rgb[1] = Math.floor(255 * (1.0 - intensity) * 4);    \n            rgb[2] = 0;\n          }\n          return rgb;\n        }\n       function clearImage()\n        {\n            var canvas = document.getElementById(\"flirCanvas\");\n            var canvasContext = canvas.getContext(\"2d\");\n            var canvasWidth  = Number($('#flirCanvas').attr('width'));\n            var canvasHeight = Number($('#flirCanvas').attr('height'));\n            canvasContext.clearRect(0, 0, canvasWidth, canvasHeight);        \n            for (var ibox = 0; ibox < 9; ++ibox)\n            {\n                var pbox = 0.0;\n                $('#box' + (ibox + 1).toString() + 'Label').text(' ');\n            } \n        }\n",
-        "output": "str",
-        "x": 610,
-        "y": 1640,
-        "wires": [
-            [
-                "1a454a21.52e656"
-            ]
-        ]
-    },
-    {
-        "id": "da11e7ef.5ceae8",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "javascript",
-        "field": "payload.javascript",
-        "fieldType": "msg",
-        "format": "javascript",
-        "syntax": "mustache",
-        "template": "{{{payload.script.stripChartWidget}}}\n{{{payload.script.global}}}\n{{{payload.script.horzbarWidget}}}\n{{{payload.script.editDevice}}}\n{{{payload.script.dangerZone}}}\n",
-        "output": "str",
-        "x": 600,
-        "y": 1720,
-        "wires": [
-            [
-                "a230c892.2b8998"
-            ]
-        ]
-    },
-    {
-        "id": "30c78729.902f88",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "body",
-        "field": "payload.body",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "    <div width=\"100%\">\n        <div class='row' style='padding-bottom: 10px;'>\n            <div class='col-md-12' align='center'>\n{{{payload.html.display}}}\n            </div>\n        </div>\n    </div>\n",
-        "output": "str",
-        "x": 870,
-        "y": 1680,
-        "wires": [
-            [
-                "70a9c3c5.4ce08c"
-            ]
-        ]
-    },
-    {
-        "id": "a230c892.2b8998",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "html.display",
-        "field": "payload.html.display",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "<!-- Dashboard HTML -->\n                <div class=\"container-fluid \" align=\"center\" style='padding-top: 0px;'>\n                    <div id=\"pixelMaxBarPlot\" width=\"90%\" ></div>\n                </div>\n                <div class=\"container-fluid \" align=\"center\" style='padding-top: 0px;'>\n                    <table width=90%>\n                        <tr>\n                            <td width=45%>\n                                <table width='100%'>\n                                    <tr>\n                                       <td width=\"100%\" align='center'> <img id='thumb' src=\"/img/blackThumb.png\" height=\"75px\"/></td>\n                                    </tr>\n                                    <tr>\n                                        <td width='100%' align='center'>\n                                            <span  style='' id='maxTemp'></span>\n                                        </td>\n                                    </tr>\n                                </table>\n                            </td>\n                            <td width=55%>\n                                <div class='row' style='padding-bottom: 1px;'>\n                                    <div class=\"container-fluid \" align=\"center\">\n                                        <table width='400px'>\n                                            <tr>\n                                                <td>\n                                                    <div id=\"wrapper\" width=\"400\" height=\"300\" style=\"position:relative;\"  onmouseleave=\"mouseLeftCanvas()\">\n                                                        <canvas id=\"flirCanvas\" width=\"400\" height=\"300\" style=\"border:1px solid #000000;\"></canvas>\n                                                        <canvas id=\"tip\" width=63 height=15 style=\"position:absolute;\"></canvas>\n                                                        <canvas id=\"tipPointer\" width=5 height=5 style=\"position:absolute;\"></canvas>\n                                                    </div>\n                                                </td>\n                                            </tr>\n                                        </table>\n                                    </div>\n                                    <div id='tempLegend' class=\"container-fluid \" align=\"center\" >\n                                        <table  width='396'>\n                                            <tr>\n                                                <td width=\"44px\">\n                                                    <div id='box1' style=\"width:44px;height:25px;background-color:#0000ff\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box2' style=\"width:44px;height:25px;background-color:#0088ff\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box3' style=\"width:44px;height:25px;background-color:#00ffff\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box4' style=\"width:44px;height:25px;background-color:#00ff88\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box5' style=\"width:44px;height:25px;background-color:#00ff00\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box6' style=\"width:44px;height:25px;background-color:#88ff00\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box7' style=\"width:44px;height:25px;background-color:#ffff00\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box8' style=\"width:44px;height:25px;background-color:#ff8800\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box9' style=\"width:44px;height:25px;background-color:#ff0000\"></div>\n                                                </td>\n                                            </tr>\n                                            <tr>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box1Label'>1</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box2Label'>2</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box3Label'>3</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box4Label'>4</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box5Label'>5</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box6Label'>6</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box7Label'>7</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box8Label'>8</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box9Label'>9</span>\n                                                </td>\n                                            </tr>\n                                        </table>\n                                    </div>\n                                </div>\n                            </td>\n                        </tr>\n                    </table>\n                </div>\n",
-        "output": "str",
-        "x": 890,
-        "y": 1640,
-        "wires": [
-            [
-                "30c78729.902f88"
-            ]
-        ]
-    },
-    {
-        "id": "70a9c3c5.4ce08c",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "CSS",
-        "field": "payload.css",
-        "fieldType": "msg",
-        "format": "css",
-        "syntax": "mustache",
-        "template": "        :root \n        {\n          --color1: #415c71;\n          --color2: #547792;\n          --color3: #9eb5c7;\n          --color4: #c6c2bb;\n          --color5: #fdc300;\n          --big-text-size :300%;\n          --bold-text :900;\n          --vert-pad : 25px;\n          --horz-pad : 25px;\n        }\n        body \n        {\n          background-color: black !important;\n          padding-left:25px;\n          padding-right:25px;\n        }\n        \n        img \n        {\n          object-fit: contain;\n        }\n        a\n        {\n            color: white;\n        }\n        a:visited \n        { \n            color: var(--white);\n        }\n        a:hover \n        { \n            color: var(--color5);\n        }\n\n        .jumbotron \n        {\n          background-color: var(--color2) !important;\n          color: white;\n          padding-top:25px;\n          padding-bottom:25px;\n        }\n        .jumbotron-title\n        {\n          color:var(--color5);\n        }\n        .jumbotron-button\n        {\n          color: white;\n          background-color: var(--color1);\n       }\n        .card\n        {\n          background-color: var(--color2) !important;\n          text-align: center;\n        }\n        .card-body\n        {\n          background-color: var(--color3);;\n        }\n        .card-button\n        {\n          color: var(--color5) !important;\n          background-color: var(--color1) !important;\n          font-weight: bold;\n        }\n        .card-title\n        {\n          color: var(--color5);\n          font-weight: var(--bold-text);\n          font-size: var(--big-text-size);\n         }\n        .card-text\n        {\n          color: white;\n          text-align: left;\n          font-size: var(--big-text-size);\n        }\n        .danger-card\n        {\n          background-color: yellow !important;\n          text-align: center;\n        }\n        .danger-card-body\n        {\n          background-color: yellow;\n        }\n        .danger-card-button\n        {\n          color: yellow !important;\n          background-color: red !important;\n          font-weight: bold;\n        }\n        .danger-card-title\n        {\n          color: red;\n          font-weight: var(--bold-text);\n          font-size: var(--big-text-size);\n         }\n        .danger-card-text\n        {\n          color: white;\n          text-align: left;\n          font-size: var(--big-text-size);\n        }\n        .tableHeading\n        {\n          color:var(--container-title-color);\n        }\n        .tableText\n        {\n          color:var(--container-text-color);\n          font-size: var(--big-text-size);\n        }\n       .vert-pad\n        {\n            padding-top:var(--vert-pad);;\n            padding-bottom:var(--vert-pad);;\n        }\n        .horz-pad\n        {\n            padding-left:var(--horz-pad);;\n            padding-right:var(--horz-pad);;\n        }\n        .big-text\n        {\n            font-size: var(--big-text-size);\n        }\n        .bold-text\n        {\n            font-weight: var(--bold-text);\n        }\n        .ui-slider\n        {\n            height: 90px;\n            background-color: var(--color1) !important;\n        }\n        .ui-slider .ui-slider-handle \n        {\n            height: 100px;\n            width: 100px;\n            background-color: var(--color5) !important;\n        }\n        .ui-dialog-titlebar-close \n        {\n            visibility: hidden;\n        }\n",
-        "output": "str",
-        "x": 1070,
-        "y": 1680,
-        "wires": [
-            [
-                "5e90c318.b4b16c"
-            ]
-        ]
-    },
-    {
-        "id": "5e90c318.b4b16c",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "navBar",
-        "field": "payload.navBar",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "<!-- navBar -->\n",
-        "output": "str",
-        "x": 1220,
-        "y": 1680,
-        "wires": [
-            [
-                "f4f40f05.e00ce"
-            ]
-        ]
-    },
-    {
         "id": "1df91e68.621a42",
         "type": "http in",
         "z": "9c854ea3.68416",
-        "name": "/vad-kul-profile",
-        "url": "/vad-kul-profile",
+        "name": "/vad-kul-monitor",
+        "url": "/vad-kul-monitor",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
@@ -7973,25 +7517,6 @@
         "wires": [
             [
                 "4c1b430d.3c8cdc"
-            ]
-        ]
-    },
-    {
-        "id": "1a454a21.52e656",
-        "type": "template",
-        "z": "9c854ea3.68416",
-        "name": "script.horzbarWidget",
-        "field": "payload.script.horzbarWidget",
-        "fieldType": "msg",
-        "format": "javascript",
-        "syntax": "mustache",
-        "template": "// Horz Bar Widget\n        function setHorzBarWidget(barConfig)\n        {\n            var lowValue = 0;\n            var mediumValue = 0;\n            var highValue = 0;\n        \n            var lowColor = barConfig.backgroundColor;\n            var mediumColor = barConfig.backgroundColor;\n            var highColor = barConfig.backgroundColor;\n            var valueColor = barConfig.backgroundColor; \n            \n            if ( barConfig.value <= barConfig.lolo)\n            {\n                lowValue = barConfig.lolo;\n                lowColor = barConfig.lowColor;\n                valueColor = lowColor;\n            }\n            if ( (barConfig.lolo <= barConfig.value) && (barConfig.value < barConfig.low) )\n            {\n                lowValue = barConfig.value;\n                lowColor = barConfig.lowColor;\n                valueColor = lowColor;\n            }\n            if ( (barConfig.low  <= barConfig.value) && (barConfig.value < barConfig.high) )\n            {\n                lowValue = barConfig.low;\n                mediumValue = barConfig.value - barConfig.low; \n                lowColor = barConfig.mediumColor;\n                mediumColor = barConfig.mediumColor;\n                valueColor = mediumColor;\n        \n            }\n            if ( (barConfig.high <= barConfig.value) && (barConfig.value < barConfig.hihi) )\n            {\n                lowValue = barConfig.low;\n                mediumValue = barConfig.high - barConfig.low;\n                highValue = barConfig.value - barConfig.high;\n                lowColor = barConfig.highColor;\n                mediumColor = barConfig.highColor;\n                highColor = barConfig.highColor;\n                valueColor = highColor;\n            }\n            if ( barConfig.hihi <= barConfig.value)\n            {\n                lowValue = barConfig.low;\n                mediumValue = barConfig.high - barConfig.low; \n                highValue = barConfig.hihi - barConfig.high; \n                lowColor = barConfig.highColor;\n                mediumColor = barConfig.highColor;\n                highColor = barConfig.highColor;\n                valueColor = highColor;\n            }\n            \n            var lowBar = \n            {\n                y: ['', '-'],\n                x: [ barConfig.low, lowValue],\n                type: 'bar',\n                orientation: 'h',\n                showlegend: false,\n                marker:{color: [barConfig.lowColor, lowColor]},\n              width: [0.1, 1.0],\n            };\n            var mediumBar = \n            {\n                y: ['', '-'],\n                x: [barConfig.high - barConfig.low, mediumValue],\n                type: 'bar',\n                orientation: 'h',\n                showlegend: false,\n                marker:{color: [barConfig.mediumColor, mediumColor]},\n              width: [0.1, 1.0],\n            };\n            var highBar = \n            {\n                y: ['', '-'],\n                x: [barConfig.hihi - barConfig.high, highValue],\n                orientation: 'h',\n                type: 'bar',\n                showlegend: false,\n                marker:{color: [barConfig.highColor, highColor]},\n              width: [0.1, 1.0],\n            };\n            var layout = \n                {\n                    barmode: 'stack',\n                    plot_bgcolor:barConfig.backgroundColor,\n                    paper_bgcolor:barConfig.backgroundColor,\n                    margin: \n                        {\n                            t: 1, //top margin\n                            l: 10, //left margin\n                            r: 10, //right margin\n                            b: 30 //bottom margin\n                        },\n \n                    height: barConfig.height,\n                    title: \n                        {\n                            text: barConfig.value.toString() + ' ' + barConfig.unit,\n//                            font: {color: valueColor, size:barConfig.textsize},\n                            font: {color: '#000000', size:45},\n                        },\n                    yaxis: \n                        {\n                            tickfont: {color:valueColor, size:barConfig.textsize}\n                        },\n                    xaxis: \n                        {\n                            range: [barConfig.lolo, barConfig.hihi],\n                            tickfont: {color:barConfig.labelColor, size:barConfig.textsize},\n                            gridcolor       : barConfig.gridColor\n\n                        },\n                };\n           Plotly.newPlot(barConfig.htmlId, [lowBar, mediumBar, highBar], layout, {'displayModeBar': false});\n        }\n        \n        \n        \n        \n        \n    \n",
-        "output": "str",
-        "x": 640,
-        "y": 1680,
-        "wires": [
-            [
-                "da11e7ef.5ceae8"
             ]
         ]
     },
@@ -8018,7 +7543,7 @@
         "y": 1720,
         "wires": [
             [
-                "7eb64930.096a88"
+                "68c4a19f.47afb"
             ]
         ]
     },
@@ -8058,10 +7583,10 @@
         "id": "e755ffa5.cbbc3",
         "type": "websocket out",
         "z": "8475ab9.3d26058",
-        "name": "/vad-kul-profile/websocket",
+        "name": "/vad-kul-monitor/websocket",
         "server": "ee7a7e47.e8f98",
         "client": "",
-        "x": 1130,
+        "x": 1140,
         "y": 360,
         "wires": []
     },
@@ -8290,6 +7815,270 @@
         "wires": [
             [
                 "a2228331.71fb"
+            ]
+        ]
+    },
+    {
+        "id": "87122641.6bc128",
+        "type": "template",
+        "z": "9c854ea3.68416",
+        "name": "script.global",
+        "field": "payload.script.global",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "// Global Javascript\n        var restfulDevice = \n        {\n            deviceType  : '{{{payload.script.deviceType}}}',\n            name        : '{{{payload.script.name}}}',\n            project     : '{{{payload.script.project}}}'\n        };\n        var mqttDevice = null;\n        var device = null;\n        var colorScale = true;\n        var enhancementLevel = 0;\n        var pgm = null;\n        var lastUpdate = new Date().getTime();\n        var maxDisplayTime = 5000;\n        var imageArray =  null;\n\n        useWebSockets(true);\n        function onDocumentReady()\n        {\n            $('#tempLegend').hide();\n            $('#pixelMaxBarPlot').hide();\n            setInterval(function()\n            {\n                if ((new Date().getTime() - lastUpdate) > maxDisplayTime)\n                {\n                    $('#thumb').attr(\"src\", \"/img/blackThumb.png\");\n                    $('#maxTemp').text(\" \");\n                    clearImage();\n                    $('#tempLegend').hide();\n                    $('#pixelMaxBarPlot').hide();\n                    \n                }\n            }, 1000);\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            wsConnectC();\n        }\n        function onWebSocketMessage(msg)\n        {\n            switch(msg.topic)\n            {\n                case 'readings':\n                    if (msg.mqttDevice.name == restfulDevice.name)\n                    {\n                        heartbeat();\n                        device = msg.payload;\n                        mqttDevice = msg.mqttDevice;\n                        updateDmaReadings();\n                        \n                    }\n                    break;\n                default:\n                // code block\n            }\n        }\n// Update Readings Javascript\n        function updateDmaReadings()\n        {\n            if (device.imageData.value != null)\n            {\n                var style = 'font-size:300%; font-weight:300; color:cyan';\n                var thumbAttr = \"/img/cyanThumb.png\";\n                if (device.bodyTemp.value >= device.bodyTemp.alarm.limits.high)\n                {\n                    style = 'font-size:300%; font-weight:300; color:pink';\n                    thumbAttr = \"/img/pinkThumb.png\";\n                }\n                $('#maxTemp').attr(\"style\", style);\n                $('#thumb').attr(\"src\", thumbAttr);\n                $('#maxTemp').text(device.bodyTemp.value.toString() + \" C\");\n                lastUpdate = new Date().getTime();\n            }\n            if (device.imageData.value != null)\n            {\n                pgm = JSON.parse(JSON.stringify(device.imageData.value));\n                var processImage = 1;\n                try {processImage = device.processImage.value;} catch(err) {processImage = 1;}\n                switch (processImage)\n                {\n                    case 0:  \n                        imageArray = pgm.imageArray;\n                        break;\n                    case 1:  \n                        imageArray = blurImage(pgm.imageArray);\n                        break;\n                    default: \n                        imageArray = blurImage(pgm.imageArray);\n                        break;\n                }\n                plotImage();\n                $('#pixelMaxBarPlot').show();\n                var pixelMaxBarConfig = \n                    {\n                        lolo            : device.bodyTemp.alarm.limits.lolo, \n                        low             : device.bodyTemp.alarm.limits.low, \n                        high            : device.bodyTemp.alarm.limits.high, \n                        hihi            : device.bodyTemp.alarm.limits.hihi, \n                        value           : device.bodyTemp.value, \n                        unit            : device.bodyTemp.unit, \n                        textsize        : 20,\n                        label           : 'body temp', \n                        lowColor        : '#0000ff', \n                        mediumColor     : '#00ff00',\n                        highColor       : '#ff0000', \n                        backgroundColor : '#000000', \n                        labelColor      : '#ffffff', \n                        gridColor       : '#000000',\n                        height          : 50, \n                        htmlId          : 'pixelMaxBarPlot'\n                    };\n                setHorzBarWidget(pixelMaxBarConfig);\n             }\n        }\n        function plotImage()\n        {\n            $('#tempLegend').show();\n            var rgb = [];\n            var plow = (pgm.minval - 27315) / 100;\n            var phigh = (pgm.maxval - 27315) / 100;\n            var pdelta = phigh - plow;\n            for (var ibox = 0; ibox < 9; ++ibox)\n            {\n                var intensity = ibox / 8.0;\n                var pbox = Math.round(((phigh - plow) * intensity + plow) * 10.0) / 10.0;\n                $('#box' + (ibox + 1).toString() + 'Label').text(pbox.toString());\n                if (enhancementLevel == -2) intensity = Math.pow(intensity, 1/3.0);\n                if (enhancementLevel == -1) intensity = Math.pow(intensity, 1/2.0);\n                if (enhancementLevel ==  0) intensity = Math.pow(intensity, 1);\n                if (enhancementLevel ==  1) intensity = Math.pow(intensity, 2.0);\n                if (enhancementLevel ==  2) intensity = Math.pow(intensity, 3.0);\n                if (colorScale)\n                {\n                    rgb = getRGB(intensity);\n                }\n                else\n                {\n                    rgb[0] = Math.floor(255 * intensity);\n                    rgb[1] = Math.floor(255 * intensity);\n                    rgb[2] = Math.floor(255 * intensity);\n                }\n                var style='width:44px;height:25px;background-color:' + 'rgb(' + rgb[0].toString() + ', ' + rgb[1].toString() + ', ' + rgb[2].toString() + ')';\n                $('#box' + (ibox + 1).toString()).attr('style',style);\n            }\n            var canvas = document.getElementById(\"flirCanvas\");\n            var canvasContext = canvas.getContext(\"2d\");\n            var tipPointer = document.getElementById(\"tipPointer\");\n            var tipPointerContext = tipPointer.getContext(\"2d\");\n            var tip = document.getElementById(\"tip\");\n            var tipContext = tip.getContext(\"2d\");\n            tipContext.font = \"15px Arial\";\n            tipContext.fillStyle = \"cyan\";\n            tipPointerContext.fillStyle = \"cyan\";\n            if (colorScale) tipContext.fillStyle = \"black\";\n            if (colorScale) tipPointerContext.fillStyle = \"black\";\n            tipContext.textAlign = \"left\";\n\n            var canvasWidth  = Number($('#flirCanvas').attr('width'));\n            var canvasHeight = Number($('#flirCanvas').attr('height'));\n            var rectWidth  = canvasWidth  / pgm.ncols;\n            var rectHeight = canvasHeight / pgm.nrows;\n            canvas.onmousemove = function (e) \n            {\n                var icol = Math.floor(e.layerX / rectWidth);\n                if (icol < 0) icol = 0;\n                if (icol >= pgm.ncols) icol = pgm.ncols - 1;\n                var irow = Math.floor((canvasHeight - e.layerY) / rectHeight);\n                if (irow < 0) irow = 0;\n                if (irow >= pgm.nrows) irow = pgm.nrows - 1;\n                var temp = Math.floor(100.0 * (pdelta * imageArray[irow][icol] / 256.0 + plow)) / 100;\n\n                tipPointer.style.top = (e.layerY  - tipPointer.height / 2).toString()  + \"px\";\n                tipPointer.style.left = (e.layerX - tipPointer.width / 2).toString() + \"px\";\n                tipPointerContext.clearRect(0, 0, tipPointer.width, tipPointer.height);\n                tipPointerContext.fillRect( 0, 0, tipPointer.width, tipPointer.height);\n\n                tip.style.top = (e.layerY - tip.height - tipPointer.height).toString()  + \"px\";\n                tip.style.left = (e.layerX).toString() + \"px\";\n                tipContext.clearRect(0, 0, tip.width, tip.height);\n                tipContext.fillText(temp.toString() + ' C', 0, 30);\n            };\n\n            for (var irow = 0; irow < pgm.nrows; ++irow)\n            {\n                for (var icol = 0; icol < pgm.ncols; ++icol)\n                {\n                    var intensity = imageArray[irow][icol] / 256.0;\n                    if (enhancementLevel == -2) intensity = Math.pow(intensity, 1/3.0);\n                    if (enhancementLevel == -1) intensity = Math.pow(intensity, 1/2.0);\n                    if (enhancementLevel ==  0) intensity = Math.pow(intensity, 1);\n                    if (enhancementLevel ==  1) intensity = Math.pow(intensity, 2.0);\n                    if (enhancementLevel ==  2) intensity = Math.pow(intensity, 3.0);\n                    if (colorScale)\n                    {\n                        rgb = getRGB(intensity);\n                        rgb[0] = Math.floor(rgb[0]);\n                        rgb[1] = Math.floor(rgb[1]);\n                        rgb[2] = Math.floor(rgb[2]);\n                    }\n                    else\n                    {\n                        rgb[0] = Math.floor(255 * intensity);\n                        rgb[1] = Math.floor(255 * intensity);\n                        rgb[2] = Math.floor(255 * intensity);\n                    }\n                    canvasContext.fillStyle = 'rgb(' + rgb[0].toString() + ', ' + rgb[1].toString() + ', ' + rgb[2].toString() + ')';\n                    if (intensity > 0.98) \n                    {\n                        canvasContext.fillStyle='magenta';\n                        if (colorScale) canvasContext.fillStyle='white';\n                    }\n\n                    canvasContext.fillRect(icol * rectWidth, canvasHeight - rectHeight - irow * rectHeight, rectWidth, rectHeight);\n                }    \n            }\n        }\n        function blurImage(inputImage)\n        {\n            var kernal = [[1,2,1], [2,4,2], [1,2,1]];\n            var blurImage = [];\n            var nrows = inputImage.length;\n            var ncols = inputImage[0].length;\n            for (var irow = 0; irow < nrows; ++irow)\n            {\n                blurImage[irow] = [];\n                for (var icol = 0; icol < ncols; ++icol)\n                {\n                    if ((irow == 0) || (irow == (nrows - 1)))\n                    {\n                        blurImage[irow][icol] =  inputImage[irow][icol];\n                    }\n                    else\n                    {\n                        if ((icol == 0) || (icol == (ncols - 1)))\n                        {\n                            blurImage[irow][icol] =  inputImage[irow][icol];\n                        }\n                        else\n                        {\n                            blurImage[irow][icol] = 0;\n                            for (var ikrow = 0; ikrow < 3; ++ikrow)\n                            {\n                                for (var ikcol = 0; ikcol < 3; ++ikcol)\n                                {\n                                    blurImage[irow][icol] = blurImage[irow][icol] + inputImage[irow + ikrow - 1][icol + ikcol - 1] * kernal[ikrow][ikcol];\n                                }\n                            }\n                            blurImage[irow][icol] = Math.round(blurImage[irow][icol] / 16.0);\n                        }\n                    }\n                }\n            }\n            return blurImage;\n        }\n        function mouseLeftCanvas()\n        {\n            var tip = document.getElementById(\"tip\");\n            var tipContext = tip.getContext(\"2d\");\n            tipContext.clearRect(0, 0, tip.width, tip.height);\n            var tipPointer = document.getElementById(\"tipPointer\");\n            var tipPointerContext = tipPointer.getContext(\"2d\");\n            tipPointerContext.clearRect(0, 0, tipPointer.width, tipPointer.height);\n        }\n        function getRGB(intensity)\n        {\n          var rgb = [0,0,0];\n          if ( (0 <= intensity) && (intensity <= 0.25) )\n          {\n            rgb[0] = 0;\n            rgb[1] = Math.floor(255 * intensity * 4);    \n            rgb[2] = 255;\n          }\n          if ( (0.25 < intensity) && (intensity <= 0.50) )\n          {\n            rgb[0] = 0;\n            rgb[1] = 255;    \n            rgb[2] = Math.floor(255 * (0.50 - intensity) * 4);\n          }\n          if ( (0.50 < intensity) && (intensity <= 0.75) )\n          {\n            rgb[0] = Math.floor(255 * (intensity - 0.50) * 4);\n            rgb[1] = 255;    \n            rgb[2] = 0;\n          }\n          if ( (0.75 < intensity) && (intensity <= 1.0) )\n          {\n            rgb[0] = 255;\n            rgb[1] = Math.floor(255 * (1.0 - intensity) * 4);    \n            rgb[2] = 0;\n          }\n          return rgb;\n        }\n       function clearImage()\n        {\n            var canvas = document.getElementById(\"flirCanvas\");\n            var canvasContext = canvas.getContext(\"2d\");\n            var canvasWidth  = Number($('#flirCanvas').attr('width'));\n            var canvasHeight = Number($('#flirCanvas').attr('height'));\n            canvasContext.clearRect(0, 0, canvasWidth, canvasHeight);        \n            for (var ibox = 0; ibox < 9; ++ibox)\n            {\n                var pbox = 0.0;\n                $('#box' + (ibox + 1).toString() + 'Label').text(' ');\n            } \n        }\n",
+        "output": "str",
+        "x": 370,
+        "y": 1860,
+        "wires": [
+            [
+                "561f912f.8c76e"
+            ]
+        ]
+    },
+    {
+        "id": "90cb578d.bf9548",
+        "type": "template",
+        "z": "9c854ea3.68416",
+        "name": "javascript",
+        "field": "payload.javascript",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "{{{payload.script.stripChartWidget}}}\n{{{payload.script.global}}}\n{{{payload.script.horzbarWidget}}}\n{{{payload.script.editDevice}}}\n{{{payload.script.dangerZone}}}\n",
+        "output": "str",
+        "x": 360,
+        "y": 1940,
+        "wires": [
+            [
+                "4a799fde.302b5"
+            ]
+        ]
+    },
+    {
+        "id": "340fc848.7954b8",
+        "type": "template",
+        "z": "9c854ea3.68416",
+        "name": "body",
+        "field": "payload.body",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "    <div width=\"100%\">\n        <div class='row' style='padding-bottom: 10px;'>\n            <div class='col-md-12' align='center'>\n{{{payload.html.display}}}\n            </div>\n        </div>\n    </div>\n",
+        "output": "str",
+        "x": 630,
+        "y": 1900,
+        "wires": [
+            [
+                "a89197ae.276c98"
+            ]
+        ]
+    },
+    {
+        "id": "4a799fde.302b5",
+        "type": "template",
+        "z": "9c854ea3.68416",
+        "name": "html.display",
+        "field": "payload.html.display",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<!-- Dashboard HTML -->\n                <div class=\"container-fluid \" align=\"center\" style='padding-top: 0px;'>\n                    <div id=\"pixelMaxBarPlot\" width=\"90%\" ></div>\n                </div>\n                <div class=\"container-fluid \" align=\"center\" style='padding-top: 0px;'>\n                    <table width=90%>\n                        <tr>\n                            <td width=45%>\n                                <table width='100%'>\n                                    <tr>\n                                       <td width=\"100%\" align='center'> <img id='thumb' src=\"/img/blackThumb.png\" height=\"75px\"/></td>\n                                    </tr>\n                                    <tr>\n                                        <td width='100%' align='center'>\n                                            <span  style='' id='maxTemp'></span>\n                                        </td>\n                                    </tr>\n                                </table>\n                            </td>\n                            <td width=55%>\n                                <div class='row' style='padding-bottom: 1px;'>\n                                    <div class=\"container-fluid \" align=\"center\">\n                                        <table width='400px'>\n                                            <tr>\n                                                <td>\n                                                    <div id=\"wrapper\" width=\"400\" height=\"300\" style=\"position:relative;\"  onmouseleave=\"mouseLeftCanvas()\">\n                                                        <canvas id=\"flirCanvas\" width=\"400\" height=\"300\" style=\"border:1px solid #000000;\"></canvas>\n                                                        <canvas id=\"tip\" width=63 height=15 style=\"position:absolute;\"></canvas>\n                                                        <canvas id=\"tipPointer\" width=5 height=5 style=\"position:absolute;\"></canvas>\n                                                    </div>\n                                                </td>\n                                            </tr>\n                                        </table>\n                                    </div>\n                                    <div id='tempLegend' class=\"container-fluid \" align=\"center\" >\n                                        <table  width='396'>\n                                            <tr>\n                                                <td width=\"44px\">\n                                                    <div id='box1' style=\"width:44px;height:25px;background-color:#0000ff\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box2' style=\"width:44px;height:25px;background-color:#0088ff\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box3' style=\"width:44px;height:25px;background-color:#00ffff\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box4' style=\"width:44px;height:25px;background-color:#00ff88\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box5' style=\"width:44px;height:25px;background-color:#00ff00\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box6' style=\"width:44px;height:25px;background-color:#88ff00\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box7' style=\"width:44px;height:25px;background-color:#ffff00\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box8' style=\"width:44px;height:25px;background-color:#ff8800\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box9' style=\"width:44px;height:25px;background-color:#ff0000\"></div>\n                                                </td>\n                                            </tr>\n                                            <tr>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box1Label'>1</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box2Label'>2</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box3Label'>3</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box4Label'>4</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box5Label'>5</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box6Label'>6</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box7Label'>7</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box8Label'>8</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box9Label'>9</span>\n                                                </td>\n                                            </tr>\n                                        </table>\n                                    </div>\n                                </div>\n                            </td>\n                        </tr>\n                    </table>\n                </div>\n",
+        "output": "str",
+        "x": 650,
+        "y": 1860,
+        "wires": [
+            [
+                "340fc848.7954b8"
+            ]
+        ]
+    },
+    {
+        "id": "a89197ae.276c98",
+        "type": "template",
+        "z": "9c854ea3.68416",
+        "name": "CSS",
+        "field": "payload.css",
+        "fieldType": "msg",
+        "format": "css",
+        "syntax": "mustache",
+        "template": "        :root \n        {\n          --color1: #415c71;\n          --color2: #547792;\n          --color3: #9eb5c7;\n          --color4: #c6c2bb;\n          --color5: #fdc300;\n          --big-text-size :300%;\n          --bold-text :900;\n          --vert-pad : 25px;\n          --horz-pad : 25px;\n        }\n        body \n        {\n          background-color: black !important;\n          padding-left:25px;\n          padding-right:25px;\n        }\n        \n        img \n        {\n          object-fit: contain;\n        }\n        a\n        {\n            color: white;\n        }\n        a:visited \n        { \n            color: var(--white);\n        }\n        a:hover \n        { \n            color: var(--color5);\n        }\n\n        .jumbotron \n        {\n          background-color: var(--color2) !important;\n          color: white;\n          padding-top:25px;\n          padding-bottom:25px;\n        }\n        .jumbotron-title\n        {\n          color:var(--color5);\n        }\n        .jumbotron-button\n        {\n          color: white;\n          background-color: var(--color1);\n       }\n        .card\n        {\n          background-color: var(--color2) !important;\n          text-align: center;\n        }\n        .card-body\n        {\n          background-color: var(--color3);;\n        }\n        .card-button\n        {\n          color: var(--color5) !important;\n          background-color: var(--color1) !important;\n          font-weight: bold;\n        }\n        .card-title\n        {\n          color: var(--color5);\n          font-weight: var(--bold-text);\n          font-size: var(--big-text-size);\n         }\n        .card-text\n        {\n          color: white;\n          text-align: left;\n          font-size: var(--big-text-size);\n        }\n        .danger-card\n        {\n          background-color: yellow !important;\n          text-align: center;\n        }\n        .danger-card-body\n        {\n          background-color: yellow;\n        }\n        .danger-card-button\n        {\n          color: yellow !important;\n          background-color: red !important;\n          font-weight: bold;\n        }\n        .danger-card-title\n        {\n          color: red;\n          font-weight: var(--bold-text);\n          font-size: var(--big-text-size);\n         }\n        .danger-card-text\n        {\n          color: white;\n          text-align: left;\n          font-size: var(--big-text-size);\n        }\n        .tableHeading\n        {\n          color:var(--container-title-color);\n        }\n        .tableText\n        {\n          color:var(--container-text-color);\n          font-size: var(--big-text-size);\n        }\n       .vert-pad\n        {\n            padding-top:var(--vert-pad);;\n            padding-bottom:var(--vert-pad);;\n        }\n        .horz-pad\n        {\n            padding-left:var(--horz-pad);;\n            padding-right:var(--horz-pad);;\n        }\n        .big-text\n        {\n            font-size: var(--big-text-size);\n        }\n        .bold-text\n        {\n            font-weight: var(--bold-text);\n        }\n        .ui-slider\n        {\n            height: 90px;\n            background-color: var(--color1) !important;\n        }\n        .ui-slider .ui-slider-handle \n        {\n            height: 100px;\n            width: 100px;\n            background-color: var(--color5) !important;\n        }\n        .ui-dialog-titlebar-close \n        {\n            visibility: hidden;\n        }\n",
+        "output": "str",
+        "x": 830,
+        "y": 1900,
+        "wires": [
+            [
+                "69ff2d16.c4a944"
+            ]
+        ]
+    },
+    {
+        "id": "69ff2d16.c4a944",
+        "type": "template",
+        "z": "9c854ea3.68416",
+        "name": "navBar",
+        "field": "payload.navBar",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<!-- navBar -->\n",
+        "output": "str",
+        "x": 980,
+        "y": 1900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "561f912f.8c76e",
+        "type": "template",
+        "z": "9c854ea3.68416",
+        "name": "script.horzbarWidget",
+        "field": "payload.script.horzbarWidget",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "// Horz Bar Widget\n        function setHorzBarWidget(barConfig)\n        {\n            var lowValue = 0;\n            var mediumValue = 0;\n            var highValue = 0;\n        \n            var lowColor = barConfig.backgroundColor;\n            var mediumColor = barConfig.backgroundColor;\n            var highColor = barConfig.backgroundColor;\n            var valueColor = barConfig.backgroundColor; \n            \n            if ( barConfig.value <= barConfig.lolo)\n            {\n                lowValue = barConfig.lolo;\n                lowColor = barConfig.lowColor;\n                valueColor = lowColor;\n            }\n            if ( (barConfig.lolo <= barConfig.value) && (barConfig.value < barConfig.low) )\n            {\n                lowValue = barConfig.value;\n                lowColor = barConfig.lowColor;\n                valueColor = lowColor;\n            }\n            if ( (barConfig.low  <= barConfig.value) && (barConfig.value < barConfig.high) )\n            {\n                lowValue = barConfig.low;\n                mediumValue = barConfig.value - barConfig.low; \n                lowColor = barConfig.mediumColor;\n                mediumColor = barConfig.mediumColor;\n                valueColor = mediumColor;\n        \n            }\n            if ( (barConfig.high <= barConfig.value) && (barConfig.value < barConfig.hihi) )\n            {\n                lowValue = barConfig.low;\n                mediumValue = barConfig.high - barConfig.low;\n                highValue = barConfig.value - barConfig.high;\n                lowColor = barConfig.highColor;\n                mediumColor = barConfig.highColor;\n                highColor = barConfig.highColor;\n                valueColor = highColor;\n            }\n            if ( barConfig.hihi <= barConfig.value)\n            {\n                lowValue = barConfig.low;\n                mediumValue = barConfig.high - barConfig.low; \n                highValue = barConfig.hihi - barConfig.high; \n                lowColor = barConfig.highColor;\n                mediumColor = barConfig.highColor;\n                highColor = barConfig.highColor;\n                valueColor = highColor;\n            }\n            \n            var lowBar = \n            {\n                y: ['', '-'],\n                x: [ barConfig.low, lowValue],\n                type: 'bar',\n                orientation: 'h',\n                showlegend: false,\n                marker:{color: [barConfig.lowColor, lowColor]},\n              width: [0.1, 1.0],\n            };\n            var mediumBar = \n            {\n                y: ['', '-'],\n                x: [barConfig.high - barConfig.low, mediumValue],\n                type: 'bar',\n                orientation: 'h',\n                showlegend: false,\n                marker:{color: [barConfig.mediumColor, mediumColor]},\n              width: [0.1, 1.0],\n            };\n            var highBar = \n            {\n                y: ['', '-'],\n                x: [barConfig.hihi - barConfig.high, highValue],\n                orientation: 'h',\n                type: 'bar',\n                showlegend: false,\n                marker:{color: [barConfig.highColor, highColor]},\n              width: [0.1, 1.0],\n            };\n            var layout = \n                {\n                    barmode: 'stack',\n                    plot_bgcolor:barConfig.backgroundColor,\n                    paper_bgcolor:barConfig.backgroundColor,\n                    margin: \n                        {\n                            t: 1, //top margin\n                            l: 10, //left margin\n                            r: 10, //right margin\n                            b: 30 //bottom margin\n                        },\n \n                    height: barConfig.height,\n                    title: \n                        {\n                            text: barConfig.value.toString() + ' ' + barConfig.unit,\n//                            font: {color: valueColor, size:barConfig.textsize},\n                            font: {color: '#000000', size:45},\n                        },\n                    yaxis: \n                        {\n                            tickfont: {color:valueColor, size:barConfig.textsize}\n                        },\n                    xaxis: \n                        {\n                            range: [barConfig.lolo, barConfig.hihi],\n                            tickfont: {color:barConfig.labelColor, size:barConfig.textsize},\n                            gridcolor       : barConfig.gridColor\n\n                        },\n                };\n           Plotly.newPlot(barConfig.htmlId, [lowBar, mediumBar, highBar], layout, {'displayModeBar': false});\n        }\n        \n        \n        \n        \n        \n    \n",
+        "output": "str",
+        "x": 400,
+        "y": 1900,
+        "wires": [
+            [
+                "90cb578d.bf9548"
+            ]
+        ]
+    },
+    {
+        "id": "68c4a19f.47afb",
+        "type": "template",
+        "z": "9c854ea3.68416",
+        "name": "script.global",
+        "field": "payload.script.global",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "// Global Javascript\n        var restfulDevice = \n        {\n            deviceType  : '{{{payload.script.deviceType}}}',\n            name        : '{{{payload.script.name}}}',\n            project     : '{{{payload.script.project}}}'\n        };\n        var mqttDevice = null;\n        var device = null;\n        var colorScale = true;\n        var enhancementLevel = 0;\n        var pgm = null;\n        var lastUpdate = new Date().getTime();\n        var maxDisplayTime = 5000;\n        var imageArray =  null;\n        var language = 0;\n        var warnings = [\n            [\"Person outside range\"     ,\"Person utanför räckhåll\"    ,\"Άτομο εκτός εμβέλειας\"   ,\"Persona fuera del alcance\"  ,\"Persona fuori portata\"  ,\"Person außerhalb der Reichweite\"  ,\"Personne hors de portée\"],\n            [\"Normal Temperature\"       ,\"Normal temperatur\"          ,\"Κανονική θερμοκρασία\"    ,\"Temperatura normal\"         ,\"Temperatura normale\"    ,\"Normale Temperatur\"               ,\"Température normale\"],\n            [\"High Temperature\"         ,\"Hög temperatur\"             ,\"Υψηλή θερμοκρασία\"       ,\"Alta temperatura\"           ,\"Alta temperatura\"       ,\"Hohe Temperatur\"                  ,\"Haute température\"],\n            [\"Temperature outside range\",\"Temperatur utanför räckhåll\",\"Θερμοκρασία εκτός εύρους\",\"Temperatura fuera del rango\",\"Temperatura fuori range\",\"Temperatur außerhalb des Bereichs\",\"Température hors plage\"] ];\n        \n\n        useWebSockets(true);\n        function onDocumentReady()\n        {\n            $('#tempLegend').hide();\n            $('#pixelMaxBarPlot').hide();\n            setInterval(function()\n            {\n                if ((new Date().getTime() - lastUpdate) > maxDisplayTime)\n                {\n                    $('#tempComment').text(\" \");\n                    $('#maxTemp').text(\" \");\n                    clearImage();\n                    $('#tempLegend').hide();\n                    $('#pixelMaxBarPlot').hide();\n                    \n                }\n            }, 1000);\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            wsConnectC();\n        }\n        function onWebSocketMessage(msg)\n        {\n            switch(msg.topic)\n            {\n                case 'readings':\n                    if (msg.mqttDevice.name == restfulDevice.name)\n                    {\n                        heartbeat();\n                        device = msg.payload;\n                        mqttDevice = msg.mqttDevice;\n                        updateDmaReadings();\n                        \n                    }\n                    break;\n                default:\n                // code block\n            }\n        }\n// Update Readings Javascript\n        function updateDmaReadings()\n        {\n            if (device.imageData.value != null)\n            {\n                var style = 'font-size:300%; font-weight:300; color:yellow';\n                if (device.triggerMode.value == 0)\n                {\n                    if (device.autoModeAction.value == 0)\n                    {\n                        $('#tempComment').attr(\"style\", style);\n                        $('#tempComment').text(warnings[device.autoModeAction.value][device.language.value]);\n                        $('#maxTemp').attr(\"style\", style);\n                        $('#maxTemp').text(\"\");\n                    }\n                    if (device.autoModeAction.value == 1)\n                    {\n                        style = 'font-size:300%; font-weight:300; color:cyan';\n                        $('#tempComment').attr(\"style\", style);\n                        $('#tempComment').text(warnings[device.autoModeAction.value][device.language.value]);\n                        $('#maxTemp').attr(\"style\", style);\n                        $('#maxTemp').text(device.bodyTemp.value.toString() + \" C\");\n                    }\n                    if (device.autoModeAction.value == 2)\n                    {\n                        style = 'font-size:300%; font-weight:300; color:red';\n                        $('#tempComment').attr(\"style\", style);\n                        $('#tempComment').text(warnings[device.autoModeAction.value][device.language.value]);\n                        $('#maxTemp').attr(\"style\", style);\n                        $('#maxTemp').text(device.bodyTemp.value.toString() + \" C\");\n                    }\n                    if (device.autoModeAction.value == 3)\n                    {\n                        style = 'font-size:300%; font-weight:300; color:yellow';\n                        $('#tempComment').attr(\"style\", style);\n                        $('#tempComment').text(warnings[device.autoModeAction.value][device.language.value]);\n                        $('#maxTemp').attr(\"style\", style);\n                        $('#maxTemp').text(device.bodyTemp.value.toString() + \" C\");\n                    }\n                }\n                else\n                {\n                    $('#tempComment').attr(\"style\", style);\n                    $('#tempComment').text(\"Surface Temperature\");\n                    $('#maxTemp').attr(\"style\", style);\n                    $('#maxTemp').text(device.pixelMax.value.toString() + \" C\");\n                }\n                lastUpdate = new Date().getTime();\n            }\n            if (device.imageData.value != null)\n            {\n                pgm = JSON.parse(JSON.stringify(device.imageData.value));\n                var processImage = 1;\n                try {processImage = device.processImage.value;} catch(err) {processImage = 1;}\n                switch (processImage)\n                {\n                    case 0:  \n                        imageArray = pgm.imageArray;\n                        break;\n                    case 1:  \n                        imageArray = blurImage(pgm.imageArray);\n                        break;\n                    default: \n                        imageArray = blurImage(pgm.imageArray);\n                        break;\n                }\n                plotImage();\n                $('#pixelMaxBarPlot').show();\n                var devTempSource = device.pixelMax;\n                if (device.triggerMode.value == 0) devTempSource = device.bodyTemp;\n                var pixelMaxBarConfig = \n                    {\n                        lolo            : devTempSource.alarm.limits.lolo, \n                        low             : devTempSource.alarm.limits.low, \n                        high            : devTempSource.alarm.limits.high, \n                        hihi            : devTempSource.alarm.limits.hihi, \n                        value           : devTempSource.value, \n                        unit            : devTempSource.unit, \n                        textsize        : 20,\n                        label           : 'temp', \n                        lowColor        : '#0000ff', \n                        mediumColor     : '#00ff00',\n                        highColor       : '#ff0000', \n                        backgroundColor : '#000000', \n                        labelColor      : '#ffffff', \n                        gridColor       : '#000000',\n                        height          : 50, \n                        htmlId          : 'pixelMaxBarPlot'\n                    };\n                setHorzBarWidget(pixelMaxBarConfig);\n             }\n        }\n        function plotImage()\n        {\n            $('#tempLegend').show();\n            var rgb = [];\n            var plow = (pgm.minval - 27315) / 100;\n            var phigh = (pgm.maxval - 27315) / 100;\n            var pdelta = phigh - plow;\n            for (var ibox = 0; ibox < 9; ++ibox)\n            {\n                var intensity = ibox / 8.0;\n                var pbox = Math.round(((phigh - plow) * intensity + plow) * 10.0) / 10.0;\n                $('#box' + (ibox + 1).toString() + 'Label').text(pbox.toString());\n                if (enhancementLevel == -2) intensity = Math.pow(intensity, 1/3.0);\n                if (enhancementLevel == -1) intensity = Math.pow(intensity, 1/2.0);\n                if (enhancementLevel ==  0) intensity = Math.pow(intensity, 1);\n                if (enhancementLevel ==  1) intensity = Math.pow(intensity, 2.0);\n                if (enhancementLevel ==  2) intensity = Math.pow(intensity, 3.0);\n                if (colorScale)\n                {\n                    rgb = getRGB(intensity);\n                }\n                else\n                {\n                    rgb[0] = Math.floor(255 * intensity);\n                    rgb[1] = Math.floor(255 * intensity);\n                    rgb[2] = Math.floor(255 * intensity);\n                }\n                var style='width:44px;height:25px;background-color:' + 'rgb(' + rgb[0].toString() + ', ' + rgb[1].toString() + ', ' + rgb[2].toString() + ')';\n                $('#box' + (ibox + 1).toString()).attr('style',style);\n            }\n            var canvas = document.getElementById(\"flirCanvas\");\n            var canvasContext = canvas.getContext(\"2d\");\n            var tipPointer = document.getElementById(\"tipPointer\");\n            var tipPointerContext = tipPointer.getContext(\"2d\");\n            var tip = document.getElementById(\"tip\");\n            var tipContext = tip.getContext(\"2d\");\n            tipContext.font = \"15px Arial\";\n            tipContext.fillStyle = \"cyan\";\n            tipPointerContext.fillStyle = \"cyan\";\n            if (colorScale) tipContext.fillStyle = \"black\";\n            if (colorScale) tipPointerContext.fillStyle = \"black\";\n            tipContext.textAlign = \"left\";\n\n            var canvasWidth  = Number($('#flirCanvas').attr('width'));\n            var canvasHeight = Number($('#flirCanvas').attr('height'));\n            var rectWidth  = canvasWidth  / pgm.ncols;\n            var rectHeight = canvasHeight / pgm.nrows;\n            canvas.onmousemove = function (e) \n            {\n                var icol = Math.floor(e.layerX / rectWidth);\n                if (icol < 0) icol = 0;\n                if (icol >= pgm.ncols) icol = pgm.ncols - 1;\n                var irow = Math.floor((canvasHeight - e.layerY) / rectHeight);\n                if (irow < 0) irow = 0;\n                if (irow >= pgm.nrows) irow = pgm.nrows - 1;\n                var temp = Math.floor(100.0 * (pdelta * imageArray[irow][icol] / 256.0 + plow)) / 100;\n\n                tipPointer.style.top = (e.layerY  - tipPointer.height / 2).toString()  + \"px\";\n                tipPointer.style.left = (e.layerX - tipPointer.width / 2).toString() + \"px\";\n                tipPointerContext.clearRect(0, 0, tipPointer.width, tipPointer.height);\n                tipPointerContext.fillRect( 0, 0, tipPointer.width, tipPointer.height);\n\n                tip.style.top = (e.layerY - tip.height - tipPointer.height).toString()  + \"px\";\n                tip.style.left = (e.layerX).toString() + \"px\";\n                tipContext.clearRect(0, 0, tip.width, tip.height);\n                tipContext.fillText(temp.toString() + ' C', 0, 30);\n            };\n\n            for (var irow = 0; irow < pgm.nrows; ++irow)\n            {\n                for (var icol = 0; icol < pgm.ncols; ++icol)\n                {\n                    var intensity = imageArray[irow][icol] / 256.0;\n                    if (enhancementLevel == -2) intensity = Math.pow(intensity, 1/3.0);\n                    if (enhancementLevel == -1) intensity = Math.pow(intensity, 1/2.0);\n                    if (enhancementLevel ==  0) intensity = Math.pow(intensity, 1);\n                    if (enhancementLevel ==  1) intensity = Math.pow(intensity, 2.0);\n                    if (enhancementLevel ==  2) intensity = Math.pow(intensity, 3.0);\n                    if (colorScale)\n                    {\n                        rgb = getRGB(intensity);\n                        rgb[0] = Math.floor(rgb[0]);\n                        rgb[1] = Math.floor(rgb[1]);\n                        rgb[2] = Math.floor(rgb[2]);\n                    }\n                    else\n                    {\n                        rgb[0] = Math.floor(255 * intensity);\n                        rgb[1] = Math.floor(255 * intensity);\n                        rgb[2] = Math.floor(255 * intensity);\n                    }\n                    canvasContext.fillStyle = 'rgb(' + rgb[0].toString() + ', ' + rgb[1].toString() + ', ' + rgb[2].toString() + ')';\n                    if (intensity > 0.98) \n                    {\n                        canvasContext.fillStyle='magenta';\n                        if (colorScale) canvasContext.fillStyle='white';\n                    }\n\n                    canvasContext.fillRect(icol * rectWidth, canvasHeight - rectHeight - irow * rectHeight, rectWidth, rectHeight);\n                }    \n            }\n            var ellipseWidth = 100;\n            var ellipseHeight = 150;\n            canvasContext.fillStyle='black';\n            if (device.triggerMode.value == 0) \n            {\n                drawEllipse(canvasContext, (canvasWidth - ellipseWidth) / 2, (canvasHeight -  ellipseHeight)/ 2, ellipseWidth, ellipseHeight);\n            }\n        }\n        function blurImage(inputImage)\n        {\n            var kernal = [[1,2,1], [2,4,2], [1,2,1]];\n            var blurImage = [];\n            var nrows = inputImage.length;\n            var ncols = inputImage[0].length;\n            for (var irow = 0; irow < nrows; ++irow)\n            {\n                blurImage[irow] = [];\n                for (var icol = 0; icol < ncols; ++icol)\n                {\n                    if ((irow == 0) || (irow == (nrows - 1)))\n                    {\n                        blurImage[irow][icol] =  inputImage[irow][icol];\n                    }\n                    else\n                    {\n                        if ((icol == 0) || (icol == (ncols - 1)))\n                        {\n                            blurImage[irow][icol] =  inputImage[irow][icol];\n                        }\n                        else\n                        {\n                            blurImage[irow][icol] = 0;\n                            for (var ikrow = 0; ikrow < 3; ++ikrow)\n                            {\n                                for (var ikcol = 0; ikcol < 3; ++ikcol)\n                                {\n                                    blurImage[irow][icol] = blurImage[irow][icol] + inputImage[irow + ikrow - 1][icol + ikcol - 1] * kernal[ikrow][ikcol];\n                                }\n                            }\n                            blurImage[irow][icol] = Math.round(blurImage[irow][icol] / 16.0);\n                        }\n                    }\n                }\n            }\n            return blurImage;\n        }\n        function mouseLeftCanvas()\n        {\n            var tip = document.getElementById(\"tip\");\n            var tipContext = tip.getContext(\"2d\");\n            tipContext.clearRect(0, 0, tip.width, tip.height);\n            var tipPointer = document.getElementById(\"tipPointer\");\n            var tipPointerContext = tipPointer.getContext(\"2d\");\n            tipPointerContext.clearRect(0, 0, tipPointer.width, tipPointer.height);\n        }\n        function getRGB(intensity)\n        {\n          var rgb = [0,0,0];\n          if ( (0 <= intensity) && (intensity <= 0.25) )\n          {\n            rgb[0] = 0;\n            rgb[1] = Math.floor(255 * intensity * 4);    \n            rgb[2] = 255;\n          }\n          if ( (0.25 < intensity) && (intensity <= 0.50) )\n          {\n            rgb[0] = 0;\n            rgb[1] = 255;    \n            rgb[2] = Math.floor(255 * (0.50 - intensity) * 4);\n          }\n          if ( (0.50 < intensity) && (intensity <= 0.75) )\n          {\n            rgb[0] = Math.floor(255 * (intensity - 0.50) * 4);\n            rgb[1] = 255;    \n            rgb[2] = 0;\n          }\n          if ( (0.75 < intensity) && (intensity <= 1.0) )\n          {\n            rgb[0] = 255;\n            rgb[1] = Math.floor(255 * (1.0 - intensity) * 4);    \n            rgb[2] = 0;\n          }\n          return rgb;\n        }\n       function clearImage()\n        {\n            var canvas = document.getElementById(\"flirCanvas\");\n            var canvasContext = canvas.getContext(\"2d\");\n            var canvasWidth  = Number($('#flirCanvas').attr('width'));\n            var canvasHeight = Number($('#flirCanvas').attr('height'));\n            canvasContext.clearRect(0, 0, canvasWidth, canvasHeight);        \n            for (var ibox = 0; ibox < 9; ++ibox)\n            {\n                var pbox = 0.0;\n                $('#box' + (ibox + 1).toString() + 'Label').text(' ');\n            } \n        }\n        function drawEllipse(ctx, x, y, w, h) \n        {\n            var kappa = .5522848,\n              ox = (w / 2) * kappa, // control point offset horizontal\n              oy = (h / 2) * kappa, // control point offset vertical\n              xe = x + w,           // x-end\n              ye = y + h,           // y-end\n              xm = x + w / 2,       // x-middle\n              ym = y + h / 2;       // y-middle\n            \n            ctx.beginPath();\n            ctx.moveTo(x, ym);\n            ctx.bezierCurveTo(x, ym - oy, xm - ox, y, xm, y);\n            ctx.bezierCurveTo(xm + ox, y, xe, ym - oy, xe, ym);\n            ctx.bezierCurveTo(xe, ym + oy, xm + ox, ye, xm, ye);\n            ctx.bezierCurveTo(xm - ox, ye, x, ym + oy, x, ym);\n            //ctx.closePath(); // not used correctly, see comments (use to close off open path)\n            ctx.stroke();\n        }\n",
+        "output": "str",
+        "x": 590,
+        "y": 1640,
+        "wires": [
+            [
+                "94407f94.3a091"
+            ]
+        ]
+    },
+    {
+        "id": "647603a9.542f9c",
+        "type": "template",
+        "z": "9c854ea3.68416",
+        "name": "javascript",
+        "field": "payload.javascript",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "{{{payload.script.stripChartWidget}}}\n{{{payload.script.global}}}\n{{{payload.script.horzbarWidget}}}\n{{{payload.script.editDevice}}}\n{{{payload.script.dangerZone}}}\n",
+        "output": "str",
+        "x": 580,
+        "y": 1720,
+        "wires": [
+            [
+                "350fb7d3.990658"
+            ]
+        ]
+    },
+    {
+        "id": "b81ed169.a0cb6",
+        "type": "template",
+        "z": "9c854ea3.68416",
+        "name": "body",
+        "field": "payload.body",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "    <div width=\"100%\">\n        <div class='row' style='padding-bottom: 10px;'>\n            <div class='col-md-12' align='center'>\n{{{payload.html.display}}}\n            </div>\n        </div>\n    </div>\n",
+        "output": "str",
+        "x": 910,
+        "y": 1680,
+        "wires": [
+            [
+                "2c8aa744.0a8448"
+            ]
+        ]
+    },
+    {
+        "id": "350fb7d3.990658",
+        "type": "template",
+        "z": "9c854ea3.68416",
+        "name": "html.display",
+        "field": "payload.html.display",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<!-- Dashboard HTML -->\n                <div class=\"container-fluid \" align=\"center\" style='padding-top: 0px;'>\n                    <div id=\"pixelMaxBarPlot\" width=\"90%\" ></div>\n                </div>\n                <div class=\"container-fluid \" align=\"center\" style='padding-top: 0px;'>\n                    <table width=90%>\n                        <tr>\n                            <td width=45%>\n                                <table width='100%'>\n                                    <tr>\n                                        <td width='100%' align='center'>\n                                            <span  style='' id='tempComment'></span>\n                                        </td>\n                                    </tr>\n                                    <tr>\n                                        <td width='100%' align='center'>\n                                            <span  style='' id='maxTemp'></span>\n                                        </td>\n                                    </tr>\n                                </table>\n                            </td>\n                            <td width=55%>\n                                <div class='row' style='padding-bottom: 1px;'>\n                                    <div class=\"container-fluid \" align=\"center\">\n                                        <table width='400px'>\n                                            <tr>\n                                                <td>\n                                                    <div id=\"wrapper\" width=\"400\" height=\"300\" style=\"position:relative;\"  onmouseleave=\"mouseLeftCanvas()\">\n                                                        <canvas id=\"flirCanvas\" width=\"400\" height=\"300\" style=\"border:1px solid #000000;\"></canvas>\n                                                        <canvas id=\"tip\" width=63 height=15 style=\"position:absolute;\"></canvas>\n                                                        <canvas id=\"tipPointer\" width=5 height=5 style=\"position:absolute;\"></canvas>\n                                                    </div>\n                                                </td>\n                                            </tr>\n                                        </table>\n                                    </div>\n                                    <div id='tempLegend' class=\"container-fluid \" align=\"center\" >\n                                        <table  width='396'>\n                                            <tr>\n                                                <td width=\"44px\">\n                                                    <div id='box1' style=\"width:44px;height:25px;background-color:#0000ff\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box2' style=\"width:44px;height:25px;background-color:#0088ff\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box3' style=\"width:44px;height:25px;background-color:#00ffff\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box4' style=\"width:44px;height:25px;background-color:#00ff88\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box5' style=\"width:44px;height:25px;background-color:#00ff00\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box6' style=\"width:44px;height:25px;background-color:#88ff00\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box7' style=\"width:44px;height:25px;background-color:#ffff00\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box8' style=\"width:44px;height:25px;background-color:#ff8800\"></div>\n                                                </td>\n                                                <td width=\"44px\">\n                                                    <div id='box9' style=\"width:44px;height:25px;background-color:#ff0000\"></div>\n                                                </td>\n                                            </tr>\n                                            <tr>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box1Label'>1</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box2Label'>2</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box3Label'>3</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box4Label'>4</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box5Label'>5</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box6Label'>6</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box7Label'>7</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box8Label'>8</span>\n                                                </td>\n                                                <td align='center' width=\"44px\">\n                                                    <span style='font-size: 100%; color:white;' id='box9Label'>9</span>\n                                                </td>\n                                            </tr>\n                                        </table>\n                                    </div>\n                                </div>\n                            </td>\n                        </tr>\n                    </table>\n                </div>\n",
+        "output": "str",
+        "x": 930,
+        "y": 1640,
+        "wires": [
+            [
+                "b81ed169.a0cb6"
+            ]
+        ]
+    },
+    {
+        "id": "2c8aa744.0a8448",
+        "type": "template",
+        "z": "9c854ea3.68416",
+        "name": "CSS",
+        "field": "payload.css",
+        "fieldType": "msg",
+        "format": "css",
+        "syntax": "mustache",
+        "template": "        :root \n        {\n          --color1: #415c71;\n          --color2: #547792;\n          --color3: #9eb5c7;\n          --color4: #c6c2bb;\n          --color5: #fdc300;\n          --big-text-size :300%;\n          --bold-text :900;\n          --vert-pad : 25px;\n          --horz-pad : 25px;\n        }\n        body \n        {\n          background-color: black !important;\n          padding-left:25px;\n          padding-right:25px;\n        }\n        \n        img \n        {\n          object-fit: contain;\n        }\n        a\n        {\n            color: white;\n        }\n        a:visited \n        { \n            color: var(--white);\n        }\n        a:hover \n        { \n            color: var(--color5);\n        }\n\n        .jumbotron \n        {\n          background-color: var(--color2) !important;\n          color: white;\n          padding-top:25px;\n          padding-bottom:25px;\n        }\n        .jumbotron-title\n        {\n          color:var(--color5);\n        }\n        .jumbotron-button\n        {\n          color: white;\n          background-color: var(--color1);\n       }\n        .card\n        {\n          background-color: var(--color2) !important;\n          text-align: center;\n        }\n        .card-body\n        {\n          background-color: var(--color3);;\n        }\n        .card-button\n        {\n          color: var(--color5) !important;\n          background-color: var(--color1) !important;\n          font-weight: bold;\n        }\n        .card-title\n        {\n          color: var(--color5);\n          font-weight: var(--bold-text);\n          font-size: var(--big-text-size);\n         }\n        .card-text\n        {\n          color: white;\n          text-align: left;\n          font-size: var(--big-text-size);\n        }\n        .danger-card\n        {\n          background-color: yellow !important;\n          text-align: center;\n        }\n        .danger-card-body\n        {\n          background-color: yellow;\n        }\n        .danger-card-button\n        {\n          color: yellow !important;\n          background-color: red !important;\n          font-weight: bold;\n        }\n        .danger-card-title\n        {\n          color: red;\n          font-weight: var(--bold-text);\n          font-size: var(--big-text-size);\n         }\n        .danger-card-text\n        {\n          color: white;\n          text-align: left;\n          font-size: var(--big-text-size);\n        }\n        .tableHeading\n        {\n          color:var(--container-title-color);\n        }\n        .tableText\n        {\n          color:var(--container-text-color);\n          font-size: var(--big-text-size);\n        }\n       .vert-pad\n        {\n            padding-top:var(--vert-pad);;\n            padding-bottom:var(--vert-pad);;\n        }\n        .horz-pad\n        {\n            padding-left:var(--horz-pad);;\n            padding-right:var(--horz-pad);;\n        }\n        .big-text\n        {\n            font-size: var(--big-text-size);\n        }\n        .bold-text\n        {\n            font-weight: var(--bold-text);\n        }\n        .ui-slider\n        {\n            height: 90px;\n            background-color: var(--color1) !important;\n        }\n        .ui-slider .ui-slider-handle \n        {\n            height: 100px;\n            width: 100px;\n            background-color: var(--color5) !important;\n        }\n        .ui-dialog-titlebar-close \n        {\n            visibility: hidden;\n        }\n",
+        "output": "str",
+        "x": 1090,
+        "y": 1680,
+        "wires": [
+            [
+                "712dd2d1.e06f3c"
+            ]
+        ]
+    },
+    {
+        "id": "712dd2d1.e06f3c",
+        "type": "template",
+        "z": "9c854ea3.68416",
+        "name": "navBar",
+        "field": "payload.navBar",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<!-- navBar -->\n",
+        "output": "str",
+        "x": 1240,
+        "y": 1680,
+        "wires": [
+            [
+                "f4f40f05.e00ce"
+            ]
+        ]
+    },
+    {
+        "id": "94407f94.3a091",
+        "type": "template",
+        "z": "9c854ea3.68416",
+        "name": "script.horzbarWidget",
+        "field": "payload.script.horzbarWidget",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "// Horz Bar Widget\n        function setHorzBarWidget(barConfig)\n        {\n            var lowValue = 0;\n            var mediumValue = 0;\n            var highValue = 0;\n        \n            var lowColor = barConfig.backgroundColor;\n            var mediumColor = barConfig.backgroundColor;\n            var highColor = barConfig.backgroundColor;\n            var valueColor = barConfig.backgroundColor; \n            \n            if ( barConfig.value <= barConfig.lolo)\n            {\n                lowValue = barConfig.lolo;\n                lowColor = barConfig.lowColor;\n                valueColor = lowColor;\n            }\n            if ( (barConfig.lolo <= barConfig.value) && (barConfig.value < barConfig.low) )\n            {\n                lowValue = barConfig.value;\n                lowColor = barConfig.lowColor;\n                valueColor = lowColor;\n            }\n            if ( (barConfig.low  <= barConfig.value) && (barConfig.value < barConfig.high) )\n            {\n                lowValue = barConfig.low;\n                mediumValue = barConfig.value - barConfig.low; \n                lowColor = barConfig.mediumColor;\n                mediumColor = barConfig.mediumColor;\n                valueColor = mediumColor;\n        \n            }\n            if ( (barConfig.high <= barConfig.value) && (barConfig.value < barConfig.hihi) )\n            {\n                lowValue = barConfig.low;\n                mediumValue = barConfig.high - barConfig.low;\n                highValue = barConfig.value - barConfig.high;\n                lowColor = barConfig.highColor;\n                mediumColor = barConfig.highColor;\n                highColor = barConfig.highColor;\n                valueColor = highColor;\n            }\n            if ( barConfig.hihi <= barConfig.value)\n            {\n                lowValue = barConfig.low;\n                mediumValue = barConfig.high - barConfig.low; \n                highValue = barConfig.hihi - barConfig.high; \n                lowColor = barConfig.highColor;\n                mediumColor = barConfig.highColor;\n                highColor = barConfig.highColor;\n                valueColor = highColor;\n            }\n            \n            var lowBar = \n            {\n                y: ['', '-'],\n                x: [ barConfig.low, lowValue],\n                type: 'bar',\n                orientation: 'h',\n                showlegend: false,\n                marker:{color: [barConfig.lowColor, lowColor]},\n              width: [0.1, 1.0],\n            };\n            var mediumBar = \n            {\n                y: ['', '-'],\n                x: [barConfig.high - barConfig.low, mediumValue],\n                type: 'bar',\n                orientation: 'h',\n                showlegend: false,\n                marker:{color: [barConfig.mediumColor, mediumColor]},\n              width: [0.1, 1.0],\n            };\n            var highBar = \n            {\n                y: ['', '-'],\n                x: [barConfig.hihi - barConfig.high, highValue],\n                orientation: 'h',\n                type: 'bar',\n                showlegend: false,\n                marker:{color: [barConfig.highColor, highColor]},\n              width: [0.1, 1.0],\n            };\n            var layout = \n                {\n                    barmode: 'stack',\n                    plot_bgcolor:barConfig.backgroundColor,\n                    paper_bgcolor:barConfig.backgroundColor,\n                    margin: \n                        {\n                            t: 1, //top margin\n                            l: 10, //left margin\n                            r: 10, //right margin\n                            b: 30 //bottom margin\n                        },\n \n                    height: barConfig.height,\n                    title: \n                        {\n                            text: barConfig.value.toString() + ' ' + barConfig.unit,\n//                            font: {color: valueColor, size:barConfig.textsize},\n                            font: {color: '#000000', size:45},\n                        },\n                    yaxis: \n                        {\n                            tickfont: {color:valueColor, size:barConfig.textsize}\n                        },\n                    xaxis: \n                        {\n                            range: [barConfig.lolo, barConfig.hihi],\n                            tickfont: {color:barConfig.labelColor, size:barConfig.textsize},\n                            gridcolor       : barConfig.gridColor\n\n                        },\n                };\n           Plotly.newPlot(barConfig.htmlId, [lowBar, mediumBar, highBar], layout, {'displayModeBar': false});\n        }\n        \n        \n        \n        \n        \n    \n",
+        "output": "str",
+        "x": 620,
+        "y": 1680,
+        "wires": [
+            [
+                "647603a9.542f9c"
             ]
         ]
     }
