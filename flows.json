@@ -924,25 +924,6 @@
         ]
     },
     {
-        "id": "72c58cab.a3c494",
-        "type": "function",
-        "z": "e17f7487.2a78e8",
-        "name": "Check Archive interval",
-        "func": "msg.device.lastArchive = msg.payload.lastArchive;\nmsg.device.timeStamp = new Date().getTime();\nvar keys = Object.keys(msg.device);\nfor (var ii = 0; ii < keys.length; ++ii) msg.payload[keys[ii]] = msg.device[keys[ii]];\n\nvar archiveMsg = null;\nif ((msg.payload.timeStamp - msg.payload.lastArchive) > msg.payload.arcPeriod)\n{\n    msg.payload.lastArchive  = msg.payload.timeStamp;\n    msg.device.lastArchive = msg.payload.lastArchive;\n    var archiveDevice = JSON.parse(JSON.stringify(msg.device));\n    delete archiveDevice.arcPeriod;\n    delete archiveDevice.lastArchive;\n    keys = Object.keys(archiveDevice);\n    for (var ii = 0; ii < keys.length; ++ii)\n    {\n        if (archiveDevice[keys[ii]].hasOwnProperty('type'))\n        {\n            \n            archiveDevice[keys[ii]] = JSON.parse(JSON.stringify(msg.device[keys[ii]].value));\n        }\n    }\n    archiveMsg = {topic:'archiveData',payload: archiveDevice};\n}\nvar updateDeviceMsg = \n{\n    topic:'updateDevice',\n    payload:\n    [\n        {\n            $and   :    \n            [\n                {\n                    deviceType : msg.payload.deviceType\n                },\n                {\n                    name : msg.payload.name\n                }\n            ]\n        }, \n        msg.payload\n    ]\n};\nreturn [updateDeviceMsg,archiveMsg];\n",
-        "outputs": 2,
-        "noerr": 0,
-        "x": 960,
-        "y": 60,
-        "wires": [
-            [
-                "bc2507b7.46f4b8"
-            ],
-            [
-                "621ab8d1.42e078"
-            ]
-        ]
-    },
-    {
         "id": "662fe630.391fd8",
         "type": "template",
         "z": "dc20c6e0.0feb98",
@@ -969,69 +950,6 @@
         "x": 640,
         "y": 80,
         "wires": []
-    },
-    {
-        "id": "e020461d.044ee8",
-        "type": "function",
-        "z": "e17f7487.2a78e8",
-        "name": "Check if Device Exists",
-        "func": "function isEmpty(obj) \n{\n    for(var key in obj) \n    {\n        if(obj.hasOwnProperty(key))\n            return false;\n    }\n    return true;\n}\nif (isEmpty(msg.payload)) return null;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 560,
-        "y": 160,
-        "wires": [
-            [
-                "4e3763f1.63282c"
-            ]
-        ]
-    },
-    {
-        "id": "731fcbcd.96f0a4",
-        "type": "mongodb3 in",
-        "z": "e17f7487.2a78e8",
-        "service": "_ext_",
-        "configNode": "9cd5ff5e.caf86",
-        "name": "",
-        "collection": "devices",
-        "operation": "findOne",
-        "x": 330,
-        "y": 160,
-        "wires": [
-            [
-                "e020461d.044ee8"
-            ]
-        ]
-    },
-    {
-        "id": "bc2507b7.46f4b8",
-        "type": "mongodb3 in",
-        "z": "e17f7487.2a78e8",
-        "service": "_ext_",
-        "configNode": "9cd5ff5e.caf86",
-        "name": "",
-        "collection": "devices",
-        "operation": "update",
-        "x": 1210,
-        "y": 60,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "621ab8d1.42e078",
-        "type": "mongodb3 in",
-        "z": "e17f7487.2a78e8",
-        "service": "_ext_",
-        "configNode": "9cd5ff5e.caf86",
-        "name": "",
-        "collection": "archiver",
-        "operation": "insertOne",
-        "x": 1220,
-        "y": 120,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "699dce99.1fe68",
@@ -1785,7 +1703,7 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "<!-- navBar -->\n    <div class=\"jumbotron\" width=\"100%\">\n        <table width=\"100%\">\n            <tr>\n                <td style=\"text-align:left; vertical-align:middle;\"  width=\"20%\">\n                </td>\n                <td width=\"60%\" style=\"text-align:center; vertical-align:middle;\">\n                    <h1 class=\"jumbotron-title big-text bold-text\">\n                        <img src=\"/img/{{{payload.navBarIcon}}}\" height=\"75px\" style=\"padding-right:20px;\"/><span>{{{payload.title}}}</span>\n                    </h1>\n                </td>\n                <td style=\"text-align:right; vertical-align:middle;\" width=\"20%\">\n                    <a href='/'><img src=\"/img/home.png\" height=\"75px\"/></a>\n                </td>\n            </tr>\n        </table>\n    </div>\n",
+        "template": "<!-- navBar -->\n    <div class=\"jumbotron\" width=\"100%\">\n        <table width=\"100%\">\n            <tr>\n                <td style=\"text-align:left; vertical-align:middle;\"  width=\"20%\">\n                    <a href='https://www.hornanpabrantevik.com/'><span class=\"jumbotron-title big-text bold-text\" >B&amp;B</span></a>\n                </td>\n                <td width=\"60%\" style=\"text-align:center; vertical-align:middle;\">\n                    <h1 class=\"jumbotron-title big-text bold-text\">\n                        <img src=\"/img/{{{payload.navBarIcon}}}\" height=\"75px\" style=\"padding-right:20px;\"/><span>{{{payload.title}}}</span>\n                    </h1>\n                </td>\n                <td style=\"text-align:right; vertical-align:middle;\" width=\"20%\">\n                    <a href='/apps'><img src=\"/img/home.png\" height=\"75px\"/></a>\n                </td>\n            </tr>\n        </table>\n    </div>\n",
         "output": "str",
         "x": 200,
         "y": 80,
@@ -4060,125 +3978,6 @@
         ]
     },
     {
-        "id": "c3761de5.51f6a",
-        "type": "mqtt in",
-        "z": "e17f7487.2a78e8",
-        "name": "Subscribe Readings",
-        "topic": "$(ARCHIVETOPIC)",
-        "qos": "0",
-        "datatype": "auto",
-        "broker": "84d80994.260508",
-        "x": 150,
-        "y": 80,
-        "wires": [
-            [
-                "1de67fe2.40e2e"
-            ]
-        ]
-    },
-    {
-        "id": "1de67fe2.40e2e",
-        "type": "json",
-        "z": "e17f7487.2a78e8",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 310,
-        "y": 80,
-        "wires": [
-            [
-                "2f6b8176.8101fe"
-            ]
-        ]
-    },
-    {
-        "id": "2f6b8176.8101fe",
-        "type": "function",
-        "z": "e17f7487.2a78e8",
-        "name": "Split MQTT topic",
-        "func": "var mqttArray = msg.topic.split('/');\nvar device = \n{\n    project     : mqttArray[0],\n    deviceType  : mqttArray[1],\n    name        : mqttArray[2],\n    prop        : mqttArray[3],\n};\nreturn {topic : msg.topic, mqttDevice : device, payload:msg.payload};",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 470,
-        "y": 80,
-        "wires": [
-            [
-                "ee4c177c.2435b8"
-            ]
-        ]
-    },
-    {
-        "id": "ee4c177c.2435b8",
-        "type": "function",
-        "z": "e17f7487.2a78e8",
-        "name": "parse topic",
-        "func": "return {\n    topic   :msg.payload.name, \n    payload : \n    [\n        {\n            $and   :    \n            [\n                {\n                    deviceType : msg.payload.deviceType\n                },\n                {\n                    name : msg.payload.name\n                }\n            ]\n        }, \n        {\n            projection  :\n            {\n                _id :   0\n                \n            }\n        }\n    ],\n    'device'    :   msg.payload\n};\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 130,
-        "y": 160,
-        "wires": [
-            [
-                "731fcbcd.96f0a4"
-            ]
-        ]
-    },
-    {
-        "id": "4e3763f1.63282c",
-        "type": "switch",
-        "z": "e17f7487.2a78e8",
-        "name": "",
-        "property": "device.deviceType",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "basic",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "vad-kul",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 750,
-        "y": 120,
-        "wires": [
-            [
-                "72c58cab.a3c494"
-            ],
-            [
-                "4050f8bc.89ec58"
-            ]
-        ]
-    },
-    {
-        "id": "4050f8bc.89ec58",
-        "type": "function",
-        "z": "e17f7487.2a78e8",
-        "name": "Check For Image",
-        "func": "if (msg.device.imageData.value == null) return;\n//msg.device.timeStamp = new Date().getTime();\nmsg.device.lastArchive = msg.device.timeStamp;\n\nvar archiveDevice = JSON.parse(JSON.stringify(msg.device));\nvar updateDevice  = JSON.parse(JSON.stringify(msg.device));\ndelete archiveDevice.arcPeriod;\ndelete archiveDevice.lastArchive;\nkeys = Object.keys(archiveDevice);\nfor (var ii = 0; ii < keys.length; ++ii)\n{\n    if (archiveDevice[keys[ii]].hasOwnProperty('type'))\n    {\n        \n        archiveDevice[keys[ii]] = JSON.parse(JSON.stringify(msg.device[keys[ii]].value));\n    }\n}\narchiveMsg = {topic:'archiveData',payload: archiveDevice};\nif (archiveDevice.archiveData < 1) archiveMsg = null;\nvar updateDeviceMsg = \n{\n    topic:'updateDevice',\n    payload:\n    [\n        {\n            $and   :    \n            [\n                {\n                    deviceType : msg.device.deviceType\n                },\n                {\n                    name : msg.device.name\n                }\n            ]\n        }, \n        updateDevice\n    ]\n};\n\nreturn [updateDeviceMsg,archiveMsg];\n",
-        "outputs": 2,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 950,
-        "y": 200,
-        "wires": [
-            [
-                "bc2507b7.46f4b8"
-            ],
-            [
-                "621ab8d1.42e078"
-            ]
-        ]
-    },
-    {
         "id": "bba93a6e.3bdbd8",
         "type": "json",
         "z": "8475ab9.3d26058",
@@ -4285,7 +4084,7 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "<!-- Body HTML -->\n    <div class='container' width=\"100%\">\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-monitor?name=01\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Monitor</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-sensor?name=01\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Sensors</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-archive?names=01,02\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Archiver</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-tv?names=01,02\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul TV</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-history?names=01,02\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul History</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-bar?names=01,02\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Bar</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/core\" id=\"blinky-lite-core\">\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/coreYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Core Apps</td>\n                        </tr>\n                    </table>\n                </a> \n            </div>\n        </div>\n    </div>",
+        "template": "<!-- Body HTML -->\n    <div class='container' width=\"100%\">\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-monitor?name=11\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Monitor</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-archive?names=11\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Archiver</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/vad-kul-sensor?name=11\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/discoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Setup</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n    </div>",
         "output": "str",
         "x": 1010,
         "y": 40,
@@ -4304,7 +4103,7 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "Vad Kul Apps",
+        "template": "Apps",
         "output": "str",
         "x": 730,
         "y": 40,
@@ -4510,339 +4309,6 @@
         "wires": [
             [
                 "4c50f332.84057c"
-            ]
-        ]
-    },
-    {
-        "id": "4627d72c.810368",
-        "type": "inject",
-        "z": "e17f7487.2a78e8",
-        "name": "Prune every 2 hours",
-        "repeat": "7200",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "10",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 160,
-        "y": 460,
-        "wires": [
-            [
-                "6d14548b.92e89c"
-            ]
-        ]
-    },
-    {
-        "id": "6d14548b.92e89c",
-        "type": "mongodb3 in",
-        "z": "e17f7487.2a78e8",
-        "service": "_ext_",
-        "configNode": "9cd5ff5e.caf86",
-        "name": "",
-        "collection": "archiver",
-        "operation": "stats",
-        "x": 390,
-        "y": 460,
-        "wires": [
-            [
-                "cdfc8294.43d83"
-            ]
-        ]
-    },
-    {
-        "id": "eae07f83.bcf2c",
-        "type": "mongodb3 in",
-        "z": "e17f7487.2a78e8",
-        "service": "_ext_",
-        "configNode": "9cd5ff5e.caf86",
-        "name": "",
-        "collection": "archiver",
-        "operation": "find.toArray",
-        "x": 930,
-        "y": 460,
-        "wires": [
-            [
-                "f226d7aa.824b28"
-            ]
-        ]
-    },
-    {
-        "id": "cdfc8294.43d83",
-        "type": "function",
-        "z": "e17f7487.2a78e8",
-        "name": "Find Number of Records to cut",
-        "func": "var maxDbSize = global.get('maxDbSize');\nif (maxDbSize == undefined) return null;\nif (msg.payload.size < maxDbSize) return null;\nvar cutRecords = Math.round( (msg.payload.size - 0.9 * maxDbSize) / msg.payload.avgObjSize);\nvar newMsg = \n{\n    topic           : 'test',\n    payload         : [{},{projection:{timeStamp:1, _id:0}}],\n    cutRecords      : cutRecords\n};\nreturn newMsg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 650,
-        "y": 460,
-        "wires": [
-            [
-                "eae07f83.bcf2c"
-            ]
-        ]
-    },
-    {
-        "id": "f226d7aa.824b28",
-        "type": "function",
-        "z": "e17f7487.2a78e8",
-        "name": "Find latest Time Stamp",
-        "func": "function objectLength( object ) {\n    var length = 0;\n    for( var key in object ) {\n        if( object.hasOwnProperty(key) ) {\n            ++length;\n        }\n    }\n    return length;\n}\nvar numDevices = objectLength(msg.payload);\nvar timeStampList = [];\n\nfor (var idevice = 0; idevice < numDevices; ++idevice)\n{\n    timeStampList[idevice] = msg.payload[idevice].timeStamp;\n}\ntimeStampList.sort();\n\n\nvar newMsg = \n{\n    topic           : 'test',\n    payload         : [{timeStamp: {\"$lte\": timeStampList[msg.cutRecords]}},{projection:{timeStamp:1, _id:0}}],\n};\nreturn newMsg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 900,
-        "y": 520,
-        "wires": [
-            [
-                "6532f8b6.6c31b8"
-            ]
-        ]
-    },
-    {
-        "id": "6532f8b6.6c31b8",
-        "type": "mongodb3 in",
-        "z": "e17f7487.2a78e8",
-        "service": "_ext_",
-        "configNode": "9cd5ff5e.caf86",
-        "name": "",
-        "collection": "archiver",
-        "operation": "removeMany",
-        "x": 930,
-        "y": 580,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6c3053f6.dc3e9c",
-        "type": "inject",
-        "z": "e17f7487.2a78e8",
-        "name": "",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 120,
-        "y": 640,
-        "wires": [
-            [
-                "729cd6f7.ca5578"
-            ]
-        ]
-    },
-    {
-        "id": "729cd6f7.ca5578",
-        "type": "function",
-        "z": "e17f7487.2a78e8",
-        "name": "Find Device Type",
-        "func": "var queryFilter = \n{\n    $and :\n    [\n        {\n            \"deviceType\": \"vad-kul\"\n        },\n        {\n            \"name\": \"14\"\n        }\n    ] \n    \n}\nvar newMsg = \n{\n    topic           : 'getArchiveValues',\n    payload         : queryFilter,\n};\nreturn newMsg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 290,
-        "y": 640,
-        "wires": [
-            [
-                "cf34c25.b29984"
-            ]
-        ]
-    },
-    {
-        "id": "cf34c25.b29984",
-        "type": "mongodb3 in",
-        "z": "e17f7487.2a78e8",
-        "service": "_ext_",
-        "configNode": "9cd5ff5e.caf86",
-        "name": "",
-        "collection": "archiver",
-        "operation": "removeMany",
-        "x": 530,
-        "y": 700,
-        "wires": [
-            [
-                "4dd34a88.974344"
-            ]
-        ]
-    },
-    {
-        "id": "2d28afa.778ba5",
-        "type": "mongodb3 in",
-        "z": "e17f7487.2a78e8",
-        "service": "_ext_",
-        "configNode": "9cd5ff5e.caf86",
-        "name": "",
-        "collection": "archiver",
-        "operation": "find.toArray",
-        "x": 530,
-        "y": 600,
-        "wires": [
-            [
-                "4dd34a88.974344"
-            ]
-        ]
-    },
-    {
-        "id": "4dd34a88.974344",
-        "type": "debug",
-        "z": "e17f7487.2a78e8",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 770,
-        "y": 660,
-        "wires": []
-    },
-    {
-        "id": "8dcd96b2.1500c8",
-        "type": "mongodb3 in",
-        "z": "e17f7487.2a78e8",
-        "service": "_ext_",
-        "configNode": "9cd5ff5e.caf86",
-        "name": "",
-        "collection": "devices",
-        "operation": "insertOne",
-        "x": 720,
-        "y": 820,
-        "wires": [
-            [
-                "94c48103.f8d4f"
-            ]
-        ]
-    },
-    {
-        "id": "94c48103.f8d4f",
-        "type": "debug",
-        "z": "e17f7487.2a78e8",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 970,
-        "y": 820,
-        "wires": []
-    },
-    {
-        "id": "35bce45a.3641ac",
-        "type": "inject",
-        "z": "e17f7487.2a78e8",
-        "name": "",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 140,
-        "y": 900,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "99dd6071.b0cdd",
-        "type": "mqtt out",
-        "z": "e17f7487.2a78e8",
-        "name": "",
-        "topic": "",
-        "qos": "",
-        "retain": "",
-        "broker": "84d80994.260508",
-        "x": 680,
-        "y": 900,
-        "wires": []
-    },
-    {
-        "id": "bd81b50.67bac48",
-        "type": "comment",
-        "z": "e17f7487.2a78e8",
-        "name": "Careful - changes database!",
-        "info": "",
-        "x": 160,
-        "y": 760,
-        "wires": []
-    },
-    {
-        "id": "8697e229.9f084",
-        "type": "function",
-        "z": "e17f7487.2a78e8",
-        "name": "Update  shimmy-spotter  Database entry with MQTT",
-        "func": "var device = \n{\n  \"name\": \"001\",\n  \"deviceType\": \"shimmy-spotter\",\n  \"arcPeriod\": 60000,\n  \"timeStamp\": 1577192916202,\n  \"lastArchive\": 1577192892513,\n  \"maxAmp\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 58.26,\n    \"unit\": \"um\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 0,\n        \"low\": 10,\n        \"high\": 800,\n        \"hihi\": 1000\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"maxAmpMode\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 115.23,\n    \"unit\": \"Hz\",\n    \"alarm\": {\n      \"value\": 4,\n      \"limits\": {\n        \"lolo\": 0.3,\n        \"low\": 0.5,\n        \"high\": 85,\n        \"hihi\": 88\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"avgPower\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 856.68,\n    \"unit\": \"um\",\n    \"alarm\": {\n      \"value\": 4,\n      \"limits\": {\n        \"lolo\": 0,\n        \"low\": 10,\n        \"high\": 1000,\n        \"hihi\": 100\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"ultraAmp\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 2137,\n    \"unit\": \"unit\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 1870,\n        \"low\": 2000,\n        \"high\": 2500,\n        \"hihi\": 3000\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"freqOffsetReading\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": -100,\n    \"unit\": \"Hz\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -2000,\n        \"low\": -1500,\n        \"high\": 1500,\n        \"hihi\": 2000\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"sampleIntervalReading\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 4000,\n    \"unit\": \"uS\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 1990,\n        \"low\": 1991,\n        \"high\": 40000,\n        \"hihi\": 50000\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"linkQuality\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 47,\n    \"unit\": \"/70\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 30,\n        \"low\": 40,\n        \"high\": 71,\n        \"hihi\": 80\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"signalLevel\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": -63,\n    \"unit\": \"dBm\",\n    \"alarm\": {\n      \"value\": 1,\n      \"limits\": {\n        \"lolo\": -70,\n        \"low\": -60,\n        \"high\": 0,\n        \"hihi\": 30\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"spectrum\": {\n    \"action\": \"reading\",\n    \"type\": \"vector\",\n    \"value\": [[],[]]\n  },\n  \"minDisplayMode\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 0.5,\n    \"unit\": \"Hz\",\n    \"alarm\": {\n      \"value\": 1,\n      \"limits\": {\n        \"lolo\": 0.3,\n        \"low\": 0.6,\n        \"high\": 85,\n        \"hihi\": 88\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"maxDisplayMode\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 250,\n    \"unit\": \"Hz\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 0.3,\n        \"low\": 0.6,\n        \"high\": 250,\n        \"hihi\": 250\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"freqOffsetSetting\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": -100,\n    \"unit\": \"Hz\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -2000,\n        \"low\": -1500,\n        \"high\": 1500,\n        \"hihi\": 2000\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"sampleIntervalSetting\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 3000,\n    \"unit\": \"uS\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 1990,\n        \"low\": 1991,\n        \"high\": 40000,\n        \"hihi\": 50000\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"averages\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 1,\n    \"unit\": \"unit\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 1,\n        \"low\": 1,\n        \"high\": 20,\n        \"hihi\": 100\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  }\n\n};\nreturn {topic:'blinky-lite/ultra-ncab/001/setting', payload:device};",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 430,
-        "y": 940,
-        "wires": [
-            [
-                "99dd6071.b0cdd"
-            ]
-        ]
-    },
-    {
-        "id": "e91322c8.d0273",
-        "type": "inject",
-        "z": "e17f7487.2a78e8",
-        "name": "",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 140,
-        "y": 940,
-        "wires": [
-            [
-                "8697e229.9f084"
-            ]
-        ]
-    },
-    {
-        "id": "64561818.4187f8",
-        "type": "function",
-        "z": "e17f7487.2a78e8",
-        "name": "Create vad-kul Database entry",
-        "func": "var device = {\n  \"deviceType\": \"vad-kul\",\n  \"name\": \"14\",\n  \"arcPeriod\": 60000,\n  \"timeStamp\": 1593601833498,\n  \"lastArchive\": 1584283329231,\n  \"linkQuality\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 70,\n    \"unit\": \"/70\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 30,\n        \"low\": 40,\n        \"high\": 71,\n        \"hihi\": 80\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"signalLevel\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": -36,\n    \"unit\": \"dBm\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -70,\n        \"low\": -60,\n        \"high\": 0,\n        \"hihi\": 30\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"pixelMin\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 10.68,\n    \"unit\": \"C\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -10,\n        \"low\": 0,\n        \"high\": 30,\n        \"hihi\": 40\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"pixelMax\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 33.02,\n    \"unit\": \"C\",\n    \"alarm\": {\n      \"value\": 2,\n      \"limits\": {\n        \"lolo\": 30,\n        \"low\": 33,\n        \"high\": 36,\n        \"hihi\": 39\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"ultraSoundDistance\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 367,\n    \"unit\": \"cm\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 10,\n        \"low\": 15,\n        \"high\": 20000,\n        \"hihi\": 21000\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"ultraSoundRange\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 150,\n    \"unit\": \"cm\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 10,\n        \"low\": 15,\n        \"high\": 20000,\n        \"hihi\": 21000\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"imageDelay\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 3000,\n    \"unit\": \"mS\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 1000,\n        \"low\": 1400,\n        \"high\": 20000,\n        \"hihi\": 21000\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"bodyTemp\": {\n    \"action\": \"reading\",\n    \"type\": \"scalar\",\n    \"value\": 37.5,\n    \"unit\": \"C\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 33,\n        \"low\": 36,\n        \"high\": 39,\n        \"hihi\": 42\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"offsetTemp\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 0,\n    \"unit\": \"C\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -10,\n        \"low\": -5,\n        \"high\": 5,\n        \"hihi\": 10\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"archiveMinTemp\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 30,\n    \"unit\": \"C\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 25,\n        \"low\": 26,\n        \"high\": 40,\n        \"hihi\": 41\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"archivePixelPercent\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 2,\n    \"unit\": \"%\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": 1,\n        \"low\": 1.1,\n        \"high\": 25,\n        \"hihi\": 30\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"flipHorizontal\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 0,\n    \"unit\": \"unit\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -2,\n        \"low\": -1,\n        \"high\": 2,\n        \"hihi\": 3\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"flipVertical\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 0,\n    \"unit\": \"unit\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -2,\n        \"low\": -1,\n        \"high\": 2,\n        \"hihi\": 3\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"archiveData\": {\n    \"action\": \"setting\",\n    \"type\": \"scalar\",\n    \"value\": 0,\n    \"unit\": \"unit\",\n    \"alarm\": {\n      \"value\": 0,\n      \"limits\": {\n        \"lolo\": -2,\n        \"low\": -1,\n        \"high\": 2,\n        \"hihi\": 3\n      },\n      \"notify\": {\n        \"name\": \"\",\n        \"number\": \"\",\n        \"time\": 0\n      }\n    }\n  },\n  \"imageData\": {\n    \"action\": \"reading\",\n    \"type\": \"pgm\",\n    \"value\": null,\n    \"unit\": \"unit\"\n  }\n}\nreturn {topic:'vad-kul',payload:device};",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 410,
-        "y": 820,
-        "wires": [
-            [
-                "8dcd96b2.1500c8"
-            ]
-        ]
-    },
-    {
-        "id": "bbc7146d.4908f8",
-        "type": "inject",
-        "z": "e17f7487.2a78e8",
-        "name": "",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 140,
-        "y": 820,
-        "wires": [
-            [
-                "64561818.4187f8"
             ]
         ]
     },
@@ -6551,7 +6017,7 @@
         "type": "function",
         "z": "90f83725.6dae08",
         "name": "Add User",
-        "func": "var user = {\n  \"username\"        : \"user\",\n  \"password\"    : \"$2a$10$2966WbYB1ynGzANgm3LbEu70CnVE.KxoZ0AUuR..cpnIrskRAVQLS\",\n  \"roles\"       : [\"expert\"]\n}\nreturn {topic:'user',payload:user};",
+        "func": "var user = {\n  \"username\"        : \"hornan\",\n  \"password\"    : \"$2a$10$/RMz6rBzXwSyS1W77HMcPe35f8ek/u7SJn/hoiGlgU1oZ0rzZK2aq\",\n  \"roles\"       : [\"expert\"]\n}\nreturn {topic:'user',payload:user};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6620,7 +6086,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "blinky-lite",
+        "payload": "corner",
         "payloadType": "str",
         "x": 170,
         "y": 1660,
@@ -7342,7 +6808,7 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "Vad Kul Info",
+        "template": "Info",
         "output": "str",
         "x": 730,
         "y": 400,
@@ -7426,7 +6892,7 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "<!-- Body HTML -->\n    <div class='container' width=\"100%\">\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/apps\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/appsYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Apps</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/info\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/infoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Vad Kul Info</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n   </div>",
+        "template": "<!-- Body HTML -->\n    <div class='container' width=\"100%\">\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/apps\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/appsYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Apps</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/info\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/infoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Info</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n   </div>",
         "output": "str",
         "x": 1010,
         "y": 100,
@@ -7445,7 +6911,7 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "Vad Kul",
+        "template": "Vad Kul på Hörnan",
         "output": "str",
         "x": 730,
         "y": 100,
