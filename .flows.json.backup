@@ -1787,7 +1787,7 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "<!-- navBar -->\n    <div class=\"jumbotron\" width=\"100%\">\n        <table width=\"100%\">\n            <tr>\n                <td style=\"text-align:left; vertical-align:middle;\"  width=\"20%\">\n                    <a href='https://www.blinky-lite.io/' target='_blank'>\n                        <img src=\"/img/BlinkyLogo.gif\" height=\"75px\"/>\n                    </a>                \n                </td>\n                <td width=\"60%\" style=\"text-align:center; vertical-align:middle;\">\n                    <h1 class=\"jumbotron-title big-text bold-text\">\n                        <img src=\"/img/{{{payload.navBarIcon}}}\" height=\"75px\" style=\"padding-right:20px;\"/><span>{{{payload.title}}}</span>\n                    </h1>\n                </td>\n                <td style=\"text-align:right; vertical-align:middle;\" width=\"20%\">\n                    <a href='/'><img src=\"/img/home.png\" height=\"75px\"/></a>\n                </td>\n            </tr>\n        </table>\n    </div>",
+        "template": "<!-- navBar -->\n    <div class=\"jumbotron\" width=\"100%\">\n        <table width=\"100%\">\n            <tr>\n                <td style=\"text-align:left; vertical-align:middle;\"  width=\"20%\">\n                    <a href='https://www.blinky-lite.io/' target='_blank'>\n                        <img src=\"/img/BlinkyLogo.gif\" height=\"75px\"/>\n                    </a>                \n                </td>\n                <td width=\"60%\" style=\"text-align:center; vertical-align:middle;\">\n                    <h1 class=\"jumbotron-title big-text bold-text\">\n                        <img src=\"/img/{{{payload.navBarIcon}}}\" height=\"75px\" style=\"padding-right:20px;\"/><span>{{{payload.title}}}</span>\n                    </h1>\n                </td>\n                <td style=\"text-align:right; vertical-align:middle;\" width=\"20%\">\n                    <a href='/apps'><img src=\"/img/home.png\" height=\"75px\"/></a>\n                </td>\n            </tr>\n        </table>\n    </div>",
         "output": "str",
         "x": 200,
         "y": 80,
@@ -6144,7 +6144,7 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "<!-- Body HTML -->\n    <form action=\"/process-login\" method=\"POST\">\n        <table align='center'>\n            <tr>\n                <td>\n                    <label for=\"username\" class=\"big-text\">User</label>\n                </td>\n                <td>\n                    <input name=\"username\" type=\"text\" class=\"big-text\"/>\n                </td>\n            </tr>\n            <tr>\n                <td>\n                    <label for=\"password\" class=\"big-text\">Password</label>\n                </td>\n                <td>\n                    <input name=\"password\" type=\"password\" class=\"big-text\"/>\n                </td>\n            </tr>\n            <tr>\n                <td>\n                </td>\n                <td>\n                    <input type=\"submit\" class=\"btn jumbotron-button btn-block big-text bold-text\" value=\"Login\"/>\n                </td>\n            </tr>\n        </table>    \n    </form>  ",
+        "template": "<!-- Body HTML -->\n    <form action=\"/process-login\" method=\"POST\">\n        <table align='center'>\n            <tr>\n                <td>\n                    <label for=\"username\" class=\"big-text\">User</label>\n                </td>\n                <td>\n                    <input name=\"username\" type=\"text\" class=\"big-text\"/>\n                </td>\n            </tr>\n            <tr>\n                <td>\n                    <label for=\"password\" class=\"big-text\">Password</label>\n                </td>\n                <td>\n                    <input name=\"password\" type=\"password\" class=\"big-text\"/>\n                </td>\n            </tr>\n            <tr>\n                <td>\n                </td>\n                <td>\n                    <input type=\"submit\" class=\"btn jumbotron-button btn-block big-text bold-text\"/>\n                </td>\n            </tr>\n        </table>    \n    </form>  ",
         "output": "str",
         "x": 710,
         "y": 1180,
@@ -7158,212 +7158,6 @@
         ]
     },
     {
-        "id": "9720ea4d.158138",
-        "type": "http in",
-        "z": "a858ad3a.95706",
-        "name": "/info",
-        "url": "/info",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 90,
-        "y": 400,
-        "wires": [
-            [
-                "8df4fc1c.18b5c"
-            ]
-        ]
-    },
-    {
-        "id": "6c48b578.c3f71c",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "Body",
-        "field": "payload.body",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "<!-- Body HTML -->\n    <div class=\"googleSlide4by3-container\">\n        <iframe class=\"googleSlide4by3-iframe\" src=\"https://docs.google.com/presentation/d/e/2PACX-1vSiftZeJzEHz0O8HUyCaQbL4mfq-hUQtYyMgRUUS6vKrS5I-55htPu-AohYbQzjEpKPtk4_qGKTCbnh/embed?start=true&loop=false&delayms=5000\" gesture=\"media\"  allow=\"encrypted-media\" allowfullscreen></iframe>\n    </div>\n    \n",
-        "output": "str",
-        "x": 1010,
-        "y": 400,
-        "wires": [
-            [
-                "466cd250.a8184c"
-            ]
-        ]
-    },
-    {
-        "id": "ec6f5c2e.228e",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "Title",
-        "field": "payload.title",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "SbirTem Info",
-        "output": "str",
-        "x": 730,
-        "y": 400,
-        "wires": [
-            [
-                "ed94644c.2acb18"
-            ]
-        ]
-    },
-    {
-        "id": "8df4fc1c.18b5c",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "JavaScript",
-        "field": "payload.javascript",
-        "fieldType": "msg",
-        "format": "javascript",
-        "syntax": "mustache",
-        "template": "        useWebSockets(false);\n        function onDocumentReady()\n        {\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            \n        }\n        function onWebSocketMessage(msg)\n        {\n        }\n\n",
-        "output": "str",
-        "x": 590,
-        "y": 400,
-        "wires": [
-            [
-                "ec6f5c2e.228e"
-            ]
-        ]
-    },
-    {
-        "id": "466cd250.a8184c",
-        "type": "subflow:8341090a.df9758",
-        "z": "a858ad3a.95706",
-        "name": "",
-        "env": [],
-        "x": 1150,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "ed94644c.2acb18",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "navBarIcon",
-        "field": "payload.navBarIcon",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "infoYellow.png",
-        "output": "str",
-        "x": 870,
-        "y": 400,
-        "wires": [
-            [
-                "6c48b578.c3f71c"
-            ]
-        ]
-    },
-    {
-        "id": "f93e57ba.d1c0c8",
-        "type": "http in",
-        "z": "a858ad3a.95706",
-        "name": "/",
-        "url": "/",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 90,
-        "y": 100,
-        "wires": [
-            [
-                "d1a2144f.104418"
-            ]
-        ]
-    },
-    {
-        "id": "b8258236.e7b89",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "Body",
-        "field": "payload.body",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "<!-- Body HTML -->\n    <div class='container' width=\"100%\">\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/apps\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/appsYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Apps</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/info\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"30%\" align='center'> <img src=\"/img/infoYellow.png\" height=\"70px\"/></td>\n                            <td width=\"70%\" align=\"left\">Info</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n   </div>",
-        "output": "str",
-        "x": 1010,
-        "y": 100,
-        "wires": [
-            [
-                "d4836c97.d7cf4"
-            ]
-        ]
-    },
-    {
-        "id": "4ef71e20.8adf4",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "Title",
-        "field": "payload.title",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "SbirTem",
-        "output": "str",
-        "x": 730,
-        "y": 100,
-        "wires": [
-            [
-                "4aa2529f.bbaf6c"
-            ]
-        ]
-    },
-    {
-        "id": "d1a2144f.104418",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "JavaScript",
-        "field": "payload.javascript",
-        "fieldType": "msg",
-        "format": "javascript",
-        "syntax": "mustache",
-        "template": "        useWebSockets(false);\n        function onDocumentReady()\n        {\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            \n        }\n        function onWebSocketMessage(msg)\n        {\n        }\n\n",
-        "output": "str",
-        "x": 590,
-        "y": 100,
-        "wires": [
-            [
-                "4ef71e20.8adf4"
-            ]
-        ]
-    },
-    {
-        "id": "d4836c97.d7cf4",
-        "type": "subflow:8341090a.df9758",
-        "z": "a858ad3a.95706",
-        "name": "",
-        "env": [],
-        "x": 1150,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "4aa2529f.bbaf6c",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "navBarIcon",
-        "field": "payload.navBarIcon",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "thermoYellow.png",
-        "output": "str",
-        "x": 870,
-        "y": 100,
-        "wires": [
-            [
-                "b8258236.e7b89"
-            ]
-        ]
-    },
-    {
         "id": "1df91e68.621a42",
         "type": "http in",
         "z": "9c854ea3.68416",
@@ -7808,6 +7602,234 @@
         "wires": [
             [
                 "494ef867.4a3eb8"
+            ]
+        ]
+    },
+    {
+        "id": "1c73bc26.072f94",
+        "type": "template",
+        "z": "a858ad3a.95706",
+        "name": "HTML",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n{{{payload.head}}}\n  </head>\n  <body>\n{{{payload.body}}}\n{{{payload.foot}}}\n  </body>\n</html>",
+        "output": "str",
+        "x": 970,
+        "y": 320,
+        "wires": [
+            [
+                "627b4bcd.e1d584"
+            ]
+        ]
+    },
+    {
+        "id": "342f8cd3.e509a4",
+        "type": "template",
+        "z": "a858ad3a.95706",
+        "name": "Foot",
+        "field": "payload.foot",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "    <script src=\"/scripts/popper.js\"></script>\n    <script src=\"/scripts/bootstrap.js\"></script>",
+        "output": "str",
+        "x": 690,
+        "y": 320,
+        "wires": [
+            [
+                "338cefc2.cf33d"
+            ]
+        ]
+    },
+    {
+        "id": "b0f6ad31.a41d1",
+        "type": "template",
+        "z": "a858ad3a.95706",
+        "name": "Head",
+        "field": "payload.head",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "    <meta charset=\"UTF-8\">\n    <link rel=\"icon\" href=\"/img/favicon.ico?v=4\" type=\"image/x-icon\"/>\n    <title>{{payload.title}}</title>\n    <link rel=\"stylesheet\" href=\"/css/bootstrap.css\"/>\n    <link rel=\"stylesheet\" href=\"/jquery/jquery-ui.css\"/>\n    <link rel=\"stylesheet\" href=\"/jquery/jquery-ui-timepicker-addon.css\"/>\n    <script src=\"/jquery/jquery.js\"></script>\n    <script src=\"/jquery/jquery-ui.js\"></script>\n    <script src=\"/jquery/jquery-ui-timepicker-addon.js\"></script>\n    <script src=\"/scripts/plotly-latest.min.js\"></script>\n    <script src=\"/scripts/visDist/vis.js\"></script>\n    <style>\n{{{payload.css}}}\n    </style>\n",
+        "output": "str",
+        "x": 570,
+        "y": 320,
+        "wires": [
+            [
+                "342f8cd3.e509a4"
+            ]
+        ]
+    },
+    {
+        "id": "627b4bcd.e1d584",
+        "type": "http response",
+        "z": "a858ad3a.95706",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1090,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "338cefc2.cf33d",
+        "type": "function",
+        "z": "a858ad3a.95706",
+        "name": "IP filter",
+        "func": "var ipfilter = [\n    \"127.0.0.16\"];\nvar ipAddress = ( msg.req.headers['x-forwarded-for'] || '').split(',').pop() || \n          msg.req.connection.remoteAddress || \n          msg.req.socket.remoteAddress || \n          msg.req.connection.socket.remoteAddress;\nif (ipAddress==undefined) return null;\nvar ipAddressSplit = ipAddress.split(\".\");\nfor (var ii =  0; ii < ipfilter.length; ++ii)\n{\n    var ipfilterSplit = ipfilter[ii].split(\".\");\n    if (ipAddress == ipfilter[ii])\n    { \n        node.warn('Booger');\n        return null;\n    }\n    if (ipfilterSplit[2] == '*')\n    {\n        if ((ipfilterSplit[0] == ipAddressSplit[0]) && (ipfilterSplit[1] == ipAddressSplit[1]))\n        {\n            return null;\n        }\n    }\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 820,
+        "y": 320,
+        "wires": [
+            [
+                "1c73bc26.072f94",
+                "da7be717.3e5be8"
+            ]
+        ]
+    },
+    {
+        "id": "da7be717.3e5be8",
+        "type": "function",
+        "z": "a858ad3a.95706",
+        "name": "ClientInfo",
+        "func": "var ipAddress = ( msg.req.headers['x-forwarded-for'] || '').split(',').pop() || \n          msg.req.connection.remoteAddress || \n          msg.req.socket.remoteAddress || \n          msg.req.connection.socket.remoteAddress;\nvar url = msg.req.url;\nreturn {\n    topic:'clientInfo', \n    payload:{\n        ipAddress   : ipAddress\n    },\n    extraInfo       : {url:url, userID:msg.payload.userID},\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 940,
+        "y": 380,
+        "wires": [
+            [
+                "545f0d7b.fc83b4"
+            ]
+        ]
+    },
+    {
+        "id": "545f0d7b.fc83b4",
+        "type": "http request",
+        "z": "a858ad3a.95706",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": false,
+        "url": "https://tools.keycdn.com/geo.json?host={{{payload.ipAddress}}}",
+        "tls": "",
+        "proxy": "",
+        "authType": "basic",
+        "x": 950,
+        "y": 420,
+        "wires": [
+            [
+                "cb35cc8a.578df"
+            ]
+        ]
+    },
+    {
+        "id": "cb35cc8a.578df",
+        "type": "function",
+        "z": "a858ad3a.95706",
+        "name": "parseIpRequest",
+        "func": "var data = msg.payload.data.geo;\ndata['url'] = msg.extraInfo.url;\ndata['userID'] = msg.extraInfo.userID;\ndata['timeStamp'] = new Date().getTime();\nreturn {topic:'ipData', payload:data};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 960,
+        "y": 460,
+        "wires": [
+            [
+                "f2997adb.f54fd8"
+            ]
+        ]
+    },
+    {
+        "id": "f2997adb.f54fd8",
+        "type": "mongodb3 in",
+        "z": "a858ad3a.95706",
+        "service": "_ext_",
+        "configNode": "9cd5ff5e.caf86",
+        "name": "",
+        "collection": "accessLog",
+        "operation": "insertOne",
+        "x": 1010,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "956fe62.eb52b18",
+        "type": "template",
+        "z": "a858ad3a.95706",
+        "name": "CSS",
+        "field": "payload.css",
+        "fieldType": "msg",
+        "format": "css",
+        "syntax": "mustache",
+        "template": "        :root \n        {\n          --color1: #415c71;\n          --color2: #547792;\n          --color3: #9eb5c7;\n          --color4: #c6c2bb;\n          --color5: #fdc300;\n          --big-text-size :300%;\n          --bold-text :900;\n          --vert-pad : 25px;\n          --horz-pad : 25px;\n        }\n        body \n        {\n          background-color: white !important;\n          padding-left:25px;\n          padding-right:25px;\n        }\n        \n        img \n        {\n          object-fit: contain;\n        }\n        a\n        {\n            color: white;\n        }\n        a:visited \n        { \n            color: var(--white);\n        }\n        a:hover \n        { \n            color: var(--color5);\n        }\n        .jumbotron-button\n        {\n          color: white;\n          background-color: var(--color1);\n        }\n        .card\n        {\n          background-color: var(--color2) !important;\n          text-align: center;\n          padding-left:5px;\n          padding-right:5px;\n          padding-bottom:5px;\n\n        }\n        .card-body\n        {\n          background-color: white;\n          text-align: center;\n        }\n        .card-button\n        {\n          color: var(--color5) !important;\n          background-color: var(--color1) !important;\n          font-weight: bold;\n        }\n        .card-title\n        {\n          color: white;\n          font-size: 200%;\n          font-style:oblique;\n          font-weight: var(--bold-text);\n         }\n        .card-text\n        {\n          color: var(--color2);\n          font-size: 150%;\n        }\n       .vert-pad\n        {\n            padding-top:var(--vert-pad);;\n            padding-bottom:var(--vert-pad);;\n        }\n        .horz-pad\n        {\n            padding-left:var(--horz-pad);;\n            padding-right:var(--horz-pad);;\n        }\n        .big-text\n        {\n            font-size: var(--big-text-size);\n        }\n        .bold-text\n        {\n            font-weight: var(--bold-text);\n        }\n",
+        "output": "str",
+        "x": 450,
+        "y": 320,
+        "wires": [
+            [
+                "b0f6ad31.a41d1"
+            ]
+        ]
+    },
+    {
+        "id": "7ea9110b.4f279",
+        "type": "template",
+        "z": "a858ad3a.95706",
+        "name": "body",
+        "field": "payload.body",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "    <div class=\"jumbotron\" style=\"background-color:white;color: #547792;padding-top:10px; padding-bottom:10px;\" width=\"100%\">\n        <div class='row'>\n            <div class='col-md-2' align='left'>\n                <a href='https://www.blinky-lite.io/' target='_blank'>\n                    <img src=\"/img/BlinkyLogo.gif\" height=\"75px\"/>\n                </a>                \n            </div>\n            <div class='col-md-8' align='center'>\n                <span class=\"jumbotron-title bold-text\" style=\"font-size: 400%;\">SbirTem</span>\n            </div>\n            <div class='col-md-2' align='right'>\n                <span></span>\n            </div>\n        </div>\n        <div class='row no-gutters'>\n            <div class='col-md-12' align='center'>\n                <span style=\"font-size:180%\"> a Safe Business Infrared Temperature Monitor for Fever Detection</span>\n            </div>\n        </div>\n    </div>\n    <div class=\"jumbotron\" style=\"background-color:#547792;color: white;padding-top:10px; padding-bottom:1px;padding-left:1px;padding-right:1px;\" width=\"100%\">\n        <div class='row'>\n            <div class='col-md-3' align='left'>\n                <img src=\"/img/infoPhotos/dianaFlip.png\" width=\"100%\"/>\n            </div>\n            <div class='col-md-3' align='center'>\n                <img src=\"/img/infoPhotos/monitor.png\" width=\"100%\"/>\n            </div>\n            <div class='col-md-3' align='center'>\n                <img src=\"/img/infoPhotos/gizmo.png\" width=\"100%\"/>\n            </div>\n            <div class='col-md-3' align='right'>\n                <img src=\"/img/infoPhotos/androidControl.png\" width=\"100%\"/>\n            </div>\n        </div>\n    </div>\n    <div width=\"100%\">\n        <div class='row' style='padding-bottom: 10px;'>\n            <div class='col-md-6' align='center'>\n                <div class='card h-100'>\n                    <p class='card-title'>Accurate</p>\n                    <div class='card-body'>\n                        <div class='row'>\n                            <div class=\"col-md-12\">\n                                 <span class=\"card-text\">in all conditions - Uses novel <b>tear duct detection technology</b> instead of unreliable forehead measurements</span>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class='col-md-6' align='center'>\n                <div class='card h-100'>\n                    <p class='card-title'>Inexpensive</p>\n                    <div class='card-body'>\n                        <div class='row'>\n                            <div class=\"col-md-12\" >\n                                 <span class=\"card-text\">so that even the smallest of businesses can afford multiple monitors</span>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class='row' style='padding-bottom: 10px;'>\n            <div class='col-md-6' align='center'>\n                <div class='card h-100'>\n                    <p class='card-title'>Automatic</p>\n                    <div class='card-body'>\n                        <div class='row'>\n                            <div class=\"col-md-12\">\n                                 <span class=\"card-text\">triggering and notification so that no staff is required for monitoring</span>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class='col-md-6' align='center'>\n                <div class='card h-100'>\n                    <p class='card-title'>Flexible</p>\n                    <div class='card-body'>\n                        <div class='row'>\n                            <div class=\"col-md-12\">\n                                 <span class=\"card-text\">and custom configuration for either remote or stand-alone installations</span>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <hr/>\n        <div class='row'>\n            <div class='col-md-12' align='center'>\n                <span class=\"card-text\">Contact: blinky-lite@blinky-lite.io</span>\n            </div>\n        </div>\n    </div>\n",
+        "output": "str",
+        "x": 330,
+        "y": 320,
+        "wires": [
+            [
+                "956fe62.eb52b18"
+            ]
+        ]
+    },
+    {
+        "id": "a1a28fc.c1deb7",
+        "type": "http in",
+        "z": "a858ad3a.95706",
+        "name": "/",
+        "url": "/",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 320,
+        "wires": [
+            [
+                "7cc37811.6433f8"
+            ]
+        ]
+    },
+    {
+        "id": "7cc37811.6433f8",
+        "type": "template",
+        "z": "a858ad3a.95706",
+        "name": "Title",
+        "field": "payload.title",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "SbirTem",
+        "output": "str",
+        "x": 210,
+        "y": 320,
+        "wires": [
+            [
+                "7ea9110b.4f279"
             ]
         ]
     }
