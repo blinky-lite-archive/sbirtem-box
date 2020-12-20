@@ -1677,40 +1677,6 @@
         ]
     },
     {
-        "id": "39872684.4aa40a",
-        "type": "inject",
-        "z": "e17f7487.2a78e8",
-        "name": "settingsPassword",
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "settingsPassword",
-        "payload": "SETTINGSPASSWORD",
-        "payloadType": "env",
-        "x": 150,
-        "y": 320,
-        "wires": [
-            [
-                "996ed5f8.da8f88"
-            ]
-        ]
-    },
-    {
-        "id": "996ed5f8.da8f88",
-        "type": "function",
-        "z": "e17f7487.2a78e8",
-        "name": "Save Settings Password",
-        "func": "global.set(msg.topic,msg.payload);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 370,
-        "y": 320,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "ba2c1c11.88703",
         "type": "template",
         "z": "fcfe7ca7.f566a",
