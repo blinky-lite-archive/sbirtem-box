@@ -4240,109 +4240,6 @@
         "wires": []
     },
     {
-        "id": "fd63f991.69fd78",
-        "type": "http in",
-        "z": "a858ad3a.95706",
-        "name": "/apps-old",
-        "url": "/apps-old",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 100,
-        "y": 200,
-        "wires": [
-            [
-                "9ac6b7f7.c896a8"
-            ]
-        ]
-    },
-    {
-        "id": "82a3ad6e.8e328",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "Body",
-        "field": "payload.body",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "<!-- Body HTML -->\n    <div class='container' width=\"100%\">\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/sensor?name=01\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"100%\" align=\"center\">Sensors</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/archive?name=01,02\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"100%\" align=\"center\">Archiver</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/monitor?name=01\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"100%\" align=\"center\">Monitor</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/tv?name=01,02\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"100%\" align=\"center\">TV</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/history?name=01,02\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"100%\" align=\"center\">History</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12'>\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/bar?name=01,02\" >\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"100%\" align=\"center\">Bar</td>\n                        </tr>\n                    </table>\n                </a>\n            </div>\n        </div>\n        <div class='row vert-pad' >\n            <div class='col-md-12' align='center' >\n                <a class=\"btn jumbotron-button btn-block big-text bold-text\" width='80%' href=\"/core\" id=\"blinky-lite-core\">\n                    <table width=\"100%\" alight=\"left\">\n                        <tr>\n                            <td width=\"100%\" align=\"center\">Core Apps</td>\n                        </tr>\n                    </table>\n                </a> \n            </div>\n        </div>\n    </div>",
-        "output": "str",
-        "x": 1010,
-        "y": 200,
-        "wires": [
-            [
-                "c5035666.c97758"
-            ]
-        ]
-    },
-    {
-        "id": "19310ace.c992d5",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "Title",
-        "field": "payload.title",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "SbirTem Apps",
-        "output": "str",
-        "x": 730,
-        "y": 200,
-        "wires": [
-            [
-                "c241b88d.b93c68"
-            ]
-        ]
-    },
-    {
-        "id": "ef751ae9.e06be8",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "JavaScript",
-        "field": "payload.javascript",
-        "fieldType": "msg",
-        "format": "javascript",
-        "syntax": "mustache",
-        "template": "        useWebSockets(false);\n        function onDocumentReady()\n        {\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            \n        }\n        function onWebSocketMessage(msg)\n        {\n        }\n\n",
-        "output": "str",
-        "x": 590,
-        "y": 200,
-        "wires": [
-            [
-                "19310ace.c992d5"
-            ]
-        ]
-    },
-    {
-        "id": "c5035666.c97758",
-        "type": "subflow:8341090a.df9758",
-        "z": "a858ad3a.95706",
-        "name": "",
-        "env": [],
-        "x": 1150,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "c241b88d.b93c68",
-        "type": "template",
-        "z": "a858ad3a.95706",
-        "name": "navBarIcon",
-        "field": "payload.navBarIcon",
-        "fieldType": "msg",
-        "format": "html",
-        "syntax": "mustache",
-        "template": "appsYellow.png",
-        "output": "str",
-        "x": 870,
-        "y": 200,
-        "wires": [
-            [
-                "82a3ad6e.8e328"
-            ]
-        ]
-    },
-    {
         "id": "7475027d.6c11fc",
         "type": "json",
         "z": "8475ab9.3d26058",
@@ -5790,24 +5687,6 @@
         ]
     },
     {
-        "id": "9ac6b7f7.c896a8",
-        "type": "function",
-        "z": "a858ad3a.95706",
-        "name": "Allowed Role",
-        "func": "msg.payload.allowedRole = 'expert';\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 250,
-        "y": 200,
-        "wires": [
-            [
-                "44ca52be.20d65c"
-            ]
-        ]
-    },
-    {
         "id": "3966deae.453262",
         "type": "subflow:2dba0745.a98d98",
         "z": "2d027d69.1fdeb2",
@@ -6900,19 +6779,6 @@
         ]
     },
     {
-        "id": "44ca52be.20d65c",
-        "type": "subflow:2d027d69.1fdeb2",
-        "z": "a858ad3a.95706",
-        "name": "",
-        "x": 420,
-        "y": 200,
-        "wires": [
-            [
-                "ef751ae9.e06be8"
-            ]
-        ]
-    },
-    {
         "id": "ec4b776f.c2f368",
         "type": "sendsms",
         "z": "8475ab9.3d26058",
@@ -7733,7 +7599,7 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "<!-- Body HTML -->\n    <div class='card'>\n        <p class='card-title'>SbirTem Apps</p>\n        <div class='card-body' align=\"center\">\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <span class='card-text' >Application</span>\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <select class=\"custom-select big-text\" id=\"application\">\n                        <option value=\"archive\">Archiver</option>\n                        <option value=\"tv\">TV</option>\n                        <option value=\"sensor\">Sensors</option>\n                        <option value=\"history\">History</option>\n                        <option value=\"bar\">Bar</option>\n                        <option value=\"monitor\">Monitor</option>\n                    </select>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <span class='card-text' >Trace A</span>\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <select class=\"custom-select big-text\" id=\"traceA\">\n                        <option value=\"none\">none</option>\n                        <option value=\"Demo-01\">Demo-01</option>\n                        <option value=\"Demo-02\">Demo-02</option>\n                        <option value=\"BrainCool\">BrainCool</option>\n                        <option value=\"Connectitude\">Connectitude</option>\n                    </select>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <span class='card-text' >Trace B</span>\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <select class=\"custom-select big-text\" id=\"traceB\">\n                        <option value=\"none\">none</option>\n                        <option value=\"Demo-01\">Demo-01</option>\n                        <option value=\"Demo-02\">Demo-02</option>\n                        <option value=\"BrainCool\">BrainCool</option>\n                        <option value=\"Connectitude\">Connectitude</option>\n                    </select>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <span class='card-text' >Trace C</span>\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <select class=\"custom-select big-text\" id=\"traceC\">\n                        <option value=\"none\">none</option>\n                        <option value=\"Demo-01\">Demo-01</option>\n                        <option value=\"Demo-02\">Demo-02</option>\n                        <option value=\"BrainCool\">BrainCool</option>\n                        <option value=\"Connectitude\">Connectitude</option>\n                    </select>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <span class='card-text' >Trace D</span>\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <select class=\"custom-select big-text\" id=\"traceD\">\n                        <option value=\"none\">none</option>\n                        <option value=\"Demo-01\">Demo-01</option>\n                        <option value=\"Demo-02\">Demo-02</option>\n                        <option value=\"BrainCool\">BrainCool</option>\n                        <option value=\"Connectitude\">Connectitude</option>\n                    </select>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <button class='btn btn-block card-button big-text' id='launchAppButton' onclick=\"launchApp()\" >Launch</button>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class='container' width=\"100%\">\n        <div class='row' style='padding-top: 25px;'>\n            <div class=\"col-md-3\" align=\"center\">\n            </div>\n            <div class=\"col-md-6\" align=\"center\">\n                <a class='btn btn-block card-button big-text' href='/core'>Utilites</a>\n            </div>\n            <div class=\"col-md-3\" align=\"center\">\n            </div>\n        </div>\n    </div>\n",
+        "template": "<!-- Body HTML -->\n    <div class='card'>\n        <p class='card-title'>SbirTem Apps</p>\n        <div class='card-body' align=\"center\">\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <span class='card-text' >Application</span>\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <select class=\"custom-select big-text\" id=\"application\">\n                        <option value=\"archive\">Archiver</option>\n                        <option value=\"monitor\">Monitor</option>\n                        <option value=\"tv\">TV</option>\n                        <option value=\"sensor\">Sensors</option>\n                        <option value=\"history\">History</option>\n                        <option value=\"bar\">Bar</option>\n                    </select>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <span class='card-text' >Device A</span>\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <select class=\"custom-select big-text\" id=\"traceA\">\n                        <option value=\"none\">none</option>\n                        <option value=\"Demo-01\">Demo-01</option>\n                        <option value=\"Demo-02\">Demo-02</option>\n                        <option value=\"BrainCool\">BrainCool</option>\n                        <option value=\"Connectitude\">Connectitude</option>\n                    </select>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <span class='card-text' >Device B</span>\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <select class=\"custom-select big-text\" id=\"traceB\">\n                        <option value=\"none\">none</option>\n                        <option value=\"Demo-01\">Demo-01</option>\n                        <option value=\"Demo-02\">Demo-02</option>\n                        <option value=\"BrainCool\">BrainCool</option>\n                        <option value=\"Connectitude\">Connectitude</option>\n                    </select>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <span class='card-text' >Device C</span>\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <select class=\"custom-select big-text\" id=\"traceC\">\n                        <option value=\"none\">none</option>\n                        <option value=\"Demo-01\">Demo-01</option>\n                        <option value=\"Demo-02\">Demo-02</option>\n                        <option value=\"BrainCool\">BrainCool</option>\n                        <option value=\"Connectitude\">Connectitude</option>\n                    </select>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <span class='card-text' >Device D</span>\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <select class=\"custom-select big-text\" id=\"traceD\">\n                        <option value=\"none\">none</option>\n                        <option value=\"Demo-01\">Demo-01</option>\n                        <option value=\"Demo-02\">Demo-02</option>\n                        <option value=\"BrainCool\">BrainCool</option>\n                        <option value=\"Connectitude\">Connectitude</option>\n                    </select>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <button class='btn btn-block card-button big-text' id='launchAppButton' onclick=\"launchApp()\" >Launch</button>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class='container' width=\"100%\">\n        <div class='row' style='padding-top: 25px;'>\n            <div class=\"col-md-3\" align=\"center\">\n            </div>\n            <div class=\"col-md-6\" align=\"center\">\n                <a class='btn btn-block card-button big-text' href='/core'>Utilites</a>\n            </div>\n            <div class=\"col-md-3\" align=\"center\">\n            </div>\n        </div>\n    </div>\n",
         "output": "str",
         "x": 1010,
         "y": 60,
