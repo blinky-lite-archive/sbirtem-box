@@ -2422,7 +2422,7 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "<!-- Body HTML -->\n    <div class='card'>\n        <p class='card-title'>SbirTem Apps</p>\n        <div class='card-body' align=\"center\">\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <span class='card-text' >Application</span>\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <select class=\"custom-select big-text\" id=\"application\">\n                        <option value=\"archive\">Archiver</option>\n                        <option value=\"monitor\">Monitor</option>\n                        <option value=\"tv\">TV</option>\n                        <option value=\"sensor\">Sensors</option>\n                        <option value=\"history\">History</option>\n                        <option value=\"bar\">Bar</option>\n                    </select>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <span class='card-text' >Device A</span>\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <select class=\"custom-select big-text\" id=\"traceA\">\n                        <option value=\"none\">none</option>\n                        <option value=\"Demo-01\">Demo-01</option>\n                        <option value=\"Demo-02\">Demo-02</option>\n                        <option value=\"Demo-03\">Demo-03</option>\n                        <option value=\"Connectitude\">Connectitude</option>\n                    </select>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <span class='card-text' >Device B</span>\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <select class=\"custom-select big-text\" id=\"traceB\">\n                        <option value=\"none\">none</option>\n                        <option value=\"Demo-01\">Demo-01</option>\n                        <option value=\"Demo-02\">Demo-02</option>\n                        <option value=\"BrainCool\">BrainCool</option>\n                        <option value=\"Connectitude\">Connectitude</option>\n                    </select>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <span class='card-text' >Device C</span>\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <select class=\"custom-select big-text\" id=\"traceC\">\n                        <option value=\"none\">none</option>\n                        <option value=\"Demo-01\">Demo-01</option>\n                        <option value=\"Demo-02\">Demo-02</option>\n                        <option value=\"BrainCool\">BrainCool</option>\n                        <option value=\"Connectitude\">Connectitude</option>\n                    </select>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <span class='card-text' >Device D</span>\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <select class=\"custom-select big-text\" id=\"traceD\">\n                        <option value=\"none\">none</option>\n                        <option value=\"Demo-01\">Demo-01</option>\n                        <option value=\"Demo-02\">Demo-02</option>\n                        <option value=\"BrainCool\">BrainCool</option>\n                        <option value=\"Connectitude\">Connectitude</option>\n                    </select>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <button class='btn btn-block card-button big-text' id='launchAppButton' onclick=\"launchApp()\" >Launch</button>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class='container' width=\"100%\">\n        <div class='row' style='padding-top: 25px;'>\n            <div class=\"col-md-3\" align=\"center\">\n            </div>\n            <div class=\"col-md-6\" align=\"center\">\n                <a class='btn btn-block card-button big-text' href='/core'>Utilites</a>\n            </div>\n            <div class=\"col-md-3\" align=\"center\">\n            </div>\n        </div>\n    </div>\n",
+        "template": "<!-- Body HTML -->\n    <div class='card'>\n        <p class='card-title'>SbirTem Apps</p>\n        <div class='card-body' align=\"center\">\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <span class='card-text' >Application</span>\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <select class=\"custom-select big-text\" id=\"application\">\n                        <option value=\"archive\">Archiver</option>\n                        <option value=\"monitor\">Monitor</option>\n                        <option value=\"tv\">TV</option>\n                        <option value=\"sensor\">Sensors</option>\n                        <option value=\"history\">History</option>\n                        <option value=\"bar\">Bar</option>\n                    </select>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <span class='card-text' >Device A</span>\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <select class=\"custom-select big-text\" id=\"traceA\">\n                        <option value=\"none\">none</option>\n                        <option value=\"Demo-01\">Demo-01</option>\n                        <option value=\"Demo-02\">Demo-02</option>\n                        <option value=\"Demo-03\">Demo-03</option>\n                    </select>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <span class='card-text' >Device B</span>\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <select class=\"custom-select big-text\" id=\"traceB\">\n                        <option value=\"none\">none</option>\n                        <option value=\"Demo-01\">Demo-01</option>\n                        <option value=\"Demo-02\">Demo-02</option>\n                        <option value=\"Demo-03\">Demo-03</option>\n                    </select>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <span class='card-text' >Device C</span>\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <select class=\"custom-select big-text\" id=\"traceC\">\n                        <option value=\"none\">none</option>\n                        <option value=\"Demo-01\">Demo-01</option>\n                        <option value=\"Demo-02\">Demo-02</option>\n                        <option value=\"Demo-03\">Demo-03</option>\n                    </select>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <span class='card-text' >Device D</span>\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <select class=\"custom-select big-text\" id=\"traceD\">\n                        <option value=\"none\">none</option>\n                        <option value=\"Demo-01\">Demo-01</option>\n                        <option value=\"Demo-02\">Demo-02</option>\n                        <option value=\"Demo-03\">Demo-03</option>\n                    </select>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n            <div class='row' style='padding-bottom: 25px;'>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                </div>\n                <div class=\"col-md-5\" align=\"center\">\n                    <button class='btn btn-block card-button big-text' id='launchAppButton' onclick=\"launchApp()\" >Launch</button>\n                </div>\n                <div class=\"col-md-1\" align=\"center\">\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class='container' width=\"100%\">\n        <div class='row' style='padding-top: 25px;'>\n            <div class=\"col-md-3\" align=\"center\">\n            </div>\n            <div class=\"col-md-6\" align=\"center\">\n                <a class='btn btn-block card-button big-text' href='/core'>Utilites</a>\n            </div>\n            <div class=\"col-md-3\" align=\"center\">\n            </div>\n        </div>\n    </div>\n",
         "output": "str",
         "x": 1010,
         "y": 60,
@@ -2448,6 +2448,108 @@
         "wires": [
             [
                 "8f8ebd71.b1cf1"
+            ]
+        ]
+    },
+    {
+        "id": "72d1d4d3.b55dac",
+        "type": "http in",
+        "z": "a858ad3a.95706",
+        "name": "/demo",
+        "url": "/demo",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 660,
+        "wires": [
+            [
+                "e63b7106672fa7b3"
+            ]
+        ]
+    },
+    {
+        "id": "1d80e3ea5dbdae54",
+        "type": "subflow:8341090a.df9758",
+        "z": "a858ad3a.95706",
+        "name": "",
+        "x": 890,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "7203437d.25395c",
+        "type": "template",
+        "z": "a858ad3a.95706",
+        "name": "body",
+        "field": "payload.body",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<!-- Body HTML -->\n    <div width=\"100%\" align=\"center\">\n        <table width=\"900px\">\n            <tr>\n                <td width='10%'></td>\n                <td width='60%' style='padding-bottom: 25px;'>\n                    <a class=\"btn jumbotron-button btn-block big-text bold-text\" href=\"/archive?name=Demo-01,Demo-02,Demo-03\">\n                        <table width=\"100%\" alight=\"left\">\n                            <tr>\n                                <td width=\"30%\" align='center'> <img src=\"/img/thermoYellow.png\" height=\"70px\"/></td>\n                                <td width=\"70%\" align=\"left\">Archiver</td>\n                            </tr>\n                        </table>\n                    </a>\n                </td>\n                <td width='10%'></td>\n            </tr>\n            <tr>\n                <td width='10%'></td>\n                <td width='60%' style='padding-bottom: 25px;'>\n                    <a class=\"btn jumbotron-button btn-block big-text bold-text\" href=\"/tv?name=Demo-02,Demo-03\">\n                        <table width=\"100%\" alight=\"left\">\n                            <tr>\n                                <td width=\"30%\" align='center'> <img src=\"/img/thermoYellow.png\" height=\"70px\"/></td>\n                                <td width=\"70%\" align=\"left\">TV View</td>\n                            </tr>\n                        </table>\n                    </a>\n                </td>\n                <td width='10%'></td>\n            </tr>\n            <tr>\n                <td width='10%'></td>\n                <td width='60%' style='padding-bottom: 25px;' >\n                    <a class=\"btn jumbotron-button btn-block big-text bold-text\" href=\"/monitor?name=Demo-02\" >\n                        <table width=\"100%\" alight=\"left\">\n                            <tr>\n                                <td width=\"30%\" align='center'> <img src=\"/img/thermoYellow.png\" height=\"70px\"/></td>\n                                <td width=\"70%\" align=\"left\">Monitor Demo-02</td>\n                            </tr>\n                        </table>\n                    </a>\n                </td>\n                <td width='10%'></td>\n            </tr>\n            <tr>\n                <td width='10%'></td>\n                <td width='60%' style='padding-bottom: 25px;'>\n                    <a class=\"btn jumbotron-button btn-block big-text bold-text\" href=\"/monitor?name=Demo-03\">\n                        <table width=\"100%\" alight=\"left\">\n                            <tr>\n                                <td width=\"30%\" align='center'> <img src=\"/img/thermoYellow.png\" height=\"70px\"/></td>\n                                <td width=\"70%\" align=\"left\">Monitor Demo-03</td>\n                            </tr>\n                        </table>\n                    </a>\n                </td>\n                <td width='10%'></td>\n            </tr>\n            <tr>\n                <td width='10%'></td>\n                <td width='60%' style='padding-bottom: 25px;' >\n                    <a class=\"btn jumbotron-button btn-block big-text bold-text\" href=\"/sensor?name=Demo-02\" >\n                        <table width=\"100%\" alight=\"left\">\n                            <tr>\n                                <td width=\"30%\" align='center'> <img src=\"/img/thermoYellow.png\" height=\"70px\"/></td>\n                                <td width=\"70%\" align=\"left\">Sensor Demo-02</td>\n                            </tr>\n                        </table>\n                    </a>\n                </td>\n                <td width='10%'></td>\n            </tr>\n            <tr>\n                <td width='10%'></td>\n                <td width='60%' style='padding-bottom: 25px;'>\n                    <a class=\"btn jumbotron-button btn-block big-text bold-text\" href=\"/sensor?name=Demo-03\">\n                        <table width=\"100%\" alight=\"left\">\n                            <tr>\n                                <td width=\"30%\" align='center'> <img src=\"/img/thermoYellow.png\" height=\"70px\"/></td>\n                                <td width=\"70%\" align=\"left\">Sensor Demo-03</td>\n                            </tr>\n                        </table>\n                    </a>\n                </td>\n                <td width='10%'></td>\n            </tr>\n        </table>\n    </div>\n",
+        "output": "str",
+        "x": 710,
+        "y": 660,
+        "wires": [
+            [
+                "1d80e3ea5dbdae54"
+            ]
+        ]
+    },
+    {
+        "id": "e63b7106672fa7b3",
+        "type": "template",
+        "z": "a858ad3a.95706",
+        "name": "navBarIcon",
+        "field": "payload.navBarIcon",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "thermoYellow.png",
+        "output": "str",
+        "x": 270,
+        "y": 660,
+        "wires": [
+            [
+                "9fab611d5c70059d"
+            ]
+        ]
+    },
+    {
+        "id": "9fab611d5c70059d",
+        "type": "template",
+        "z": "a858ad3a.95706",
+        "name": "Set Title",
+        "field": "payload.title",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "SbirTem Demo",
+        "output": "str",
+        "x": 420,
+        "y": 660,
+        "wires": [
+            [
+                "1da7740267313190"
+            ]
+        ]
+    },
+    {
+        "id": "1da7740267313190",
+        "type": "template",
+        "z": "a858ad3a.95706",
+        "name": "JavaScript",
+        "field": "payload.javascript",
+        "fieldType": "msg",
+        "format": "javascript",
+        "syntax": "mustache",
+        "template": "        useWebSockets(false);\n        function onDocumentReady()\n        {\n        }\n        function onWebSocketOpen()\n        {\n        }\n        function onWebSocketClose()\n        {\n            \n        }\n        function onWebSocketMessage(msg)\n        {\n        }\n",
+        "output": "str",
+        "x": 570,
+        "y": 660,
+        "wires": [
+            [
+                "7203437d.25395c"
             ]
         ]
     },
