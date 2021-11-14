@@ -4532,6 +4532,52 @@
         "wires": []
     },
     {
+        "id": "c7984811.67e8f8",
+        "type": "inject",
+        "z": "e17f7487.2a78e8",
+        "name": "ipRefWeb",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "ipRefWeb",
+        "payload": "IPREFWEB",
+        "payloadType": "env",
+        "x": 120,
+        "y": 320,
+        "wires": [
+            [
+                "daa5f679.c0a968"
+            ]
+        ]
+    },
+    {
+        "id": "daa5f679.c0a968",
+        "type": "function",
+        "z": "e17f7487.2a78e8",
+        "name": "Save ipRefWeb",
+        "func": "global.set(msg.topic,msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "275c08.dff3c3f8",
         "type": "http in",
         "z": "90f83725.6dae08",
